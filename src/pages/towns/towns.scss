@@ -1,0 +1,42 @@
+page-towns {
+.toprow{
+    height: 60px;
+    margin: 10px 20px;
+   
+    text-align: center;
+    ion-icon{
+        font-size: 2.4em;
+        color: #074b91;
+        padding: 0 5px ;
+    }
+
+    .menu{
+    border: 1px solid gray;
+    padding: 0 5px;
+    border-radius: 10px;
+    background: #074b91;
+    color: white;
+    }
+}
+
+.notifiyp{
+    text-align: end;
+    margin:0;
+    font-size: 20px;
+    font-family: cairobold;
+    color: #074b91;
+}
+.condiv{
+    background: white;
+    padding:10px;
+    border-radius: 20px;
+    text-align: center;
+    margin: auto;
+    font-family: cairobold;
+    width: 80%;
+    p{
+        margin: 0;
+        color: #4c4c4c;
+    }
+}
+}

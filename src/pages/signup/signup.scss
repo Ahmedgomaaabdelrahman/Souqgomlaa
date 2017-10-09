@@ -1,0 +1,51 @@
+page-signup {
+.topimg{
+    height: 100px;
+    margin: 30px 0;
+}
+.forma {
+    background: white;
+    width: 85%;
+    margin: auto;
+    border-radius: 20px;
+}
+
+.enter{
+    width: 100%;
+    font-size: 25px;
+    color: #074b91;
+    font-weight: bold;
+    height: 52px;
+    padding: 10px;
+    margin-top: 20px;
+    font-family: cairobold;
+}
+.logitem{
+    margin: 0 auto !important;
+    width: 90%;
+    height: 60px;
+    max-width: 90%;
+    padding: 0 !important;
+    position: static;
+  
+}
+.text-input-md{
+    margin: 0 18px !important;
+    width: 90%;
+    height: 38px;
+}
+.item-md.item-block .item-inner{
+    padding-right: 0;
+}
+
+.text-input-ios {
+    margin: 4px 38px 0;
+    padding: 0;
+    width: 65%;
+}
+
+.regas{
+    font-size: 14px;
+    font-family: cairoreg;
+}
+}

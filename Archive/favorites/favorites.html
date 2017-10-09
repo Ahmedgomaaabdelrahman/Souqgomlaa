@@ -1,0 +1,45 @@
+
+<ion-header>
+  
+    <ion-navbar>
+      <ion-title><myheader></myheader></ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  
+  <ion-content>
+   <ion-row class="toprow">
+     <ion-col col-2>  
+       <ion-icon class="menu" menuToggle name="menu" ></ion-icon>
+     </ion-col>
+      <ion-col col-6> <p class="notifiyp"> الاهتمامات</p> </ion-col>
+     <ion-col col-4 style="text-align: end">
+       <div>
+          <img class="per" src="assets/imgs/star.png">
+          <ion-icon name="mail"></ion-icon>
+          <ion-icon  style="transform: rotate(90deg)"name="options"></ion-icon>
+       </div>
+     </ion-col>
+   </ion-row>
+  
+  
+  
+  
+  <ion-row class="notrow" (click)="details()">
+   <ion-col col-2><img class="imgitem" src="assets/imgs/mob.png"></ion-col>  
+   <ion-col col-10>بضاعه الموبايلات</ion-col> 
+  </ion-row> 
+  
+  <ion-row class="notrow">
+      <ion-col col-2><img class="imgitem" src="assets/imgs/ms.png"></ion-col>  
+      <ion-col col-10>بضاعه مستحضرات التجميل</ion-col> 
+  </ion-row>
+
+  <ion-row class="notrow">
+      <ion-col col-2><img class="imgitem" src="assets/imgs/t.png"></ion-col>  
+      <ion-col col-10>بضاعه التيشرتات</ion-col> 
+  </ion-row> 
+
+  </ion-content>
+  

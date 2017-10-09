@@ -1,0 +1,47 @@
+<!--
+  Generated template for the MygoodsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title><myheader></myheader></ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+<ion-row class="toprow">
+  <ion-col col-2>  
+    <ion-icon class="menu" menuToggle name="menu" ></ion-icon>
+  </ion-col>
+  <ion-col col-10 style="text-align: end">
+    <div>
+      <img src="assets/imgs/per.png" (click)="goPer()">
+      <ion-icon name="mail" (click)="goChat()"></ion-icon>
+      <ion-icon  style="transform: rotate(90deg)"name="options"></ion-icon>
+    </div>
+  </ion-col>
+</ion-row>
+
+<ion-row class="notrow">
+  <ion-col col-2><img src="assets/imgs/com.png"></ion-col>  
+  <ion-col col-7>شحنه الموبايلات</ion-col> 
+   <ion-col col-3><button ion-button block  class="btn" (click)="goUpdate()">تعديل</button></ion-col>
+</ion-row> 
+
+<ion-row class="notrow">
+  <ion-col col-2><img src="assets/imgs/com.png"></ion-col>  
+  <ion-col col-7>شحنه الاحذيه الاخيره</ion-col>
+  <ion-col col-3><button ion-button block class="btn" (click)="goUpdate()">تعديل</button></ion-col> 
+</ion-row>
+
+<ion-row class="notrow">
+  <ion-col col-2><img src="assets/imgs/com.png"></ion-col>  
+  <ion-col col-7>بضاعة الاكسسوارات</ion-col>
+  <ion-col col-3><button ion-button block class="btn" (click)="goUpdate()">تعديل</button></ion-col>
+</ion-row> 
+</ion-content>

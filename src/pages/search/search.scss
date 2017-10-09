@@ -1,0 +1,55 @@
+page-search {
+.toprow{
+    height: 60px;
+    margin: 10px 20px;
+   
+    text-align: center;
+    ion-icon{
+        font-size: 2.4em;
+        color: #074b91;
+        padding: 0 5px ;
+    }
+
+    .menu{
+            border: 1px solid gray;
+    padding: 0 5px;
+    border-radius: 10px;
+    background: #074b91;
+    color: white;
+    }
+}
+
+.notifiyp{
+    text-align: end;
+    margin:0;
+    font-size: 20px;
+    font-family: cairobold;
+    color: #074b91;
+}
+
+.conrow{
+    width: 85%;
+    background-color: white;
+    height: 60px;
+    border-radius: 30px;
+    padding: 10px;
+    font-family: cairobold;
+    margin:30px auto;
+    color: #464545;
+}
+
+[col-6] {
+    ion-icon{
+        font-size: 30px;
+        color: #074b91;
+    }
+}
+
+.done{
+    width: 100%;
+    font-size: 30px;
+    color: #074b91;
+    height: 60px;
+    font-family: cairobold;
+}
+}

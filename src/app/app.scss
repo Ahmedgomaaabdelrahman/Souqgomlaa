@@ -1,4 +1,65 @@
-// http://ionicframework.com/docs/v2/theming/
+// http://ionicframework.com/docs/theming/
+
+.content {
+    background-color: #ececec;
+}
+*{
+    direction: rtl;
+}
+.input-cover{
+    position: static;
+}
+
+@font-face {
+  font-family: 'cairoreg';
+  src: url('../assets/fonts/Cairo/Cairo.ttf') ;
+}
+
+@font-face {
+  font-family: 'cairobold';
+  src: url('../assets/fonts/Cairo/Cairo-Bold.ttf') ;
+}
+
+.back-button.show-back-button {
+    display: inline-block;
+    transform: rotate(180deg);
+}
+
+
+.toolbar-background-md {
+    background: #074b91;
+}
+
+.back-button.show-back-button {
+    display: none !important;
+}
+
+.imgmenu{
+    margin: 20px auto;
+    width: 40%;
+    text-align: center;
+}
+
+.menu-inner{
+    width: 180px;
+}
+
+.menubtn{ 
+    width: 70%;
+    margin: 10px auto;
+    border-radius: 20px;
+    text-align: center;
+    font-family:cairoreg;
+    height: 115px;
+    font-size: 12px;
+    .item{
+        padding: 0;
+    }
+    img{
+        height: 50px;
+        width:50px;
+    }
+}
 
 
 // App Global Sass

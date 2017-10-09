@@ -1,0 +1,23 @@
+<ion-content >
+   <div style="text-align: center">
+     <img class="topimg" src="assets/imgs/icon.png"height="90px">     
+   </div>
+
+
+  <form class="forma">
+    <ion-item class="logitem" style="background-image:url('assets/imgs/phone.png');background-repeat: no-repeat;background-position: 96%;" >
+      <!--<ion-label ></ion-label>-->
+      <ion-input type="text" placeholder="رقم الهاتف" ></ion-input>
+    </ion-item>
+
+    <ion-item class="logitem" style="background-image:url('assets/imgs/lock.png');background-repeat: no-repeat;background-position: 96%;">
+      <!--<ion-label ></ion-label>-->
+      <ion-input type="text" placeholder="كلمه المرور" ></ion-input>
+    </ion-item>
+
+    <button ion-button clear (click)="goHome()" class="enter">الدخول</button>
+  </form>
+   <button class="btn" (click)="signUp()" ion-button block>سجل الان</button>
+   <button class="btn" (click)="goHome()"ion-button block>الدخول كزائر</button>
+
+</ion-content>

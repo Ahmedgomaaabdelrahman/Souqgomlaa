@@ -1,0 +1,23 @@
+<ion-content>
+    <div style="text-align: center">
+     <img class="topimg" src="assets/imgs/icon.png"height="90px">     
+   </div>
+
+   <div class="contdiv">
+      <ion-row style="padding:10px ">
+        <ion-col col-2><img src="assets/imgs/sign.png"></ion-col>
+        <ion-col col-10 class="regas">تسجيل كمشترى</ion-col>
+      </ion-row>
+
+      <p style="text-align: center">تم ارسال رساله تاكيد لهاتفك برجاء ارسال الكود المرسل اليك</p>
+   
+      <p>الكود المرسل</p> 
+      <div> 
+          <ion-input type="text" maxlength="1"></ion-input>
+          <ion-input type="text" maxlength="1"></ion-input>
+          <ion-input type="text" maxlength="1"></ion-input>
+          <ion-input type="text" maxlength="1"></ion-input>
+      </div>
+      <button ion-button clear (click)="goHome()" class="enter">تسجيل</button>
+   </div>
+</ion-content>

@@ -1,0 +1,82 @@
+page-addgood {
+.toprow{
+    height: 60px;
+    margin: 10px 5px;
+    text-align: center;
+    ion-icon{
+        font-size: 2.4em;
+        color: #074b91;
+        padding: 0 5px ;
+    }
+
+    .menu{
+        border: 1px solid gray;
+        padding: 0 5px;
+        border-radius: 10px;
+        background: #074b91;
+        color: white;
+    }
+}
+
+.notifiyp{
+    margin: 0;
+    font-size: 20px;
+    font-family: cairobold;
+    display: inline-flex;
+    color: #074b91;
+    text-align: end;
+    float: right;
+}
+.forma {
+    background: white;
+    width: 85%;
+    margin: auto;
+    border-radius: 20px;
+    font-family: cairoreg;
+}
+
+.enter{
+    width: 100%;
+    font-size: 25px;
+    color: #074b91;
+    font-weight: bold;
+    height: 52px;
+    padding: 10px;
+    margin-top: 20px;
+    font-family: cairobold;
+}
+.logitem{
+    margin: 0 auto !important;
+    width: 90%;
+    height: 60px;
+    max-width: 90%;
+    padding: 0 !important;
+    position: static;
+    border-bottom:1px solid lightgray;
+  
+}
+.text-input-md{
+    margin: 0 18px !important;
+    width: 90%;
+    height: 38px;
+}
+.item-md.item-block .item-inner{
+    padding-right: 0;
+}
+
+.text-input-ios {
+    margin: 4px 38px 0;
+    padding: 0;
+    width: 65%;
+}
+ .item-md.item-block .item-inner{
+        border-bottom: none !important;
+    }
+#upload{
+    border-bottom: none;
+}
+#uploadimg{
+    width: 30px;
+    height: 30px;
+} 
+}

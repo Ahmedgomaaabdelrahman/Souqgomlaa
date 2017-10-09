@@ -1,0 +1,49 @@
+<ion-header>
+    <ion-navbar>
+      <ion-title>
+       <myheader></myheader>
+      </ion-title>
+    </ion-navbar>
+  </ion-header>
+
+<ion-content padding>
+<ion-row class="toprow">
+  <ion-col col-2>  
+    <ion-icon class="menu" name="menu" menuToggle></ion-icon>
+  </ion-col>
+  <ion-col col-6 class="chatname">
+احمد المصري 
+  </ion-col>
+  <ion-col col-4 style="text-align: end"> 
+    <div>
+      
+        <!-- <ion-icon name="mail" (click)="message()"></ion-icon> -->
+        <ion-icon  style="transform: rotate(90deg)"name="options"></ion-icon>
+    </div>
+  </ion-col>
+</ion-row>
+
+<div class="talk-bubble tri-right btm-right">
+    <div class="talktext">
+      <p>Flush to the bottom right. Uses .btm-right only.</p>
+    </div>
+  </div>
+  <img  src="assets/imgs/per.png">
+  <div>
+  <div class="talk-bubble2 tri-left btm-right">
+      <div class="talktext">
+        <p>Flush to the bottom right. Uses .btm-right only.</p>
+      </div>
+    </div>
+    <img class="per"  src="assets/imgs/per.png">
+</div>
+<ion-footer no-lines class="chatfooter">
+    <ion-row class="grayrow">
+    
+      <ion-col col-10>
+        <textarea class=textbuttom></textarea>
+      </ion-col>
+      <ion-col col-2><ion-icon class="camera" name="ios-camera-outline"></ion-icon></ion-col>
+    </ion-row>
+    </ion-footer>
+</ion-content>

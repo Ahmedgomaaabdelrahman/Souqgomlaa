@@ -1,5 +1,8 @@
+import { ProfilePage } from './../profile/profile';
+import { ProddetailsPage } from './../proddetails/proddetails';
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController,MenuController } from 'ionic-angular';
+import { MessagesPage } from "../messages/messages";
 
 @Component({
   selector: 'page-home',
@@ -7,8 +10,18 @@ import { NavController } from 'ionic-angular';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
+  constructor(public menuCtrl:MenuController,public navCtrl: NavController) {
 
   }
 
+  goDetails(){
+    this.navCtrl.push(ProddetailsPage);
+  }
+  
+  goPer(){
+    this.navCtrl.push(ProfilePage);
+  }
+  goChat(){
+    this.navCtrl.push(MessagesPage);
+  }
 }

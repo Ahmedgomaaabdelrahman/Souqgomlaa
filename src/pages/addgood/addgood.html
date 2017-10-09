@@ -1,0 +1,57 @@
+<!--
+  Generated template for the AddgoodPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title><myheader></myheader></ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+ <ion-row class="toprow">
+   <ion-col col-2>  
+     <ion-icon class="menu" menuToggle name="menu" ></ion-icon>
+   </ion-col>
+   <!-- <ion-col col-5><p class="notifiyp">البحث عن بضاعة</p></ion-col> -->
+   <ion-col col-10 >
+    
+    <div>
+        <p class="notifiyp">تعديل بضاعة</p>
+        <img src="assets/imgs/per.png"style="float:left" (click)="goPer()">
+        <ion-icon name="mail" style="float:left"(click)="goChat()"></ion-icon>
+        <ion-icon  style="float:left;transform: rotate(90deg)"name="options"></ion-icon>
+     </div>
+   </ion-col>
+ </ion-row>
+
+
+ <form class="forma">
+     
+    <ion-item class="logitem">
+      <!--<ion-label ></ion-label>-->
+      <ion-input type="text" placeholder="الاسم" ></ion-input>
+    </ion-item>
+
+    <ion-item class="logitem">
+      <!--<ion-label ></ion-label>-->
+      <ion-input type="text" placeholder="الكمية" ></ion-input>
+    </ion-item>
+    
+       <ion-item class="logitem">
+      <!--<ion-label ></ion-label>-->
+      <ion-input type="text" placeholder="بلد المنشأ" ></ion-input>
+    </ion-item>
+
+       <ion-item class="logitem">
+      <!--<ion-label ></ion-label>-->
+      <ion-input type="text" placeholder="السعر" ></ion-input>
+    </ion-item>    
+    <button ion-button clear class="enter">تم</button>
+</form>
+</ion-content>
