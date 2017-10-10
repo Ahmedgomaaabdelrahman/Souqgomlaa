@@ -23,10 +23,10 @@
     
     <div>
         <p class="notifiyp">اضافة بضاعه</p>
-        <img src="assets/imgs/per.png"style="float:left" (click)="goPer()">
-        <ion-icon name="mail" style="float:left"(click)="goChat()"></ion-icon>
         <ion-icon  style="float:left;transform: rotate(90deg)"name="options"></ion-icon>
-     </div>
+        <ion-icon name="mail" style="float:left"(click)="goChat()"></ion-icon>
+        <img src="assets/imgs/per.png"style="float:left" (click)="goPer()">
+    </div>
    </ion-col>
  </ion-row>
 
@@ -52,13 +52,8 @@
     <ion-item class="logitem">
       <ion-textarea type="text" placeholder="الوصف"></ion-textarea>
     </ion-item> 
-<!--     
-    <div class="imgsdiv">
-     
-     
-     
-    </div>  -->
-     
+   <button ion-button block class="addimage">اضافه صور</button>
+  
   <ion-slides dir="rtl" pager>
     <ion-slide>
       <img class="proimg" src="assets/imgs/note1.jpg">

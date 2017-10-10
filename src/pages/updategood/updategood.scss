@@ -85,10 +85,18 @@ page-updategood {
         width: 100px;
         height: 100px;
 }
-.swiper-container-horizontal > .swiper-pagination-bullets {
-    left: 0;
-    bottom: 55px;
-    width: 100%;
-    position: fixed;
-} 
+
+.addimage{
+    background: gainsboro;
+    width: 75%;
+    font-size: 20px;
+    color: #074b91;
+    height: 52px;
+    padding: 10px;
+    border-radius: 20px;
+    margin: 20px auto;
+    font-family: cairobold;
+   
+}
+
 }
