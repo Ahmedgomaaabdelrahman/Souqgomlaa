@@ -22,7 +22,7 @@
    <ion-col col-10 >
     
     <div>
-        <p class="notifiyp">تعديل بضاعة</p>
+        <p class="notifiyp">اضافة بضاعه</p>
         <img src="assets/imgs/per.png"style="float:left" (click)="goPer()">
         <ion-icon name="mail" style="float:left"(click)="goChat()"></ion-icon>
         <ion-icon  style="float:left;transform: rotate(90deg)"name="options"></ion-icon>
@@ -34,24 +34,43 @@
  <form class="forma">
      
     <ion-item class="logitem">
-      <!--<ion-label ></ion-label>-->
       <ion-input type="text" placeholder="الاسم" ></ion-input>
     </ion-item>
 
     <ion-item class="logitem">
-      <!--<ion-label ></ion-label>-->
       <ion-input type="text" placeholder="الكمية" ></ion-input>
     </ion-item>
     
-       <ion-item class="logitem">
-      <!--<ion-label ></ion-label>-->
+    <ion-item class="logitem">
       <ion-input type="text" placeholder="بلد المنشأ" ></ion-input>
     </ion-item>
 
-       <ion-item class="logitem">
-      <!--<ion-label ></ion-label>-->
-      <ion-input type="text" placeholder="السعر" ></ion-input>
-    </ion-item>    
+    <ion-item class="logitem">
+      <ion-input type="text" placeholder="السعر"></ion-input>
+    </ion-item>
+    
+    <ion-item class="logitem">
+      <ion-textarea type="text" placeholder="الوصف"></ion-textarea>
+    </ion-item> 
+<!--     
+    <div class="imgsdiv">
+     
+     
+     
+    </div>  -->
+     
+  <ion-slides dir="rtl" pager>
+    <ion-slide>
+      <img class="proimg" src="assets/imgs/note1.jpg">
+    </ion-slide>
+    <ion-slide>
+      <img class="proimg" src="assets/imgs/note2.jpg">
+    </ion-slide>
+    <ion-slide>
+      <img class="proimg" src="assets/imgs/note3.jpg">
+    </ion-slide>
+  </ion-slides>
+
     <button ion-button clear class="enter">تم</button>
 </form>
 </ion-content>

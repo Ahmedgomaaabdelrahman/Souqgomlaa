@@ -53,8 +53,13 @@ page-addgood {
     padding: 0 !important;
     position: static;
     border-bottom:1px solid lightgray;
-  
 }
+.proimg{
+        display: inline-flex;
+        width: 100px;
+        height: 100px;
+}
+
 .text-input-md{
     margin: 0 18px !important;
     width: 90%;
@@ -79,4 +84,10 @@ page-addgood {
     width: 30px;
     height: 30px;
 } 
+.swiper-container-horizontal > .swiper-pagination-bullets {
+    left: 0;
+    bottom: 55px;
+    width: 100%;
+    position: fixed;
+}
 }

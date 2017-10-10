@@ -78,5 +78,17 @@ page-updategood {
 #uploadimg{
     width: 30px;
     height: 30px;
+}
+
+.proimg{
+        display: inline-flex;
+        width: 100px;
+        height: 100px;
+}
+.swiper-container-horizontal > .swiper-pagination-bullets {
+    left: 0;
+    bottom: 55px;
+    width: 100%;
+    position: fixed;
 } 
 }
