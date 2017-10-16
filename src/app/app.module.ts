@@ -26,6 +26,9 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { HeaderComponent } from '../components/header/header';
+import { AuthServiceProvider } from '../providers/auth-service/auth-service';
+import { HttpModule ,Http} from '@angular/http';
+import { TownsProvider } from '../providers/towns/towns';
 
 @NgModule({
   declarations: [
@@ -55,7 +58,7 @@ import { HeaderComponent } from '../components/header/header';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -86,8 +89,10 @@ import { HeaderComponent } from '../components/header/header';
   providers: [
     StatusBar,
     SplashScreen,
-    
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AuthServiceProvider,
+    TownsProvider
   ]
 })
 export class AppModule {}

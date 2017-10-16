@@ -14,32 +14,32 @@
       </ion-row>
     <ion-item class="logitem">
       <!--<ion-label ></ion-label>-->
-      <ion-input type="text" placeholder="الاسم" ></ion-input>
+      <ion-input [(ngModel)]="Name" id="Name" name="name"  type="text" placeholder="الاسم" ></ion-input>
     </ion-item>
 
     <ion-item class="logitem">
       <!--<ion-label ></ion-label>-->
-      <ion-input type="text" placeholder="البريد الالكترونى" ></ion-input>
+      <ion-input [(ngModel)]="Email" id="Email" name="Email"  type="email" placeholder="البريد الالكترونى" ></ion-input>
     </ion-item>
     
        <ion-item class="logitem">
       <!--<ion-label ></ion-label>-->
-      <ion-input type="text" placeholder="رقم الهاتف" ></ion-input>
+      <ion-input [(ngModel)]="Phone" id="Phone" name="Phone"  type="email" type="text" placeholder="رقم الهاتف" ></ion-input>
     </ion-item>
 
        <ion-item class="logitem">
       <!--<ion-label ></ion-label>-->
-      <ion-input type="text" placeholder="كلمه المرور" ></ion-input>
+      <ion-input [(ngModel)]="Password" id="Password" name="Password"  type="password" placeholder="كلمه المرور" ></ion-input>
     </ion-item>
 
-      <ion-item class="logitem">
+      <ion-item *ngIf="mode" class="logitem">
     
       <ion-input type="text" placeholder="المكان" ></ion-input>
     </ion-item>
 
-      <ion-item class="logitem">
+      <ion-item *ngIf="mode" class="logitem">
  
-      <ion-input type="text" placeholder="السجل التجارى" ></ion-input>
+      <ion-input  [(ngModel)]="Commercial_Register" id="Commercial_Register" name="Commercial_Register"  type="text" placeholder="السجل التجارى" ></ion-input>
     </ion-item>
     <button ion-button clear (click)="activation()" class="enter">تسجيل</button>
 </form>

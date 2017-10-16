@@ -16,7 +16,7 @@ export class SigntypePage {
     console.log('ionViewDidLoad SigntypePage');
   }
  
- signUp(){
-   this.navCtrl.push(SignupPage);
+ signUp(mode:boolean){
+   this.navCtrl.push(SignupPage,mode);
  }
 }
