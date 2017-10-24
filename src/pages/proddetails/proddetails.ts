@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { MessagesPage } from "../messages/messages";
 import { FavoritesPage } from "../favorites/favorites";
+import {CommonProvider} from "../../providers/common/common";
 
 @Component({
   selector: 'page-proddetails',
@@ -9,11 +10,14 @@ import { FavoritesPage } from "../favorites/favorites";
 })
 export class ProddetailsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  constructor(public common:CommonProvider,public navCtrl: NavController, public navParams: NavParams) {
+      console.log('ionViewDidLoad ProddetailsPage',this.navParams.data);
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ProddetailsPage');
+  }
+res:any=[];
+  ionViewWillEnter() {
+
+    this.res=this.navParams.data;
   }
 
   goChat(){

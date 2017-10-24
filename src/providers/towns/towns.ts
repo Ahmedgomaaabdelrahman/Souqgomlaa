@@ -10,9 +10,16 @@ import 'rxjs/add/operator/map';
 */
 @Injectable()
 export class TownsProvider {
-
-  constructor(public http: Http) {
+    http : any;
+    baseUrl:String;
+  constructor(public _http: Http) {
     console.log('Hello TownsProvider Provider');
+this.http=_http;
+      this.baseUrl='http://localhost:8000';
+
   }
+getTowns(){
+    return this.http.get(this.baseUrl+'/getTowns').map(res=>res.json().res);
+}
 
 }

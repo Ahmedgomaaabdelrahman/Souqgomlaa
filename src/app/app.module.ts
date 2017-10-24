@@ -19,8 +19,8 @@ import { CategoriesPage } from './../pages/categories/categories';
 import { AddgoodPage } from './../pages/addgood/addgood';
 import { LoginPage } from './../pages/login/login';
 import { BrowserModule } from '@angular/platform-browser';
-import { ErrorHandler, NgModule } from '@angular/core';
-import { IonicApp, IonicErrorHandler, IonicModule, NavController } from 'ionic-angular';
+import { ErrorHandler, NgModule,NgZone  } from '@angular/core';
+import { IonicApp, IonicErrorHandler, IonicModule,ModalController, NavController,ToastController,LoadingController} from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
@@ -29,6 +29,19 @@ import { HeaderComponent } from '../components/header/header';
 import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 import { HttpModule ,Http} from '@angular/http';
 import { TownsProvider } from '../providers/towns/towns';
+import { IonicStorageModule } from '@ionic/storage';
+import { CommonProvider } from '../providers/common/common';
+import { ItemsProvider } from '../providers/items/items';
+import { Camera, CameraOptions } from '@ionic-native/camera';
+class CameraMock extends Camera {
+    getPicture(options) {
+        return new Promise((resolve, reject) => {
+
+            resolve("BASE_64_ENCODED_DATA_GOES_HERE");
+        })
+    }
+}
+
 
 @NgModule({
   declarations: [
@@ -55,10 +68,13 @@ import { TownsProvider } from '../providers/towns/towns';
     SearchresultPage,
     MygoodsPage,
     UpdategoodPage
+      // ,
+    // ItemsPipe
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),HttpModule
+    IonicModule.forRoot(MyApp),HttpModule,IonicStorageModule.forRoot()
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -91,8 +107,12 @@ import { TownsProvider } from '../providers/towns/towns';
     SplashScreen,
 
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+      { provide: Camera, useClass: Camera },
+
     AuthServiceProvider,
-    TownsProvider
+    TownsProvider,ToastController,LoadingController,ModalController,
+    CommonProvider,{ provide: IonicStorageModule, useClass: IonicStorageModule},
+    ItemsProvider
   ]
 })
 export class AppModule {}

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpModule ,Http} from '@angular/http';
 import 'rxjs/add/operator/map';
 import {Observable} from "rxjs/Observable";
+import {CommonProvider} from "../common/common";
 
 /*
   Generated class for the AuthServiceProvider provider.
@@ -15,7 +16,7 @@ export class AuthServiceProvider {
   http : any;
   _http:any;
   baseUrl:String;
-  constructor(http :HttpModule,_http:Http){
+  constructor(private common:CommonProvider,http :HttpModule,_http:Http){
     this.http=http;
     this._http=_http;
 
@@ -29,7 +30,7 @@ export class AuthServiceProvider {
 //       .map(res=> res);
 //     }
 
-    Sregister(name:string,email:string,phone:number,password:string,location:string,commercial_register:string,mode:any
+    Sregister(name:string,email:string,phone:number,password:string,location:string,commercial_register:string,mode:any,image:string
         ) {
 
         let seller=
@@ -41,28 +42,58 @@ export class AuthServiceProvider {
             'Commercial_Register':commercial_register,
             'Total_Rate':0,
             'Rated_Times':0,
-                'Type':mode
+                'Type':mode,
+                'image':image
             }
         ;
         return this._http.post(this.baseUrl+'/makeS',seller)
-            .map(res=> res);
+            .map(res=> res.json().res);
     }
-  getD():Observable<any> {
-      let self=this;
-let observable=Observable.create(observer=>{
-  this._http.get(this.baseUrl)
-
-    .map(res=> res).subscribe(response=>{
-    observer.next(response)
-
-  })
-})
-    return observable
-
-  }
+//   getD():Observable<any> {
+//       let self=this;
+// let observable=Observable.create(observer=>{
+//   this._http.get(this.baseUrl)
+//
+//     .map(res=> res).subscribe(response=>{
+//     observer.next(response)
+//
+//   })
+// })
+//     return observable
+//
+//   }
   logIn(phone:number,password){
 let user={'Phone':phone,'Password':password};
-return this._http.post(this.baseUrl+'/login',user).map(res=>res);
+return this._http.post(this.baseUrl+'/login',user).map(res=> res.json().res);
+  }
+  logOut(){
+
+      this.common.removeStoredKey('S')
+  }
+  editProfile(id:number,name:string,email:string,password:string,phone:number,Commercial_Register:string,image:any,location:any){
+      let edit=
+          {'Id':id,
+              'Name':name,
+              'Email':email,
+              'Phone':phone,
+              'Password':password,
+              'Commercial_Register':Commercial_Register,
+          'image':image,'Location':location
+          }
+
+return this._http.post(this.baseUrl+'/update',edit).map(res=>res.json().res);
+  }
+  getProfileImage(imgId):Promise<any>{
+      let promise=new Promise((resolve,reject)=>{
+          resolve(this.baseUrl+'/profileImages/'+imgId);
+      })
+      // console.log(this._http.get(this.baseUrl+'/profileImages/'+img))
+      return promise;
+
+  }
+
+  getBaseUrl(){
+      return this.baseUrl;
   }
 }
 

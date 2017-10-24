@@ -3,6 +3,8 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { ProfilePage } from "../profile/profile";
 import { MessagesPage } from "../messages/messages";
+import {CommonProvider} from "../../providers/common/common";
+import {ItemsProvider} from "../../providers/items/items";
 
 
 @Component({
@@ -10,8 +12,22 @@ import { MessagesPage } from "../messages/messages";
   templateUrl: 'mygoods.html',
 })
 export class MygoodsPage {
+goods:any=[];
+  constructor(public navCtrl: NavController, public navParams: NavParams,private common:CommonProvider,private items:ItemsProvider) {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  }
+  ionViewWillEnter(){
+    this.goods=[];
+    this.common.getStoredValue('S').then(res=>{
+      this.items.getMyItems(res.Id).subscribe(res=>{
+        console.log('myItems',res);
+        for(let i=0;i<res.length;i++){
+          this.goods.push(res[i]);
+
+        }
+        this.common.storeValue('items',this.goods)
+      });
+    })
   }
 
   ionViewDidLoad() {
@@ -23,7 +39,8 @@ export class MygoodsPage {
   goChat(){
     this.navCtrl.push(MessagesPage);
   }
-  goUpdate(){
-    this.navCtrl.push(UpdategoodPage);
-  }
+  goUpdate(item){
+          // console.log('iiiiiii',item)
+          this.navCtrl.push(UpdategoodPage,item);
+      }
 }

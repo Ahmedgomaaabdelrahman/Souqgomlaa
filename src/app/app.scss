@@ -60,7 +60,32 @@
         width:50px;
     }
 }
+.toast-md .toast-wrapper {
+    left: 0;
+    right: 0;
+    margin: auto;
+    position: absolute;
+    opacity: 0.6;
+    z-index: 10;
+    border-radius:10px;
+    display: block;
+    width: 100%;
+    max-width: 700px;
+    background: #207de0;
+}
+.loading-md .loading-wrapper {
+    border-radius: 2px;
+    max-width: 280px;
+    max-height: 90%;
+    color: rgba(0, 0, 0, 0.5);
+    border-radius:10px;
+    opacity: 0.8;
 
+    background: #fafafa;
+    -webkit-box-shadow: 0 16px 20px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 16px 20px rgba(0, 0, 0, 0.4);
+    padding: 24px;
+}
 
 // App Global Sass
 // --------------------------------------------------

@@ -28,6 +28,14 @@ page-signup {
     padding: 0 !important;
     position: static;
   
+}.logitemI{
+    margin: 0 auto !important;
+    width: 90%;
+    height: 70px;
+    max-width: 90%;
+    padding: 0 !important;
+    position: static;
+
 }
 .text-input-md{
     margin: 0 18px !important;
@@ -48,4 +56,11 @@ page-signup {
     font-size: 14px;
     font-family: cairoreg;
 }
+    .gallery{
+        padding: 5%;
+
+            font-size: 4rem;
+            color: #2a64a1;
+
+    }
 }

@@ -27,21 +27,21 @@
   </ion-col>
 </ion-row>
 
-<ion-row class="notrow">
+<ion-row *ngFor="let good of goods" class="notrow">
   <ion-col col-2><img src="assets/imgs/com.png"></ion-col>  
-  <ion-col col-7>شحنه الموبايلات</ion-col> 
-   <ion-col col-3><button ion-button block  class="btn" (click)="goUpdate()">تعديل</button></ion-col>
+  <ion-col col-7> {{good.ItemName}}</ion-col>
+   <ion-col col-3><button ion-button block  class="btn" (click)="goUpdate(good)">تعديل</button></ion-col>
 </ion-row> 
 
-<ion-row class="notrow">
-  <ion-col col-2><img src="assets/imgs/com.png"></ion-col>  
-  <ion-col col-7>شحنه الاحذيه الاخيره</ion-col>
-  <ion-col col-3><button ion-button block class="btn" (click)="goUpdate()">تعديل</button></ion-col> 
-</ion-row>
+<!--<ion-row class="notrow">-->
+  <!--<ion-col col-2><img src="assets/imgs/com.png"></ion-col>  -->
+  <!--<ion-col col-7>شحنه الاحذيه الاخيره</ion-col>-->
+  <!--<ion-col col-3><button ion-button block class="btn" (click)="goUpdate()">تعديل</button></ion-col> -->
+<!--</ion-row>-->
 
-<ion-row class="notrow">
-  <ion-col col-2><img src="assets/imgs/com.png"></ion-col>  
-  <ion-col col-7>بضاعة الاكسسوارات</ion-col>
-  <ion-col col-3><button ion-button block class="btn" (click)="goUpdate()">تعديل</button></ion-col>
-</ion-row> 
+<!--<ion-row class="notrow">-->
+  <!--<ion-col col-2><img src="assets/imgs/com.png"></ion-col>  -->
+  <!--<ion-col col-7>بضاعة الاكسسوارات</ion-col>-->
+  <!--<ion-col col-3><button ion-button block class="btn" (click)="goUpdate()">تعديل</button></ion-col>-->
+<!--</ion-row> -->
 </ion-content>

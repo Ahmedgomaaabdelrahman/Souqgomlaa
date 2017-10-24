@@ -11,6 +11,7 @@ import { MessagesPage } from "../messages/messages";
 export class CategoriesPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+
   }
 
   ionViewDidLoad() {

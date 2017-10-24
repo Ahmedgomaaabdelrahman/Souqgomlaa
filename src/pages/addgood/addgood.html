@@ -34,38 +34,39 @@
  <form class="forma">
      
     <ion-item class="logitem">
-      <ion-input type="text" placeholder="الاسم" ></ion-input>
+      <ion-input [(ngModel)]="itemName" id="name" name="name" type="text" placeholder="الاسم" ></ion-input>
     </ion-item>
 
     <ion-item class="logitem">
-      <ion-input type="text" placeholder="الكمية" ></ion-input>
+      <ion-input [(ngModel)]="quantity" id="quantity" name="quantity" type="text" placeholder="الكمية" ></ion-input>
     </ion-item>
     
     <ion-item class="logitem">
-      <ion-input type="text" placeholder="بلد المنشأ" ></ion-input>
+      <ion-input [(ngModel)]="origin" id="oregin" name="oregin" type="text" placeholder="بلد المنشأ" ></ion-input>
     </ion-item>
 
     <ion-item class="logitem">
-      <ion-input type="text" placeholder="السعر"></ion-input>
+      <ion-input [(ngModel)]="price" id="price" name="price" type="number" placeholder="السعر"></ion-input>
     </ion-item>
-    
+
     <ion-item class="logitem">
-      <ion-textarea type="text" placeholder="الوصف"></ion-textarea>
+      <ion-textarea clearInput=true [(ngModel)]="description" id="description" name="description" type="text" placeholder="الوصف"></ion-textarea>
     </ion-item> 
-   <button ion-button block class="addimage">اضافه صور</button>
-  
-  <ion-slides dir="rtl" pager>
-    <ion-slide>
-      <img class="proimg" src="assets/imgs/note1.jpg">
-    </ion-slide>
-    <ion-slide>
-      <img class="proimg" src="assets/imgs/note2.jpg">
-    </ion-slide>
-    <ion-slide>
-      <img class="proimg" src="assets/imgs/note3.jpg">
+   <!--<button ion-button block class="addimage" >اضافه صور</button>-->
+     <ion-item class="logitem">
+     <ion-icon ion-button block  class="gallery" (click)="useCam(0)" name="images"></ion-icon>
+     <ion-icon ion-button block class="gallery" (click)="useCam(1)" name="camera"></ion-icon>
+     </ion-item>
+
+     <ion-slides dir="rtl" pager>
+      <ion-slide *ngFor="let imag of images;let i=index">
+          <ion-icon  (click)="deletImgModal(i)" ios="ios-trash" md="md-trash"></ion-icon>
+
+      <img class="proimg"  src="{{imag}}">
+
     </ion-slide>
   </ion-slides>
 
-    <button ion-button clear class="enter">تم</button>
+    <button (click)="submit()" ion-button clear class="enter">تم</button>
 </form>
 </ion-content>

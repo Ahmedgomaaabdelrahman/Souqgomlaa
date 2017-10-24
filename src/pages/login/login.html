@@ -7,7 +7,7 @@
   <form class="forma">
     <ion-item class="logitem" style="background-image:url('assets/imgs/phone.png');background-repeat: no-repeat;background-position: 96%;" >
       <!--<ion-label ></ion-label>-->
-      <ion-input [(ngModel)]="phone" id="phone" name="phone" type="number" placeholder="رقم الهاتف" ></ion-input>
+      <ion-input [(ngModel)]="phone" id="phone" name="phone" type="tel" placeholder="رقم الهاتف" ></ion-input>
     </ion-item>
 
     <ion-item class="logitem" style="background-image:url('assets/imgs/lock.png');background-repeat: no-repeat;background-position: 96%;">
@@ -18,6 +18,6 @@
     <button ion-button clear (click)="goHome()" class="enter">الدخول</button>
   </form>
    <button class="btn" (click)="signUp()" ion-button block>سجل الان</button>
-   <button class="btn" (click)="goHome()"ion-button block>الدخول كزائر</button>
+   <button class="btn" (click)="visitor()"ion-button block>الدخول كزائر</button>
 
 </ion-content>

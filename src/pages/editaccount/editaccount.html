@@ -31,38 +31,50 @@
  </ion-row>
 
 
- <form class="forma">
+ <form class="forma" #f="ngForm">
      
     <ion-item class="logitem">
       <!--<ion-label ></ion-label>-->
-      <ion-input type="text" placeholder="الاسم" ></ion-input>
+      <ion-input type="text" [(ngModel)]="name" id="name" name="name" value="{{name}}" placeholder="الاسم" required></ion-input>
     </ion-item>
 
     <ion-item class="logitem">
       <!--<ion-label ></ion-label>-->
-      <ion-input type="text" placeholder="البريد الالكترونى" ></ion-input>
+      <ion-input type="email" [(ngModel)]="email" id="email" name="email" value="{{email}}" placeholder="البريد الالكترونى" required></ion-input>
     </ion-item>
     
        <ion-item class="logitem">
       <!--<ion-label ></ion-label>-->
-      <ion-input type="text" placeholder="رقم الهاتف" ></ion-input>
+           <ion-input [(ngModel)]="phone" name="phone" type="number" placeholder="رقم الهاتف" required ></ion-input>
+    </ion-item>
+
+     <ion-item class="logitem">
+      <!--<ion-label ></ion-label>-->
+      <ion-input type="text" [(ngModel)]="Commercial_Register" name="Commercial_Register" id="Commercial_Register" value="{{Commercial_Register}}" placeholder="السجل التجاري" required></ion-input>
     </ion-item>
 
        <ion-item class="logitem">
       <!--<ion-label ></ion-label>-->
-      <ion-input type="text" placeholder="كلمه المرور" ></ion-input>
+      <ion-input type="password" [(ngModel)]="password" name="password" id="password" placeholder="كلمه المرور"  required>{{password}}</ion-input>
     </ion-item>
 
       <ion-item class="logitem">
-    
-      <ion-input type="text" placeholder="المكان" ></ion-input>
-    </ion-item>
 
+          <ion-label>اختر المدينة</ion-label>
+          <ion-select [(ngModel)]="location" name="location" id="location" interface="popover" [selectOptions]="selectOptions"  okText="اختر" cancelText="الغاء" required="true">
+              <ion-option (ionSelect)="getSelected(town)"  *ngFor="let town of towns" value=`${{town}}` required>{{town}}</ion-option>
+          </ion-select>
+    </ion-item>
+<div *ngIf="mode">
       <ion-item class="logitem" id="upload">
-        <p style="display: inline-block;width:80%;">تحميل صوره شخصية</p>
-        <img id="uploadimg" src="assets/imgs/upload.png">
-      </ion-item>
-        
-    <button ion-button clear class="enter">تم</button>
+     <p style="display: inline-block;width:80%;">تحميل صوره شخصية</p>
+          <ion-icon class="gallery" (click)="useCam(0)" name="images"></ion-icon>
+          <ion-icon class="gallery" (click)="useCam(1)" name="camera"></ion-icon>
+ </ion-item>
+     <div class="topdiv" >
+         <img src={{img}}>
+     </div>
+</div>
+    <button [disabled]="!f.valid" ion-button  (click)="submit()" clear class="enter">تم</button>
 </form>
 </ion-content>
