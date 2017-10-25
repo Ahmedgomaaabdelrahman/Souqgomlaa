@@ -27,12 +27,25 @@
   </ion-col>
 </ion-row>
 
-<ion-row *ngFor="let good of goods" class="notrow">
-  <ion-col col-2><img src="assets/imgs/com.png"></ion-col>  
-  <ion-col col-7> {{good.ItemName}}</ion-col>
-   <ion-col col-3><button ion-button block  class="btn" (click)="goUpdate(good)">تعديل</button></ion-col>
-</ion-row> 
 
+  <ion-list>
+
+  <ion-item-sliding cancelable="false"  *ngFor="let good of goods" #item >
+    <ion-item cancelable="false">
+<ion-row>
+      <ion-col col-2><img src="assets/imgs/com.png"></ion-col>
+      <ion-col col-7> {{good.ItemName}}</ion-col>
+</ion-row>
+      <!--<ion-col col-3><button ion-button block   (click)="goUpdate(good)">تعديل</button></ion-col>-->
+    </ion-item>
+    <ion-item-options cancelable="false" side="right" >
+      <button ion-button color="danger" expandable="true" cancelable="false" >حذف</button>
+    </ion-item-options>
+    <ion-item-options cancelable="false" side="left">
+      <button ion-button  expandable="true" (click)="goUpdate(good)" cancelable="false">تعديل</button>
+    </ion-item-options>
+  </ion-item-sliding>
+  </ion-list>
 <!--<ion-row class="notrow">-->
   <!--<ion-col col-2><img src="assets/imgs/com.png"></ion-col>  -->
   <!--<ion-col col-7>شحنه الاحذيه الاخيره</ion-col>-->
