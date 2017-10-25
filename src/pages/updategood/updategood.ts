@@ -16,6 +16,7 @@ export class UpdategoodPage {
     price:number;
     description:string;
     category:string;
+    res:any=[];
 
     img:any;
     images:any=[];
@@ -24,11 +25,18 @@ export class UpdategoodPage {
   constructor(public itemsProvider:ItemsProvider,public common:CommonProvider,public navCtrl: NavController, public navParams: NavParams) {
 
   }
-    res:any=[];
     ionViewWillEnter() {
 //setting the values of html tags
         this.res=this.navParams.data;
-        //loading images
+        this.price=this.res.Price;
+
+        this.itemName=this.res.ItemName;
+        this.quantity=this.res.Quantity;
+
+            this.origin=this.res.Origin;
+        this.description=this.res.Description;
+            this.category=this.res.Category;
+                //loading images
         this.itemsProvider.getItemsImgsUrls(this.res.Id).then(res=>{
 
           this.images=res.urls;
@@ -70,6 +78,10 @@ this.common.presentToast('تم الحذف بنجاح','اغلاق');
     }
 //update the item
     submit(){
-this.itemsProvider.updateItem(this.res.Id,this.itemName,this.quantity,this.origin,this.price,this.description,this.category)
+        this.common.presentLoadingDefault('برجاء الانتظار حتي اكتمال التعديل ...')
+this.itemsProvider.updateItem(this.res.Id,this.itemName,this.quantity,this.origin,this.price,this.description,this.category).subscribe(res=>{
+    this.common.loadDismess()
+    this.common.presentToast('تمت التعديل','اغلاق')
+})
     }
 }

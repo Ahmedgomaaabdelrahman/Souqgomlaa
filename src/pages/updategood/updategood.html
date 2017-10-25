@@ -31,32 +31,32 @@
  </ion-row>
 
 
- <form class="forma">
+ <form class="forma" #f="ngForm">
      
     <ion-item class="logitem">
       <!--<ion-label ></ion-label>-->
-      <ion-input type="text" [(ngModel)]="itemName" id="itemName" name="itemName"   value={{res.ItemName}} placeholder="الاسم" ></ion-input>
+      <ion-input type="text" [(ngModel)]="itemName" id="itemName" name="itemName"   value={{itemName}} placeholder="الاسم" ></ion-input>
     </ion-item>
 
     <ion-item class="logitem">
       <!--<ion-label ></ion-label>-->
-      <ion-input [(ngModel)]="quantity" name="quantity" id="quantity"  type="text" value={{res.Quantity}} placeholder="الكمية" ></ion-input>
+      <ion-input [(ngModel)]="quantity" name="quantity" id="quantity"  type="text" value={{quantity}} placeholder="الكمية" ></ion-input>
     </ion-item>
     
        <ion-item class="logitem">
       <!--<ion-label ></ion-label>-->
-      <ion-input [(ngModel)]="origin" name="origin" id="origin" type="text" value={{res.Origin}} placeholder="بلد المنشأ" ></ion-input>
+      <ion-input [(ngModel)]="origin" name="origin" id="origin" type="text" value={{origin}} placeholder="بلد المنشأ" ></ion-input>
     </ion-item>
 
        <ion-item class="logitem">
       <!--<ion-label ></ion-label>-->
-      <ion-input  [(ngModel)]="price" name="price" id="price" type="text" value={{res.Price}} placeholder="السعر" ></ion-input>
+      <ion-input  [(ngModel)]="price" name="price" id="price" type="number"  placeholder="السعر" ></ion-input>
     </ion-item>
 
 
 
     <ion-item class="logitem">
-      <ion-textarea  [(ngModel)]="description" name="description" id="description" type="text" value={{res.Description}} placeholder="الوصف"></ion-textarea>
+      <ion-textarea  [(ngModel)]="description" name="description" id="description" type="text" value={{description}} placeholder="الوصف"></ion-textarea>
     </ion-item>
      <ion-item class="logitem">
          <ion-icon ion-button block  class="gallery" (click)="useCam(0)" name="images"></ion-icon>
