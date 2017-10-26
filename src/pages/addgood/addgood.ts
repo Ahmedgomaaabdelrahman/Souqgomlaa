@@ -48,6 +48,8 @@ this.items.addItem(this.itemName,this.quantity,this.origin,this.price,this.descr
 
   console.log(res);
   try{
+      if(this.images.length != 0){
+
   for(let i=0;i<this.images.length;i++){
       let imm=this.images[i];
   this.items.itemImageUpload(res.Id,imm).subscribe(res=>{console.log(res)
@@ -58,7 +60,11 @@ this.items.addItem(this.itemName,this.quantity,this.origin,this.price,this.descr
       }
   });
 
-  }
+  }}else{
+          this.common.loadDismess()
+          this.common.presentToast('تمت الاضافة بنجاح','تم');
+
+      }
   }catch (E){
       this.common.loadDismess()
       this.common.presentToast('فشلت الاضافة','تم');

@@ -20,9 +20,9 @@
      </div>
    </ion-col>
  </ion-row>
+<div *ngIf="valid">
 
-
-<ion-row *ngFor="let item of all" class="itemrow">
+<ion-row  *ngFor="let item of all" class="itemrow">
    <ion-col col-2><img src="assets/imgs/com.png"></ion-col>
    <ion-col col-7 >
       <p class="infop" > {{item.ItemName}}</p>
@@ -32,7 +32,7 @@
       <p class="imgp">
       <img src="assets/imgs/loc.png">{{item.Location}}</p>
    </ion-col>
-</ion-row>
+</ion-row></div>
     <ion-infinite-scroll   (ionInfinite)="doInfinite($event)">
         <ion-infinite-scroll-content>
 

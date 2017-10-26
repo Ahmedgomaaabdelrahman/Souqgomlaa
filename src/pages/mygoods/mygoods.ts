@@ -43,4 +43,13 @@ goods:any=[];
           // console.log('iiiiiii',item)
           this.navCtrl.push(UpdategoodPage,item);
       }
+    deleteItem(id:number,index:number){
+
+    console.log('id deleted : ',id,index)
+this.items.deleteItem(id).subscribe(res=>{
+this.goods.splice(index,1)
+    console.log('item deleted : ',res)
+
+})
+    }
 }

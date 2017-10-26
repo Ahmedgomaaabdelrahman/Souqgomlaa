@@ -111,4 +111,11 @@ return this.http.post(this.baseUrl+'/ItemIn',seller).map(res=>res.json().res);
             }
         return this.http.post(this.baseUrl+'/itemUpdate',newItem).map(res=>res.json().res);
     }
+
+    deleteItem(id){
+    let itemId={'Id':id};
+        return this.http.post(this.baseUrl+'/itemDelete',itemId).map(res=>res.json().res);
+
+
+    }
 }

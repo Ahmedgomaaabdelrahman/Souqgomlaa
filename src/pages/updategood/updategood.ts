@@ -80,8 +80,34 @@ this.common.presentToast('تم الحذف بنجاح','اغلاق');
     submit(){
         this.common.presentLoadingDefault('برجاء الانتظار حتي اكتمال التعديل ...')
 this.itemsProvider.updateItem(this.res.Id,this.itemName,this.quantity,this.origin,this.price,this.description,this.category).subscribe(res=>{
-    this.common.loadDismess()
-    this.common.presentToast('تمت التعديل','اغلاق')
+
+    //
+    console.log(res);
+    try{
+        if(this.images.length != 0){
+
+            for(let i=0;i<this.images.length;i++){
+                let imm=this.images[i];
+                this.itemsProvider.itemImageUpload(res.Id,imm).subscribe(res=>{console.log(res)
+                    if(i==(this.images.length-1)){
+                        this.common.loadDismess()
+                        this.common.presentToast('تمت التعديل','اغلاق')
+                    }
+                });
+
+            }}else{
+            this.common.loadDismess()
+            this.common.presentToast('تمت التعديل','اغلاق')
+        }
+    }catch (E){
+        this.common.loadDismess()
+        this.common.presentToast('فشل التعديل ','اغلاق')
+
+    }
+    //
+
+
+
 })
     }
 }

@@ -91,11 +91,16 @@ ion-item-sliding.active-slide.active-options-right ion-item-options:not([side=le
 {
     width: 13% !important;
     visibility: visible;
-}.ion-item-sliding.active-slide.active-options-right ion-item-options[side=right],
+}
+.ion-item-sliding.active-slide.active-options-right ion-item-options[side=right],
 ion-item-sliding.active-slide.active-options-left ion-item-options:not([side=right])
 {
     width: 13% !important;
     visibility: visible;
+}
+::-webkit-scrollbar,
+*::-webkit-scrollbar {
+    display: none;
 }
 // App Global Sass
 // --------------------------------------------------

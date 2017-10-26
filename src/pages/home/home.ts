@@ -15,19 +15,25 @@ all:any;
 details:any;
 i:any
 d:any
+    valid:boolean;
   constructor(public items:ItemsProvider,public common:CommonProvider,public menuCtrl:MenuController,public navCtrl: NavController) {
-
+this.valid=false;
   }
 ionViewWillEnter(){
     this.all=[];
     this.common.presentLoadingDefault('رجاء الانتظار ...')
+
     this.items.getAllItems({'i':0}).subscribe(res=>{
 
-
+if(res !=null){
+    this.valid=true;
             this.all=res;
-        console.log('itemmm',res[9].Id);
-        console.log('itemmm',res);
+console.log(this.all)
         this.i=res[(res.length)-1].Id;
+
+}else {
+    this.valid=false;
+}
         this.common.loadDismess();
 
     })
