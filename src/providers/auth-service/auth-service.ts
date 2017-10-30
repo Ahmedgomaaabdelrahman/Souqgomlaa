@@ -16,11 +16,13 @@ export class AuthServiceProvider {
   http : any;
   _http:any;
   baseUrl:String;
-  constructor(private common:CommonProvider,http :HttpModule,_http:Http){
+    url='http://45.55.85.173';
+
+    constructor(private common:CommonProvider,http :HttpModule,_http:Http){
     this.http=http;
     this._http=_http;
 
-    this.baseUrl='http://localhost:8000';
+    this.baseUrl='http://45.55.85.173';
 
   }
 //   get() {
@@ -91,7 +93,14 @@ return this._http.post(this.baseUrl+'/update',edit).map(res=>res.json().res);
       return promise;
 
   }
+    getProfileThumpImage(imgId):Promise<any>{
+        let promise=new Promise((resolve,reject)=>{
+            resolve(this.baseUrl+'/Image_Thump/'+imgId);
+        })
+        // console.log(this._http.get(this.baseUrl+'/profileImages/'+img))
+        return promise;
 
+    }
   getBaseUrl(){
       return this.baseUrl;
   }

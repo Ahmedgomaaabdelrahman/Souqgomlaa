@@ -15,7 +15,8 @@ export class TownsProvider {
   constructor(public _http: Http) {
     console.log('Hello TownsProvider Provider');
 this.http=_http;
-      this.baseUrl='http://localhost:8000';
+      // this.baseUrl='http://127.0.0.1:9200';
+      this.baseUrl='http://45.55.85.173';
 
   }
 getTowns(){

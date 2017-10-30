@@ -19,6 +19,7 @@ phone:number;
     Commercial_Register:string;
     id:number;
     img:any;
+    imgId:any;
     image:any;
     Location:any;
     towns:any=[];
@@ -63,9 +64,12 @@ this.id=res.Id;
    this.Commercial_Register=res.Commercial_Register;
    // this.img=this.auth.getBaseUrl()+'/profileImages/'+res.image
          let self=this;
-       this.auth.getProfileImage(res.image).then((res)=>{
+          self.imgId=res.image
 
-       self.img=res})
+       this.auth.getProfileImage(res.image).then((res)=>{
+console.log(res.image)
+       self.img=res
+       })
       })
   }
 
@@ -81,7 +85,13 @@ this.id=res.Id;
   fav(){
     this.navCtrl.push(FavoritesPage);
   }
-  submit(){
+submit(){
+     let self=this
+      if (this.image==undefined){
+          self.image='old'
+      }
+      console.log(this.image)
+      console.log(this.imgId)
 this.auth.editProfile(this.id,this.name,this.email,this.password,this.phone,this.Commercial_Register,this.image,this.Location).subscribe(res=>{
     console.log(res);
     this.common.storeValue('S',res);

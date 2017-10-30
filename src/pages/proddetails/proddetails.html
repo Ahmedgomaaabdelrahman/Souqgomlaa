@@ -66,14 +66,19 @@
 
      <ion-col col-6 style="text-align: end">
        <p class="namep" style="color: gray;"> 
-       <img src="assets/imgs/per.png">{{res.SellerId}}</p>
+       <img src="assets/imgs/per.png">{{Name}}</p>
     </ion-col>
   </ion-row>
 </div>
 
 <div class="imgdiv">
-  <img src="assets/imgs/note1.jpg">
-  <img src="assets/imgs/note2.jpg">
-  <img src="assets/imgs/note3.jpg">
+    <ion-slides dir="rtl" pager>
+        <ion-slide *ngFor="let imag of images;let i=index" [attr.data-index]="i">
+            <!--<ion-icon  (click)="deletImgModal(i)" ios="ios-trash" md="md-trash"></ion-icon>-->
+
+            <img class="proimg"  src="{{imag}}">
+
+        </ion-slide>
+    </ion-slides>
 </div>
 </ion-content>

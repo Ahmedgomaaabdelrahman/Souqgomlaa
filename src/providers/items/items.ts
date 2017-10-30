@@ -11,10 +11,11 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class ItemsProvider {
     baseUrl:String;
-
+url='http://45.55.85.173';
   constructor(public http: Http) {
     console.log('Hello ItemsProvider Provider');
-      this.baseUrl='http://localhost:8000';
+      // this.baseUrl='http://127.0.0.1:9200';
+      this.baseUrl='http://45.55.85.173';
 
   }
     addItem(

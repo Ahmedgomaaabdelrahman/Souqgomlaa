@@ -13,6 +13,7 @@ import {ItemsProvider} from "../../providers/items/items";
 })
 export class MygoodsPage {
 goods:any=[];
+thumps:any=[];
   constructor(public navCtrl: NavController, public navParams: NavParams,private common:CommonProvider,private items:ItemsProvider) {
 
   }
@@ -20,9 +21,13 @@ goods:any=[];
     this.goods=[];
     this.common.getStoredValue('S').then(res=>{
       this.items.getMyItems(res.Id).subscribe(res=>{
-        console.log('myItems',res);
-        for(let i=0;i<res.length;i++){
-          this.goods.push(res[i]);
+        // console.log('myItems',res);
+        for(let i=0;i<res.item.length;i++){
+          
+            console.log('myItems',res.item[i]);
+            if(res.img[i]!=null){
+this.thumps.push('http://45.55.85.173/Image_Thump/'+res.img[i].Image);}
+            this.goods.push(res.item[i]);
 
         }
         this.common.storeValue('items',this.goods)

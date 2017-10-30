@@ -23,7 +23,8 @@
 <div *ngIf="valid">
 
 <ion-row  *ngFor="let item of all" class="itemrow">
-   <ion-col col-2><img src="assets/imgs/com.png"></ion-col>
+
+    <ion-col col-2><img src="http://45.55.85.173/profileImages_thump/{{item.SellerId.image}}"></ion-col>
    <ion-col col-7 >
       <p class="infop" > {{item.ItemName}}</p>
       <p class="detp" (click)="goDetails(item)">التفاصيل</p>

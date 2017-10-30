@@ -33,7 +33,7 @@
   <ion-item-sliding cancelable="false"  *ngFor="let good of goods;let i=index" #item >
     <ion-item cancelable="false">
 <ion-row>
-      <ion-col col-2><img src="assets/imgs/com.png"></ion-col>
+      <ion-col col-2><img  src={{thumps[i]}}></ion-col>
       <ion-col col-7> {{good.ItemName}}</ion-col>
 </ion-row>
       <!--<ion-col col-3><button ion-button block   (click)="goUpdate(good)">تعديل</button></ion-col>-->
