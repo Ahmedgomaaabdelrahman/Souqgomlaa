@@ -26,20 +26,21 @@
   
   
   
-  <ion-row class="notrow" (click)="details()">
-   <ion-col col-2><img class="imgitem" src="assets/imgs/mob.png"></ion-col>  
-   <ion-col col-10>بضاعه الموبايلات</ion-col> 
-  </ion-row> 
-  
-  <ion-row class="notrow">
-      <ion-col col-2><img class="imgitem" src="assets/imgs/exs.png"></ion-col>  
-      <ion-col col-10>بضاعه مستحضرات التجميل</ion-col> 
-  </ion-row>
 
-  <ion-row class="notrow">
-      <ion-col col-2><img class="imgitem" src="assets/imgs/tshirt.png"></ion-col>  
-      <ion-col col-10>بضاعه التيشرتات</ion-col> 
-  </ion-row> 
+      <div>
+
+          <ion-row  *ngFor="let item of all" class="itemrow">
+
+              <ion-col col-2><img src="{{D}}/profileImages_thump/{{item.SellerId.image}}"></ion-col>
+              <ion-col col-7 >
+                  <p class="infop" > {{item.ItemName}}</p>
+                  <p class="detp" (click)="goDetails(item)">التفاصيل</p>
+              </ion-col>
+              <ion-col col-3>
+                  <p class="imgp">
+                      <img src="assets/imgs/loc.png">{{item.Location}}</p>
+              </ion-col>
+          </ion-row></div>
 
   </ion-content>
   

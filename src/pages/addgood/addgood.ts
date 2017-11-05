@@ -41,8 +41,8 @@ status:string;
     this.common.getStoredValue('S').then(res=>{
       this.sellerId=res.Id;
       this.location=res.Location;
-      this.status='true'
-        this.category='phones'
+      this.status='معروضة';
+        this.category=this.navParams.data;
 this.items.addItem(this.itemName,this.quantity,this.origin,this.price,this.description,this.location
 ,this.sellerId,this.category,this.status).subscribe(res=>{
 

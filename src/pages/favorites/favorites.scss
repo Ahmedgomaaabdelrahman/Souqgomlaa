@@ -49,4 +49,40 @@ page-favorites {
             font-family: cairobold;
         } 
     }
+    .itemrow{
+        margin: 20px 10px;
+        border-radius: 20px;
+        background-color: white;
+        height: 73px;
+
+
+    }
+    .infop{
+        margin: 0;
+        font-size: 12px;
+    }
+    .detp{
+        text-align: end;
+        /* width: 50px; */
+        margin-top: -10px;
+        margin-left:-15px;
+        margin-right:-15px;
+        color: #074b91;
+        font-weight: bold;
+    }
+    .imgp{
+        margin-top: 17px;
+        text-align: end;
+        font-size: 14px;
+        color: #074b91;
+        font-weight: bold;
+        img{
+            height: 20px;
+            margin: -6px 10px;
+        }
+    }
+
+    element.style {
+        height: 7%;
+    }
 }

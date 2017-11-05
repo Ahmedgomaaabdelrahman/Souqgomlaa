@@ -4,6 +4,8 @@ import { MessagesPage } from "../messages/messages";
 import { FavoritesPage } from "../favorites/favorites";
 import {CommonProvider} from "../../providers/common/common";
 import {ItemsProvider} from "../../providers/items/items";
+import {DomainProvider} from "../../providers/domain/domain";
+import {FavProvider} from "../../providers/fav/fav";
 
 @Component({
   selector: 'page-proddetails',
@@ -11,19 +13,37 @@ import {ItemsProvider} from "../../providers/items/items";
 })
 export class ProddetailsPage {
 Name=this.navParams.data.SellerId.Name;
-  constructor(public itemsProvider:ItemsProvider,public common:CommonProvider,public navCtrl: NavController, public navParams: NavParams) {
+image=this.navParams.data.SellerId.image;
+D:any;
+star:string;
+  constructor(public favProvider:FavProvider,public domain:DomainProvider,public itemsProvider:ItemsProvider,public common:CommonProvider,public navCtrl: NavController, public navParams: NavParams) {
       console.log('ionViewDidLoad ProddetailsPage',this.navParams.data.SellerId.Name);
       // this.Name=this.navParams.data.SellerId.Name
+      this.D=this.domain.url;
+
 
   }
 res:any=[];
     images:any[];
+    currentId:any;
   ionViewWillEnter() {
 
     this.res=this.navParams.data;
+    let self=this;
+      this.common.getStoredValue('S').then(res=>{
+          console.log('fav',res.Id,this.navParams.data.Id);
+
+          this.favProvider.checkFav(res.Id,this.navParams.data.Id).subscribe(res=>{
+          self.currentId=res.Id;
+          this.star=res;
+              console.log('fav',this.star);
+
+      });
+      });
       this.itemsProvider.getItemsImgsUrls(this.res.Id).then(res=>{
 
           this.images=res.urls;
+
 
       })
   }
@@ -35,4 +55,16 @@ res:any=[];
     this.navCtrl.push(FavoritesPage);
   }
 
+    favTogle(){
+        this.common.getStoredValue('S').then(res=>{
+
+            this.favProvider.addToFavorites(res.Id,this.navParams.data.Id).subscribe(res=>{
+            console.log('fav',this.star);
+            // self.currentId=res.Id;
+            this.star=res;
+        });
+        });
+      // this.star=star;
+
+    }
 }

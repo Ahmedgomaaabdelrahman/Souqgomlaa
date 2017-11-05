@@ -35,7 +35,7 @@
 
 
 <div class="infodiv">
-  <p><img src="assets/imgs/com.png"></p>
+  <p><img src="{{D}}/profileImages_thump/{{image}}"></p>
   <p>{{res.Description}}</p>
   <ion-row>
     <ion-col col-6>
@@ -44,7 +44,7 @@
     </ion-col>
 
      <ion-col col-6 style="text-align: end">
-        <ion-icon name="star"></ion-icon>
+        <ion-icon (click)="favTogle()"  name={{star}}></ion-icon>
     </ion-col>
   </ion-row>
 

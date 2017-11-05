@@ -8,7 +8,7 @@ import { SearchPage } from './../pages/search/search';
 import { NotificationsPage } from './../pages/notifications/notifications';
 import { LoginPage } from './../pages/login/login';
 import { Component,ViewChild } from '@angular/core';
-import { Platform, MenuController,Nav } from 'ionic-angular';
+import { Platform, Nav, Config, ToastController , MenuController} from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { CommonProvider } from '../providers/common/common';
@@ -21,8 +21,37 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
   rootPage:any ;
 
-  constructor(private auth:AuthServiceProvider,private common:CommonProvider,public menuCtrl:MenuController ,platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
+  constructor(private toastCtrl:ToastController,private auth:AuthServiceProvider,private common:CommonProvider,public menuCtrl:MenuController ,platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
+
+        /////
+        //back button handle
+        //Registration of push in Android and Windows Phone
+        var lastTimeBackPress = 0;
+        var timePeriodToExit  = 2000;
+
+        platform.registerBackButtonAction(() => {
+            // get current active page
+            let view = this.nav.getActive();
+            if (view.component.name == "TabsPage") {
+                //Double check to exit app
+                if (new Date().getTime() - lastTimeBackPress < timePeriodToExit) {
+                    platform.exitApp(); //Exit from app
+                } else {
+                    let toast = this.toastCtrl.create({
+                        message:  'انقر مرة اخري للخروج من التطبيق',
+                        duration: 3000,
+                        position: 'bottom'
+                    });
+                    toast.present();
+                    lastTimeBackPress = new Date().getTime();
+                }
+            } else {
+                // go to previous page
+                this.nav.pop({});
+            }
+        });
+        //////
         this.common.getStoredValue('S').then(res=>{
             if(res.type==1){
                 this.nav.setRoot(HomePage);
@@ -60,13 +89,13 @@ this.rootPage=LoginPage;
      this.nav.push(CategoriesPage);
   }
    onSold(){
-     this.nav.push(SoldgoodsPage);
+     this.nav.push(MygoodsPage,{'data':1});
   }
    onFav(){
      this.nav.push(FavoritesPage);
   }
    onMyGoods(){
-     this.nav.push(MygoodsPage);
+     this.nav.push(MygoodsPage,{'data':0});
    }
    logOut(){
       this.auth .logOut();

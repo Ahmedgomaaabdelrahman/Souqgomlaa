@@ -28,83 +28,17 @@
  </ion-row>
 
  <ion-row style="margin: 20px 0;">
-    <ion-col col-6>
-        <div class="condiv">
-         <p>مكه المكرمه</p>
+    <ion-col *ngFor="let town of towns" col-6>
+        <div (click)="select(town.Location)"  class="condiv">
+         <p>{{town.Location}}</p>
         </div>
     </ion-col>
-    <ion-col col-6>
-      <div class="condiv">
-        <p>المدينه المنوره </p>
-      </div>
-    </ion-col>
- </ion-row>
-
-  <ion-row style="margin: 20px 0;">
-    <ion-col col-6>
-        <div class="condiv">
-         <p>الرياض</p>
-        </div>
-    </ion-col>
-    <ion-col col-6>
-      <div class="condiv">
-        <p>القصيم</p>
-      </div>
-    </ion-col>
+    <!--<ion-col col-6>-->
+      <!--<div class="condiv">-->
+        <!--<p>المدينه المنوره </p>-->
+      <!--</div>-->
+    <!--</ion-col>-->
  </ion-row>
 
 
-  <ion-row style="margin: 20px 0;">
-    <ion-col col-6>
-        <div class="condiv">
-         <p> المنطقه الشرقيه</p>
-        </div>
-    </ion-col>
-    <ion-col col-6>
-      <div class="condiv">
-        <p> عسير</p>
-      </div>
-    </ion-col>
- </ion-row>
-  
-
- <ion-row style="margin: 20px 0;">
-    <ion-col col-6>
-        <div class="condiv">
-         <p>تبوك</p>
-        </div>
-    </ion-col>
-    <ion-col col-6>
-      <div class="condiv">
-        <p>حائل </p>
-      </div>
-    </ion-col>
- </ion-row>
-
-  <ion-row style="margin: 20px 0;">
-    <ion-col col-6>
-        <div class="condiv">
-         <p>جازان</p>
-        </div>
-    </ion-col>
-    <ion-col col-6>
-      <div class="condiv">
-        <p>نجران </p>
-      </div>
-    </ion-col>
- </ion-row>
-
-
-  <ion-row style="margin: 20px 0;">
-    <ion-col col-6>
-        <div class="condiv">
-         <p>الباحة</p>
-        </div>
-    </ion-col>
-    <ion-col col-6>
-      <div class="condiv">
-        <p>الجوف </p>
-      </div>
-    </ion-col>
- </ion-row>
 </ion-content>

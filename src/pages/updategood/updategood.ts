@@ -17,7 +17,7 @@ export class UpdategoodPage {
     description:string;
     category:string;
     res:any=[];
-
+    status:any;
     img:any;
     images:any=[];
     imagesToDelete:any=[];
@@ -32,7 +32,17 @@ export class UpdategoodPage {
 
         this.itemName=this.res.ItemName;
         this.quantity=this.res.Quantity;
+this.status=this.res.Status;
+        if(this.status=='معروضة')    {
 
+            this.color='light'
+        }else if(this.status=='معطلة'){
+            this.color='dark'
+
+        } else if(this.status=='مباعة'){
+            this.color='danger'
+
+        }
             this.origin=this.res.Origin;
         this.description=this.res.Description;
             this.category=this.res.Category;
@@ -42,13 +52,9 @@ export class UpdategoodPage {
           this.images=res.urls;
           //using another array to get img name used to be deleted
           this.imagesToDelete=res.imgNames;
-        })
+        })}
 
-    }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad UpdategoodPage');
-  }
   goChat(){
     this.navCtrl.push(MessagesPage);
   }
@@ -79,16 +85,17 @@ this.common.presentToast('تم الحذف بنجاح','اغلاق');
 //update the item
     submit(){
         this.common.presentLoadingDefault('برجاء الانتظار حتي اكتمال التعديل ...')
-this.itemsProvider.updateItem(this.res.Id,this.itemName,this.quantity,this.origin,this.price,this.description,this.category).subscribe(res=>{
+this.itemsProvider.updateItem(this.res.Id,this.itemName,this.quantity,this.origin,this.price,this.description,this.category,this.status).subscribe(res=>{
 
     //
-    console.log(res);
+    // console.log(res);
     try{
         if(this.images.length != 0){
 
             for(let i=0;i<this.images.length;i++){
                 let imm=this.images[i];
-                this.itemsProvider.itemImageUpload(res.Id,imm).subscribe(res=>{console.log(res)
+                this.itemsProvider.itemImageUpload(res.Id,imm).subscribe(res=>{
+                    // console.log(res)
                     if(i==(this.images.length-1)){
                         this.common.loadDismess()
                         this.common.presentToast('تمت التعديل','اغلاق')
@@ -110,4 +117,26 @@ this.itemsProvider.updateItem(this.res.Id,this.itemName,this.quantity,this.origi
 
 })
     }
+
+
+    ///////////////////
+    color:any;
+    statusManege(){
+if(this.status=='معروضة')    {
+    this.color='light'
+
+    this.status='معطلة'
+}else if(this.status=='معطلة'){
+    this.color='dark'
+
+    this.status='مباعة'
+
+} else if(this.status=='مباعة'){
+    this.color='danger'
+
+    this.status='معروضة'
+
+}
+}
+
 }

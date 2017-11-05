@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
+import {DomainProvider} from "../domain/domain";
 
 /*
   Generated class for the ItemsProvider provider.
@@ -11,11 +12,11 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class ItemsProvider {
     baseUrl:String;
-url='http://45.55.85.173';
-  constructor(public http: Http) {
+// url='http://45.55.85.173';
+  constructor(public http: Http,public domain:DomainProvider) {
     console.log('Hello ItemsProvider Provider');
       // this.baseUrl='http://127.0.0.1:9200';
-      this.baseUrl='http://45.55.85.173';
+      this.baseUrl=this.domain.url;
 
   }
     addItem(
@@ -46,6 +47,11 @@ return this.http.post(this.baseUrl+'/ItemIn',seller).map(res=>res.json().res);
     getMyItems(SellerID:any){
         let id={'SellerId':SellerID}
         return this.http.post(this.baseUrl+'/getMyItems',id).map(res=>res.json().res);
+
+    }
+    getMySoldItems(SellerID:any){
+        let id={'SellerId':SellerID}
+        return this.http.post(this.baseUrl+'/getMySoldItems',id).map(res=>res.json().res);
 
     }
     getAllItems(r:any){
@@ -100,7 +106,9 @@ return this.http.post(this.baseUrl+'/ItemIn',seller).map(res=>res.json().res);
                 origin:string,
                 price:number,
                 description:string,
-                category:string){
+                category:string,
+                status:string
+    ){
         let newItem=
             {'Id':itemId,
                 'ItemName':name,
@@ -108,7 +116,8 @@ return this.http.post(this.baseUrl+'/ItemIn',seller).map(res=>res.json().res);
                 'Origin':origin,
                 'Price':price,
                 'Description':description,
-                'Category':category
+                'Category':category,
+                'Status':status
             }
         return this.http.post(this.baseUrl+'/itemUpdate',newItem).map(res=>res.json().res);
     }

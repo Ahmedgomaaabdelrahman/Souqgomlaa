@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
+import {DomainProvider} from "../domain/domain";
 
 /*
   Generated class for the TownsProvider provider.
@@ -12,11 +13,11 @@ import 'rxjs/add/operator/map';
 export class TownsProvider {
     http : any;
     baseUrl:String;
-  constructor(public _http: Http) {
+  constructor(public _http: Http,public domain:DomainProvider) {
     console.log('Hello TownsProvider Provider');
 this.http=_http;
       // this.baseUrl='http://127.0.0.1:9200';
-      this.baseUrl='http://45.55.85.173';
+      this.baseUrl=this.domain.url;
 
   }
 getTowns(){

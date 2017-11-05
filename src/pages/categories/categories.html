@@ -26,20 +26,16 @@
      </div>
    </ion-col>
  </ion-row>
-
- <ion-row style="margin: 20px 0;">
-    <ion-col col-6 (click)="addGood()">
+<div >
+ <ion-row  style="margin: 20px 0;">
+    <ion-col col-6 *ngFor="let cat of cats" (click)="addGood(cat.Category)">
         <div class="condiv">
-          <img src="assets/imgs/exs.png"><br>مستحضرات تجميل
+          <img src="{{D}}/Cat_Images/{{cat.Image}}"><br> {{cat.Category}}
         </div>
     </ion-col>
-    <ion-col col-6>
-      <div class="condiv">
-        <img src="assets/imgs/mob.png"><br>هواتف محمولة
-      </div>
-    </ion-col>
- </ion-row>
 
+ </ion-row>
+</div>
   <!--<ion-row style="margin: 20px 0;">-->
     <!--<ion-col col-6>-->
         <!--<div class="condiv">-->

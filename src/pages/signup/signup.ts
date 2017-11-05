@@ -93,7 +93,7 @@ this.common.presentToast('رقم الهاتف مستخدم بالفعل','اغل
         this.common.presentToast('مرحبا! تم التسجيل بنجاح','اغلاق');
 
         this.common.storeValue('S',response)
-        this.navCtrl.push(HomePage);}
+        this.navCtrl.setRoot(HomePage);}
 }
 //get selected town
     getSelected(town:any){

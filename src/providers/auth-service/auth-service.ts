@@ -3,6 +3,7 @@ import { HttpModule ,Http} from '@angular/http';
 import 'rxjs/add/operator/map';
 import {Observable} from "rxjs/Observable";
 import {CommonProvider} from "../common/common";
+import {DomainProvider} from "../domain/domain";
 
 /*
   Generated class for the AuthServiceProvider provider.
@@ -16,13 +17,13 @@ export class AuthServiceProvider {
   http : any;
   _http:any;
   baseUrl:String;
-    url='http://45.55.85.173';
+    // url='http://45.55.85.173';
 
-    constructor(private common:CommonProvider,http :HttpModule,_http:Http){
+    constructor(private common:CommonProvider,http :HttpModule,_http:Http,public domain:DomainProvider){
     this.http=http;
     this._http=_http;
 
-    this.baseUrl='http://45.55.85.173';
+    this.baseUrl=this.domain.url;
 
   }
 //   get() {

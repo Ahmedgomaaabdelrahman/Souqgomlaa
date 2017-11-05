@@ -33,6 +33,9 @@ import { IonicStorageModule } from '@ionic/storage';
 import { CommonProvider } from '../providers/common/common';
 import { ItemsProvider } from '../providers/items/items';
 import { Camera, CameraOptions } from '@ionic-native/camera';
+import { ItemSearchProvider } from '../providers/item-search/item-search';
+import { DomainProvider } from '../providers/domain/domain';
+import { FavProvider } from '../providers/fav/fav';
 class CameraMock extends Camera {
     getPicture(options) {
         return new Promise((resolve, reject) => {
@@ -112,7 +115,10 @@ class CameraMock extends Camera {
     AuthServiceProvider,
     TownsProvider,ToastController,LoadingController,ModalController,
     CommonProvider,{ provide: IonicStorageModule, useClass: IonicStorageModule},
-    ItemsProvider
+    ItemsProvider,
+    ItemSearchProvider,
+    DomainProvider,
+    FavProvider
   ]
 })
 export class AppModule {}
