@@ -49,6 +49,11 @@ return this.http.post(this.baseUrl+'/ItemIn',seller).map(res=>res.json().res);
         return this.http.post(this.baseUrl+'/getMyItems',id).map(res=>res.json().res);
 
     }
+    getMyItemStatistics(SellerID:any){
+        let id={'SellerId':SellerID}
+        return this.http.post(this.baseUrl+'/getMyStatics',id).map(res=>res.json().res);
+
+    }
     getMySoldItems(SellerID:any){
         let id={'SellerId':SellerID}
         return this.http.post(this.baseUrl+'/getMySoldItems',id).map(res=>res.json().res);

@@ -14,6 +14,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { CommonProvider } from '../providers/common/common';
 import {AuthServiceProvider} from "../providers/auth-service/auth-service";
 import { HomePage } from '../pages/home/home';
+import { Events } from 'ionic-angular';
+
 @Component({
   templateUrl: 'app.html'
 })
@@ -21,7 +23,7 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
   rootPage:any ;
 
-  constructor(private toastCtrl:ToastController,private auth:AuthServiceProvider,private common:CommonProvider,public menuCtrl:MenuController ,platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
+  constructor(public events: Events,private toastCtrl:ToastController,private auth:AuthServiceProvider,private common:CommonProvider,public menuCtrl:MenuController ,platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
 
         /////
@@ -33,7 +35,7 @@ export class MyApp {
         platform.registerBackButtonAction(() => {
             // get current active page
             let view = this.nav.getActive();
-            if (view.component.name == "TabsPage") {
+            // if (view.component.name == "TabsPage") {
                 //Double check to exit app
                 if (new Date().getTime() - lastTimeBackPress < timePeriodToExit) {
                     platform.exitApp(); //Exit from app
@@ -46,16 +48,38 @@ export class MyApp {
                     toast.present();
                     lastTimeBackPress = new Date().getTime();
                 }
-            } else {
+            // } else {
                 // go to previous page
-                this.nav.pop({});
-            }
+                // this.nav.pop({});
+            // }
         });
+
         //////
+        this.guestUser=false;
+
+        this.events.subscribe('userType',user=>{
+            if(user==1){
+                this.type=true;
+
+            }else if(user==0){
+                this.type=false;
+
+
+            }
+        })
+        this.events.subscribe('guest',guest=>{
+         this.guestUser=guest;
+        })
         this.common.getStoredValue('S').then(res=>{
-            if(res.type==1){
-                this.nav.setRoot(HomePage);
-            }else{
+            // console.log(this.type)
+            console.log(res.Type)
+            if(res.Type==1){
+                this.type=true;
+
+                this.nav.setRoot(MygoodsPage,{'data':0});
+            }else if(res.Type==0){
+                this.type=false;
+
                 this.nav.setRoot(HomePage);
 
             }
@@ -75,7 +99,8 @@ this.rootPage=LoginPage;
     this.menuCtrl.close();
   }
 
-   
+   type:any;
+  guestUser:any;
    onNotify(){
      this.nav.push(NotificationsPage);
   }

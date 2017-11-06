@@ -28,35 +28,35 @@
 </ion-row>
 
 <div class="topdiv" >
-  <img src="assets/imgs/per.png">
-  <p>محمد مصطفى</p>
-  <div>
-    <ion-icon name="star"></ion-icon>
-    <ion-icon name="star"></ion-icon>
-    <ion-icon name="star"></ion-icon>
-    <ion-icon name="star"></ion-icon>
-    <ion-icon name="star-outline"></ion-icon>
-  </div>
+  <img src={{img}}>
+  <p>{{name}}</p>
+  <!--<div>-->
+    <!--<ion-icon name="star"></ion-icon>-->
+    <!--<ion-icon name="star"></ion-icon>-->
+    <!--<ion-icon name="star"></ion-icon>-->
+    <!--<ion-icon name="star"></ion-icon>-->
+    <!--<ion-icon name="star-outline"></ion-icon>-->
+  <!--</div>-->
 </div>
 
 <div class="infodiv">
   <ion-row>
-    <ion-col col-8>بضاعه عرضت :</ion-col>
-    <ion-col col-4 style="text-align:center">50</ion-col>
+    <ion-col col-8>لبضاعة المعروضة للبيع :</ion-col>
+    <ion-col col-4 style="text-align:center">{{validItems}}</ion-col>
   </ion-row>
   <ion-row>
-    <ion-col col-8>بضاعه مباعه :</ion-col>
-    <ion-col col-4 style="text-align:center">40</ion-col>
+    <ion-col col-8>البضاعة المعطلة :</ion-col>
+    <ion-col col-4 style="text-align:center">{{holdedItems}}</ion-col>
   </ion-row>
   <ion-row>
-    <ion-col col-8>بضائع على الانتظار :</ion-col>
-    <ion-col col-4 style="text-align:center">2</ion-col>
+    <ion-col col-8> البضاعة المباعة :</ion-col>
+    <ion-col col-4 style="text-align:center">{{soldItems}}</ion-col>
   </ion-row>
   <ion-row>
     <ion-col col-8>المكان :</ion-col>
     <ion-col col-4 style="text-align:center">
       <p>
-        <img src="assets/imgs/loc.png">الرياض
+        <img src="assets/imgs/loc.png">{{location}}
       </p>
     </ion-col>
   </ion-row>

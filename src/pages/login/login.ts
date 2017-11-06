@@ -1,9 +1,10 @@
 import { HomePage } from './../home/home';
 import { SigntypePage } from './../signtype/signtype';
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams ,Events } from 'ionic-angular';
 import {AuthServiceProvider} from "../../providers/auth-service/auth-service";
 import { CommonProvider } from '../../providers/common/common';
+import {MygoodsPage} from "../mygoods/mygoods";
 
 @Component({
   selector: 'page-login',
@@ -12,7 +13,7 @@ import { CommonProvider } from '../../providers/common/common';
 export class LoginPage {
 phone:number;
 password:number;
-  constructor(public commonProvider:CommonProvider,public auth:AuthServiceProvider,public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public events:Events,public commonProvider:CommonProvider,public auth:AuthServiceProvider,public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
@@ -35,7 +36,9 @@ password:number;
       try {
       this.commonProvider.presentLoadingDefault('الرجاء الانتظار ... ');
     this.auth.logIn(this.phone,this.password).subscribe(response=>
+
     {
+
         console.log('b',response);
 
 
@@ -48,11 +51,17 @@ this.commonProvider.loadDismess();
           this.commonProvider.presentToast('برجاء تاكد من رقم الجوال والرقم السري','اغلاق')
 
       }else{
+
             this.commonProvider.loadDismess();
             this.commonProvider.presentToast('تم الدخول بنجاح','اغلاق')
+            this.events.publish('guest',false)
 
+            this.events.publish('userType',response.Type)
             this.commonProvider.storeValue('S',response)
-          this.navCtrl.setRoot(HomePage);
+            if(response.Type==1){
+                this.navCtrl.setRoot(MygoodsPage,{'data':0})
+            }else{
+          this.navCtrl.setRoot(HomePage);}
           console.log('login res',response);
 
 
@@ -63,6 +72,8 @@ this.commonProvider.loadDismess();
     // this.navCtrl.push(HomePage);
   }
     visitor(){
+        this.events.publish('guest',true)
+
         this.navCtrl.push(HomePage);
     }
 }

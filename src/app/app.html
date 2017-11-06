@@ -5,31 +5,33 @@
       </div>
      
       <ion-list no-lines>
-        <button class="menubtn" menuClose ion-item (click)="onNotify()">
-          <img src="assets/imgs/notifiy.png"><br>الاشعارات
-           
-        </button>
 
-        <button class="menubtn" menuClose ion-item (click)="onSearch()">
+
+        <button *ngIf="!type"  class="menubtn" menuClose ion-item (click)="onSearch()">
            <img src="assets/imgs/search.png"><br>البحث
         </button>
-        <button class="menubtn" menuClose ion-item (click)="onEdit()">
+
+          <div *ngIf="!guestUser">
+          <button *ngIf="type" class="menubtn" menuClose ion-item (click)="onNotify()">
+              <img src="assets/imgs/notifiy.png"><br>الاشعارات
+          </button>
+        <button *ngIf="type"  class="menubtn" menuClose ion-item (click)="onEdit()">
             <img src="assets/imgs/account.png"><br>الصفحه الشخصيه
         </button>
-        <button class="menubtn" menuClose ion-item (click)="onMyGoods()">
+        <button *ngIf="type"  class="menubtn" menuClose ion-item (click)="onMyGoods()">
             <img src="assets/imgs/box.png"><br>بضاعاتى
         </button>
-        <button class="menubtn" menuClose ion-item (click)="onAddGood()">
+        <button *ngIf="type"  class="menubtn" menuClose ion-item (click)="onAddGood()">
             <img src="assets/imgs/box.png"><br>اضافه بضاعه
         </button>
-        <button class="menubtn" menuClose ion-item  (click)="onSold()">
+        <button *ngIf="type"  class="menubtn" menuClose ion-item  (click)="onSold()">
             <img src="assets/imgs/sold.png"><br>البضاعه المباعه
         </button>
-
-        <button class="menubtn" menuClose  ion-item  (click)="onFav()">
+          <button *ngIf="!type"  class="menubtn" menuClose  ion-item  (click)="onFav()">
             <img src="assets/imgs/star.png"><br>الاهتمامات
         </button>
-        <button  (click)="logOut()" class="menubtn" menuClose ion-item>
+          </div>
+          <button  (click)="logOut()" class="menubtn" menuClose ion-item>
             <img src="assets/imgs/exit.png"><br>الخروج
         </button>
       </ion-list>
