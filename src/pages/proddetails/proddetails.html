@@ -1,84 +1,78 @@
 
 <ion-header>
 
-  <ion-navbar>
-    <ion-title> <myheader></myheader></ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-title> <myheader></myheader></ion-title>
+    </ion-navbar>
 
 </ion-header>
 
 
 <ion-content>
- <ion-row class="toprow">
-   <ion-col col-2><ion-icon class="menu" name="menu" menuToggle></ion-icon></ion-col>
-   <ion-col col-10 style="text-align: end">
-     <div>
-        <ion-icon name="star" (click)="fav()"></ion-icon>
-        <ion-icon name="mail" (click)="goChat()"></ion-icon>
-        <!-- <ion-icon  style="transform: rotate(90deg)"name="options"></ion-icon> -->
-     </div>
-   </ion-col>
- </ion-row>
+    <ion-row class="toprow">
+        <ion-col col-2><ion-icon class="menu" name="menu" menuToggle></ion-icon></ion-col>
+        <ion-col col-6  style="margin-top: 37px;">
+            <img src="assets/imgs/mob.png">
+            <p class="firstp"> {{res.Category}}</p>
+        </ion-col>
+
+        <ion-col col-4 style="text-align: end">
+
+            <ion-icon name="star" (click)="fav()"></ion-icon>
+            <ion-icon name="mail" (click)="goChat()"></ion-icon>
+            <!-- <ion-icon  style="transform: rotate(90deg)"name="options"></ion-icon> -->
+
+        </ion-col>
+    </ion-row>
+    <div class="infodiv">
+        <p><img src="{{D}}/profileImages_thump/{{image}}"></p>
+        <p>{{res.Description}}</p>
+        <ion-row>
+            <ion-col col-6>
+                <p class="imgp">
+                    <img src="assets/imgs/loc.png">{{res.Location}}</p>
+            </ion-col>
+
+            <ion-col col-6 style="text-align: end">
+                <ion-icon (click)="favTogle()"  name={{star}}></ion-icon>
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col col-6>
+                <p style="font-size: 20px;">
+                    {{res.Price}}
+                </p>
+            </ion-col>
+            <!-- <ion-col col-6>
+                <ion-icon name="star"></ion-icon>
+
+            </ion-col> -->
+            <!--<ion-col col-6 style="text-align: end">-->
+            <!--<img class="imgcart"src="assets/imgs/cart.png">-->
+            <!--</ion-col>-->
+        </ion-row>
 
 
-<ion-row>
-  <ion-col col-2></ion-col>
-  <ion-col col-2 style="text-align:end">
-    <img src="assets/imgs/mob.png">
-  </ion-col>
+        <ion-row>
+            <!-- <ion-col col-6></ion-col> -->
 
-  <ion-col col-8 style="text-align:start">
-    <p class="firstp"> {{res.Category}}</p>
-  </ion-col>
+            <!-- <ion-col col-6 style="text-align: end">
+              <p class="namep" style="color: gray;">  -->
+            <img src="assets/imgs/per.png">{{Name}}
+            <!-- </p> -->
+            <!-- </ion-col> -->
+        </ion-row>
+    </div>
 
-</ion-row>
+    <div class="imgdiv">
+        <ion-slides dir="rtl" pager>
+            <ion-slide *ngFor="let imag of images;let i=index" [attr.data-index]="i">
+                <!--<ion-icon  (click)="deletImgModal(i)" ios="ios-trash" md="md-trash"></ion-icon>-->
 
+                <img class="proimg"  src="{{imag}}">
 
-<div class="infodiv">
-  <p><img src="{{D}}/profileImages_thump/{{image}}"></p>
-  <p>{{res.Description}}</p>
-  <ion-row>
-    <ion-col col-6>
-       <p class="imgp"> 
-       <img src="assets/imgs/loc.png">{{res.Location}}</p>
-    </ion-col>
-
-     <ion-col col-6 style="text-align: end">
-        <ion-icon (click)="favTogle()"  name={{star}}></ion-icon>
-    </ion-col>
-  </ion-row>
-
-  <ion-row>
-     <ion-col col-6>
-       <p style="font-size: 20px;"> 
-         {{res.Price}}
-       </p>
-    </ion-col>
-
-     <!--<ion-col col-6 style="text-align: end">-->
-        <!--<img class="imgcart"src="assets/imgs/cart.png">-->
-    <!--</ion-col>-->
-  </ion-row>
-
-  
-  <ion-row>
-     <ion-col col-6></ion-col>
-
-     <ion-col col-6 style="text-align: end">
-       <p class="namep" style="color: gray;"> 
-       <img src="assets/imgs/per.png">{{Name}}</p>
-    </ion-col>
-  </ion-row>
-</div>
-
-<div class="imgdiv">
-    <ion-slides dir="rtl" pager>
-        <ion-slide *ngFor="let imag of images;let i=index" [attr.data-index]="i">
-            <!--<ion-icon  (click)="deletImgModal(i)" ios="ios-trash" md="md-trash"></ion-icon>-->
-
-            <img class="proimg"  src="{{imag}}">
-
-        </ion-slide>
-    </ion-slides>
-</div>
+            </ion-slide>
+        </ion-slides>
+    </div>
 </ion-content>
