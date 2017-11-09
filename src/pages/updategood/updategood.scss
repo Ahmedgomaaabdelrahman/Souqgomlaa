@@ -28,6 +28,7 @@ page-updategood {
     float: right;
 }
 .forma {
+    margin-top: 20px;
     background: white;
     width: 85%;
     margin: auto;
@@ -99,6 +100,9 @@ page-updategood {
    
 }
     .button-md {
+        margin-bottom: 20px !important;
+        height: 40px;
+        font-size: 2rem;
         border-radius: 27px;
         overflow: hidden;
         animation-fill-mode: inherit;
@@ -127,6 +131,7 @@ page-updategood {
         height: 30px;
         font-size: 4rem;
         //color: #2a64a1;
-
+        color: #104c91;
+        width: 50%;
     }
 }

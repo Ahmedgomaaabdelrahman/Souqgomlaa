@@ -19,14 +19,13 @@
      <ion-icon class="menu" menuToggle name="menu" ></ion-icon>
    </ion-col>
    <!-- <ion-col col-5><p class="notifiyp">البحث عن بضاعة</p></ion-col> -->
-   <ion-col col-10 >
-    
-     <div>
-        <p class="notifiyp">تعديل الصفحه الشخصية</p>
-        <ion-icon name="star" (click)="fav()"></ion-icon>
-        <ion-icon name="mail" (click)="goChat()"></ion-icon>
-        <ion-icon  style="transform: rotate(90deg)"name="options"></ion-icon>
-     </div>
+   <ion-col col-6 class="notifiyp">
+        تعديل الصفحه الشخصية  
+        <!-- <ion-icon  style="transform: rotate(90deg)"name="options"></ion-icon> -->
+   </ion-col>
+   <ion-col col-4>
+      <ion-icon name="star" (click)="fav()"></ion-icon>
+      <ion-icon name="mail" (click)="goChat()"></ion-icon>
    </ion-col>
  </ion-row>
 
@@ -67,7 +66,7 @@
     </ion-item>
 <div *ngIf="mode">
       <ion-item class="logitem" id="upload">
-     <p style="display: inline-block;width:80%;">تحميل صوره شخصية</p>
+     <p>تحميل صوره شخصية</p>
           <ion-icon class="gallery" (click)="useCam(0)" name="images"></ion-icon>
           <ion-icon class="gallery" (click)="useCam(1)" name="camera"></ion-icon>
  </ion-item>
