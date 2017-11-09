@@ -21,9 +21,11 @@ d:any
     valid:boolean;
     mode:any;
   constructor(public navParams:NavParams,public searchProvider:ItemSearchProvider,public domain:DomainProvider,public items:ItemsProvider,public common:CommonProvider,public menuCtrl:MenuController,public navCtrl: NavController) {
+
 this.valid=false;
+
   }
-  help
+  help:any;
   getItems(){
 
       this.items.getAllItems({'i': 0}).subscribe(res => {

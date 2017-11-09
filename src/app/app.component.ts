@@ -15,6 +15,7 @@ import { CommonProvider } from '../providers/common/common';
 import {AuthServiceProvider} from "../providers/auth-service/auth-service";
 import { HomePage } from '../pages/home/home';
 import { Events } from 'ionic-angular';
+import {ChatProvider} from "../providers/chat/chat";
 
 @Component({
   templateUrl: 'app.html'
@@ -23,9 +24,14 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
   rootPage:any ;
 
-  constructor(public events: Events,private toastCtrl:ToastController,private auth:AuthServiceProvider,private common:CommonProvider,public menuCtrl:MenuController ,platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
+  constructor(public chat:ChatProvider,public events: Events,private toastCtrl:ToastController,private auth:AuthServiceProvider,private common:CommonProvider,public menuCtrl:MenuController ,platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
 
+        try {
+            this.chat.onTokenRecived();
+        }catch(e){
+            console.log(e);
+        }
         /////
         //back button handle
         //Registration of push in Android and Windows Phone

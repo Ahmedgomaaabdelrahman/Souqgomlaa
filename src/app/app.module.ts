@@ -36,6 +36,9 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
 import { ItemSearchProvider } from '../providers/item-search/item-search';
 import { DomainProvider } from '../providers/domain/domain';
 import { FavProvider } from '../providers/fav/fav';
+import { ChatProvider } from '../providers/chat/chat';
+import { FCM } from '@ionic-native/fcm';
+
 class CameraMock extends Camera {
     getPicture(options) {
         return new Promise((resolve, reject) => {
@@ -118,7 +121,8 @@ class CameraMock extends Camera {
     ItemsProvider,
     ItemSearchProvider,
     DomainProvider,
-    FavProvider
+    FavProvider,
+    ChatProvider,FCM
   ]
 })
 export class AppModule {}

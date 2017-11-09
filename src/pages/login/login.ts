@@ -5,6 +5,7 @@ import { NavController, NavParams ,Events } from 'ionic-angular';
 import {AuthServiceProvider} from "../../providers/auth-service/auth-service";
 import { CommonProvider } from '../../providers/common/common';
 import {MygoodsPage} from "../mygoods/mygoods";
+import {ChatProvider} from "../../providers/chat/chat";
 
 @Component({
   selector: 'page-login',
@@ -13,7 +14,7 @@ import {MygoodsPage} from "../mygoods/mygoods";
 export class LoginPage {
 phone:number;
 password:number;
-  constructor(public events:Events,public commonProvider:CommonProvider,public auth:AuthServiceProvider,public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public chat:ChatProvider,public events:Events,public commonProvider:CommonProvider,public auth:AuthServiceProvider,public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
@@ -51,7 +52,9 @@ this.commonProvider.loadDismess();
           this.commonProvider.presentToast('برجاء تاكد من رقم الجوال والرقم السري','اغلاق')
 
       }else{
-
+this.chat.getDviceToken(response.Id).then(res=>{
+            // this.chat.listenToAChannel("eLml4NJxK5U:APA91bGl0kthK8hW48jl1Gsyi9niG4eOl5Pd0Zvw7XEzCgulMUk1OpK5nY_JbH1xkmGckzwUEfiIQ1MF6FdSb3YUuAdkJjAjQ6ozOqyG7pYKnBNWj5EAOTEWHyx2vCJAzhgvpkfoMiYt");
+});
             this.commonProvider.loadDismess();
             this.commonProvider.presentToast('تم الدخول بنجاح','اغلاق')
             this.events.publish('guest',false)
@@ -72,6 +75,9 @@ this.commonProvider.loadDismess();
     // this.navCtrl.push(HomePage);
   }
     visitor(){
+// this.chat.sendMessage().subscribe(res=>{
+//     console.log(res)
+// });
         this.events.publish('guest',true)
 
         this.navCtrl.push(HomePage);
