@@ -1,6 +1,6 @@
 import { ActivationPage } from './../activation/activation';
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, Events } from 'ionic-angular';
 import {AuthServiceProvider} from "../../providers/auth-service/auth-service";
 import {HomePage} from "../home/home";
 import {TownsProvider} from "../../providers/towns/towns";
@@ -24,7 +24,7 @@ export class SignupPage {
     mode:boolean;
     towns:any=[];
     selectOptions:any;
-  constructor(private camera: Camera,public common:CommonProvider,private _towns:TownsProvider,private auth:AuthServiceProvider,public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public events:Events,private camera: Camera,public common:CommonProvider,private _towns:TownsProvider,private auth:AuthServiceProvider,public navCtrl: NavController, public navParams: NavParams) {
       this.mode=this.navParams.data;
       this.selectOptions = {
           title: 'اختر مدينة',
@@ -91,7 +91,9 @@ this.common.presentToast('رقم الهاتف مستخدم بالفعل','اغل
 
     else {
         this.common.presentToast('مرحبا! تم التسجيل بنجاح','اغلاق');
+        this.events.publish('guest',false)
 
+        this.events.publish('userType',response.Type)
         this.common.storeValue('S',response)
         this.navCtrl.setRoot(HomePage);}
 }

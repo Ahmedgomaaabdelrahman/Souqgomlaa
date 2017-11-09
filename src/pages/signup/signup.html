@@ -45,14 +45,15 @@
       <ion-input  [(ngModel)]="Commercial_Register" id="Commercial_Register" name="Commercial_Register"  type="text" placeholder="السجل التجارى"  required="true"></ion-input>
     </ion-item>
     <ion-item class="logitemI" id="upload">
-        <p style="display: inline-block;width:50%;">تحميل صوره شخصية</p>
         <div *ngIf="mode">
+            <p style="display: inline-block;width:50%;">تحميل صوره شخصية</p>
+
         <ion-icon class="gallery"  (click)="useCam(0)" name="images"></ion-icon>
         <ion-icon class="gallery" (click)="useCam(1)" name="camera"></ion-icon>
         </div>
     </ion-item>
     <div class="topdiv" >
-        <img src="{{Img}}" required>
+        <img src="{{Img}}" >
         </div>
 
         <button [disabled]="!f.valid" ion-button clear (click)="activation()" class="enter">تسجيل</button>
