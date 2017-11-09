@@ -23,7 +23,7 @@
     
      <div>
         <p class="notifiyp">تعديل بضاعه</p>
-        <ion-icon  style="float:left;transform: rotate(90deg)" name="options"></ion-icon>
+     
         <ion-icon name="mail" style="float:left" (click)="goChat()"></ion-icon>
         <img src="assets/imgs/per.png"style="float:left" (click)="goPer()">
      </div>
@@ -59,8 +59,10 @@
       <ion-textarea  [(ngModel)]="description" name="description" id="description" type="text" value={{description}} placeholder="الوصف"></ion-textarea>
     </ion-item>
      <ion-item class="logitem">
-         <ion-icon ion-button block  class="gallery" (click)="useCam(0)" name="images"></ion-icon>
-         <ion-icon ion-button block class="gallery" (click)="useCam(1)" name="camera"></ion-icon>
+         <!-- <ion-icon ion-button block  class="gallery" (click)="useCam(0)" name="images"></ion-icon>
+         <ion-icon ion-button block class="gallery" (click)="useCam(1)" name="camera"></ion-icon> -->
+         <ion-icon class="gallery" (click)="useCam(0)" name="images"></ion-icon>
+         <ion-icon class="gallery" (click)="useCam(1)" name="camera"></ion-icon>
      </ion-item>     <ion-slides dir="rtl" pager>
          <ion-slide *ngFor="let imag of images;let i=index" [attr.data-index]="i">
              <ion-icon  (click)="deletImgModal(i)" ios="ios-trash" md="md-trash"></ion-icon>

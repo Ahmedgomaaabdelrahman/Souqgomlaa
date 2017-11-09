@@ -22,7 +22,7 @@
     <div>
       <img src="assets/imgs/per.png" (click)="goPer()">
       <ion-icon name="mail" (click)="goChat()"></ion-icon>
-      <ion-icon  style="transform: rotate(90deg)"name="options"></ion-icon>
+      <!-- <ion-icon  style="transform: rotate(90deg)"name="options"></ion-icon> -->
     </div>
   </ion-col>
 </ion-row>
@@ -33,8 +33,8 @@
   <ion-item-sliding cancelable="false"  *ngFor="let good of goods;let i=index" #item >
     <ion-item cancelable="false">
 <ion-row>
-      <ion-col col-2><img  src={{thumps[i]}}></ion-col>
-      <ion-col col-7> {{good.ItemName}}</ion-col>
+      <ion-col col-2><img class="itemimg" src={{thumps[i]}}></ion-col>
+      <ion-col col-7 style="padding-top: 20px;"> {{good.ItemName}}</ion-col>
 </ion-row>
       <!--<ion-col col-3><button ion-button block   (click)="goUpdate(good)">تعديل</button></ion-col>-->
     </ion-item>

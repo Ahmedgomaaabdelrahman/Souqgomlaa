@@ -23,7 +23,10 @@
     
     <div>
         <p class="notifiyp">اضافة بضاعه</p>
-        <ion-icon  style="float:left;transform: rotate(90deg)"name="options"></ion-icon>
+        <!-- <ion-icon  style="float:left;transform: rotate(90deg)"name="options"></ion-icon> -->
+        <ion-col>
+          
+        </ion-col>
         <ion-icon name="mail" style="float:left"(click)="goChat()"></ion-icon>
         <img src="assets/imgs/per.png"style="float:left" (click)="goPer()">
     </div>
@@ -53,10 +56,13 @@
       <ion-textarea clearInput=true [(ngModel)]="description" id="description" name="description" type="text" placeholder="الوصف"></ion-textarea>
     </ion-item> 
    <!--<button ion-button block class="addimage" >اضافه صور</button>-->
-     <ion-item class="logitem">
-     <ion-icon ion-button block  class="gallery" (click)="useCam(0)" name="images"></ion-icon>
-     <ion-icon ion-button block class="gallery" (click)="useCam(1)" name="camera"></ion-icon>
-     </ion-item>
+     <div class="divicons">
+     <!-- <ion-icon ion-button block  class="gallery" (click)="useCam(0)" name="images"></ion-icon> -->
+     <button ion-button clear icon-only><ion-icon class="gallery" name="images" (click)="useCam(0)"></ion-icon></button>
+     <!-- <ion-icon ion-button block class="gallery" (click)="useCam(1)" name="camera"></ion-icon> -->
+     <button ion-button clear icon-only><ion-icon class="gallery" name="camera" (click)="useCam(1)"></ion-icon></button>
+     
+     </div>
 
      <ion-slides dir="rtl" pager>
       <ion-slide *ngFor="let imag of images;let i=index">
