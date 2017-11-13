@@ -21,7 +21,7 @@
    </ion-col>
  </ion-row>
 <div *ngIf="valid">
-
+<!-- 
 <ion-row  *ngFor="let item of all" class="itemrow">
 
     <ion-col col-2><img src="{{D}}/profileImages_thump/{{item.SellerId.image}}"></ion-col>
@@ -33,12 +33,48 @@
       <p class="imgp">
       <img src="assets/imgs/loc.png">{{item.Location}}</p>
    </ion-col>
-</ion-row></div>
+</ion-row> -->
+
+   <div  *ngFor="let item of all" class="itemrow">
+      <img class="imgd" src="assets/imgs/smart.jpg">
+<ion-row >
+  <ion-col col-2><img src="{{D}}/profileImages_thump/{{item.SellerId.image}}"></ion-col>
+  <ion-col col-7>
+    <p class="infop">{{item.ItemName}}<p>
+    <p class="detp" (click)="goDetails(item)">التفاصيل</p>
+  </ion-col>
+  <ion-col col-3>
+    <p class="imgp">
+    <img src="assets/imgs/loc.png">{{item.Location}}</p>
+  </ion-col>
+ </ion-row>
+</div> 
+</div>
     <ion-infinite-scroll *ngIf="mode != 1"   (ionInfinite)="doInfinite($event)">
         <ion-infinite-scroll-content>
 
         </ion-infinite-scroll-content>
     </ion-infinite-scroll>
+
+
+
+
+   <!-- <div  *ngFor="let item of all" class="itemrow">
+      <img class="imgd" src="assets/imgs/smart.jpg">
+<ion-row >
+  <ion-col col-2><img src="{{D}}/profileImages_thump/{{item.SellerId.image}}"></ion-col>
+  <ion-col col-7>
+    <p class="infop">{{item.ItemName}}<p>
+    <p class="detp" (click)="goDetails(item)">التفاصيل</p>
+  </ion-col>
+  <ion-col col-3>
+    <p class="imgp">
+    <img src="assets/imgs/loc.png">{{item.Location}}</p>
+  </ion-col>
+ </ion-row>
+</div> -->
+
+    
 <!--<ion-row class="itemrow">-->
   <!--<ion-col col-2><img src="assets/imgs/comm.png"></ion-col>-->
   <!--<ion-col col-7>-->

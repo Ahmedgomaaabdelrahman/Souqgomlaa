@@ -24,6 +24,16 @@
 
         </ion-col>
     </ion-row>
+    <div class="imgdiv">
+        <ion-slides dir="rtl" pager  effect=flip>
+            <ion-slide *ngFor="let imag of images;let i=index" [attr.data-index]="i">
+                <!--<ion-icon  (click)="deletImgModal(i)" ios="ios-trash" md="md-trash"></ion-icon>-->
+
+                <img class="proimg"  src="{{imag}}">
+
+            </ion-slide>
+        </ion-slides>
+    </div>
     <div class="infodiv">
         <p><img src="{{D}}/profileImages_thump/{{image}}"></p>
         <p>{{res.Description}}</p>
@@ -63,16 +73,5 @@
             <!-- </p> -->
             <!-- </ion-col> -->
         </ion-row>
-    </div>
-
-    <div class="imgdiv">
-        <ion-slides dir="rtl" pager>
-            <ion-slide *ngFor="let imag of images;let i=index" [attr.data-index]="i">
-                <!--<ion-icon  (click)="deletImgModal(i)" ios="ios-trash" md="md-trash"></ion-icon>-->
-
-                <img class="proimg"  src="{{imag}}">
-
-            </ion-slide>
-        </ion-slides>
     </div>
 </ion-content>

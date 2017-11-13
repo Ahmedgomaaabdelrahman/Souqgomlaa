@@ -30,7 +30,7 @@ page-proddetails {
     }
 
     .infodiv{
-        margin-top: 60px !important;
+        margin-top: -33px;
         width: 85%;
         background: white;
         margin:20px auto;
@@ -82,13 +82,13 @@ page-proddetails {
     .imgdiv{
         width: 85%;
         background: white;
-        margin: 20px auto;
+        margin: 50px auto auto;
         border-radius: 20px;
         padding: 10px 0;
         text-align: center;
         img{
             display: inline-flex;
-            height: 80px;
+            height: 200px;
             margin: 0 10px;
         }
     }
