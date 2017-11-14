@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpModule ,Http} from '@angular/http';
+import {HttpModule, Http, RequestOptions} from '@angular/http';
 import 'rxjs/add/operator/map';
 import {Observable} from "rxjs/Observable";
 import {CommonProvider} from "../common/common";
@@ -17,6 +17,7 @@ export class AuthServiceProvider {
   http : any;
   _http:any;
   baseUrl:String;
+
     // url='http://45.55.85.173';
 
     constructor(private common:CommonProvider,http :HttpModule,_http:Http,public domain:DomainProvider){

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import {Http, Headers,RequestOptions} from '@angular/http';
 import 'rxjs/add/operator/map';
+import {BehaviorSubject} from "rxjs";
 import {DomainProvider} from "../domain/domain";
 
 /*
@@ -59,8 +60,14 @@ return this.http.post(this.baseUrl+'/ItemIn',seller).map(res=>res.json().res);
         return this.http.post(this.baseUrl+'/getMySoldItems',id).map(res=>res.json().res);
 
     }
+     headers = new Headers({'Content-Type': 'application/json'});
+
     getAllItems(r:any){
-        return this.http.post(this.baseUrl+'/getAllItems',r).map(res=>res.json().res);
+       let options = new RequestOptions({headers: this.headers, method: "post"});
+       let deleteOptions = new RequestOptions({headers: this.headers, method: "delete"});
+       let getOptions = new RequestOptions({headers: this.headers, method: "get"});
+       let putOptions = new RequestOptions({headers: this.headers, method: "put"});
+        return this.http.post(this.baseUrl+'/getAllItems',r,options).map(res=>res.json().res);
 
     }
     itemImageUpload(itemId:number,image:string){

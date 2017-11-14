@@ -5,6 +5,7 @@ import Pusher from 'pusher-js';
 // import { Push, PushObject, PushOptions } from '@ionic-native/push';
 import { FCM } from '@ionic-native/fcm';
 import {DomainProvider} from "../domain/domain";
+import * as firebase from "firebase";
 declare var FCMPlugin;
 
 const socket = new Pusher('90a90fff9718b47744df', {
@@ -21,13 +22,17 @@ const socket = new Pusher('90a90fff9718b47744df', {
 */
 @Injectable()
 export class ChatProvider {
-
-  constructor(public domain:DomainProvider,private fcm: FCM,public http: Http) {
+    ref=firebase.database().ref();
+    constructor(public domain:DomainProvider,private fcm: FCM,public http: Http) {
     console.log('Hello ChatProvider Provider');
 
 
 
   }
+  sendMsg(msg){
+this.ref.push('hi firebase')
+    }
+
 
   listenToAChannel(Token){
       Pusher.log = (msg) => {

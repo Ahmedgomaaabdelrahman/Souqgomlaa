@@ -38,16 +38,25 @@ import { DomainProvider } from '../providers/domain/domain';
 import { FavProvider } from '../providers/fav/fav';
 import { ChatProvider } from '../providers/chat/chat';
 import { FCM } from '@ionic-native/fcm';
+import * as firebase from "firebase";
 
-class CameraMock extends Camera {
-    getPicture(options) {
-        return new Promise((resolve, reject) => {
-
-            resolve("BASE_64_ENCODED_DATA_GOES_HERE");
-        })
-    }
-}
-
+// class CameraMock extends Camera {
+//     getPicture(options) {
+//         return new Promise((resolve, reject) => {
+//
+//             resolve("BASE_64_ENCODED_DATA_GOES_HERE");
+//         })
+//     }
+// }
+export const firebaseConfig = {
+    apiKey: "AIzaSyCmrYp8Ucydu3rH_cIQjYU1977sYwfqH-w",
+    authDomain: "souq-bb9e1.firebaseapp.com",
+    databaseURL: "https://souq-bb9e1.firebaseio.com",
+    projectId: "souq-bb9e1",
+    storageBucket: "",
+    messagingSenderId: "476131137040"
+};
+firebase.initializeApp(firebaseConfig);
 
 @NgModule({
   declarations: [

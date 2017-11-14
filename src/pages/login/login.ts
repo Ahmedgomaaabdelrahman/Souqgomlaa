@@ -6,6 +6,7 @@ import {AuthServiceProvider} from "../../providers/auth-service/auth-service";
 import { CommonProvider } from '../../providers/common/common';
 import {MygoodsPage} from "../mygoods/mygoods";
 import {ChatProvider} from "../../providers/chat/chat";
+import * as firebase from "firebase";
 
 @Component({
   selector: 'page-login',
@@ -18,7 +19,7 @@ password:number;
   }
 
   ionViewDidLoad() {
-
+this.chat.sendMsg('hi');
     // console.log('ionViewDidLoad LoginPage');
     //    this.auth.getD().subscribe(response=>
     //      {
@@ -26,7 +27,6 @@ password:number;
     //
     //      }
     //    );
-
 
 }
 
