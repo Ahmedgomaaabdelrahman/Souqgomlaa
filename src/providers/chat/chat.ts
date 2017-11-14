@@ -89,10 +89,10 @@ resolve(token)
         })
 
     }
-    sendMessage(){
-        let req={
-            'From':5,'To':5,'IsRead':true,'Body':'hey am from here'
-        }
-      return  this.http.post(this.domain.url+'/sendMessage',req).map(res=>res.json().res);
-    }
+    // sendMessage(){
+    //     let req={
+    //         'From':5,'To':5,'IsRead':true,'Body':'hey am from here'
+    //     }
+    //   return  this.http.post(this.domain.url+'/sendMessage',req).map(res=>res.json().res);
+    // }
 }
