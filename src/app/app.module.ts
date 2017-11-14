@@ -37,6 +37,7 @@ import { ItemSearchProvider } from '../providers/item-search/item-search';
 import { DomainProvider } from '../providers/domain/domain';
 import { FavProvider } from '../providers/fav/fav';
 import { ChatProvider } from '../providers/chat/chat';
+import { ChatHandle } from '../providers/chat/chatHandle';
 import { FCM } from '@ionic-native/fcm';
 import * as firebase from "firebase";
 

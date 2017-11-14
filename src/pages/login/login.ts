@@ -19,7 +19,6 @@ password:number;
   }
 
   ionViewDidLoad() {
-this.chat.sendMsg('hi');
     // console.log('ionViewDidLoad LoginPage');
     //    this.auth.getD().subscribe(response=>
     //      {

@@ -35,8 +35,8 @@
    </ion-col>
 </ion-row> -->
 
-   <div  *ngFor="let item of all" class="itemrow">
-      <img class="imgd" src="assets/imgs/smart.jpg">
+   <div  *ngFor="let item of all;let i=index" class="itemrow">
+      <img class="imgd" src={{this.itemimg[i]}}>
 <ion-row >
   <ion-col col-2><img src="{{D}}/profileImages_thump/{{item.SellerId.image}}"></ion-col>
   <ion-col col-7>
