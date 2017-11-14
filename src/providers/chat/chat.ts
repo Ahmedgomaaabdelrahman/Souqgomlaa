@@ -4,6 +4,7 @@ import 'rxjs/add/operator/map';
 import { FCM } from '@ionic-native/fcm';
 import {DomainProvider} from "../domain/domain";
 import * as firebase from "firebase";
+import {timestamp} from "rxjs/operator/timestamp";
 declare var FCMPlugin;
 
 // const socket = new Pusher('90a90fff9718b47744df', {
@@ -28,7 +29,20 @@ export class ChatProvider {
 
   }
   sendMsg(msg){
-this.ref.child('user/'+msg.currentID+'/sent'+msg.reciverId).set(msg.obj);
+this.ref.child('user/'+msg.currentID+'/'+msg.reciverId).set(
+    {date:timestamp}
+);
+      this.ref.child('msgs').push().set(
+          {date:timestamp,
+              body:msg.body,
+
+          }
+      );
+    }
+    msgsRecived(msg){
+this.ref.child('user/'+msg.currentID).once('value').then(data=>{
+data.val();
+});
     }
 
 

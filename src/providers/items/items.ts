@@ -122,6 +122,7 @@ return this.http.post(this.baseUrl+'/ItemIn',seller).map(res=>res.json().res);
             this.getItemImagesIDs(itemId).subscribe(res=>{
                 self. urls=[]
                 self. imgNames=[]
+                if(res[0]!=null)
                     self.  urls.push(this.baseUrl+'/ItemImages/'+res[0].Image);
                     // self.  imgNames.push(res[i].Image);
 

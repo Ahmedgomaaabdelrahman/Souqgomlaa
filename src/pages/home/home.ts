@@ -38,6 +38,7 @@ this.itemimg=[];
               this.i = res[(res.length) - 1].Id;
 
 for(let i=0;i<=this.i;i++){
+    if(res[i]!=null)
     this.items.getItemfirstImgUrl(res[i].Id).then(
         itemurl=>{
             console.log('itemurl',itemurl.urls);
