@@ -2,7 +2,7 @@ page-mygoods {
 .toprow{
     height: 60px;
     margin: 10px 20px;
-   
+
     text-align: center;
     ion-icon{
         font-size: 2.4em;
@@ -32,7 +32,7 @@ page-mygoods {
         font-size: 15px;
         color: #4c4b4b;
         font-family: cairoreg;
-    } 
+    }
 }
 
 .btn{
@@ -44,6 +44,27 @@ page-mygoods {
 .itemimg{
     height: 50px;
     width: 50px;
-    border-radius: 24px;
+    border-radius: 24px; 
 }
+  .menuT{color: white;
+    font-size: 3.5rem;
+    float: right;margin-top: 16px;
+display: unset !important}
+  .imgLogo{background-color: white;
+    border-radius: 14px;
+    height: 60px;
+    margin-right: 34%;}
+  .imgPer{    font-size: 3rem;
+    color: white;
+    /* margin-right: 55%; */
+    margin-right: 4%;
+    padding-right: 6px;
+    position: relative;
+    top: -15px;}
+  .imgMail{    font-size: 3rem;
+    color: white;
+    margin-right: 6%;
+    margin-top: po;
+    position: relative;
+    top: -15px;}
 }
