@@ -14,6 +14,7 @@ import {ItemSearchProvider} from "../../providers/item-search/item-search";
 })
 export class HomePage {
 all:any;
+itemimg:any;
 details:any;
 i:any
 d:any
@@ -27,7 +28,7 @@ this.valid=false;
   }
   help:any;
   getItems(){
-
+this.itemimg=[];
       this.items.getAllItems({'i': 0}).subscribe(res => {
 
           if (res != null) {
@@ -36,6 +37,14 @@ this.valid=false;
               console.log(this.all)
               this.i = res[(res.length) - 1].Id;
 
+for(let i=0;i<=this.i;i++){
+    if(res[i]!=null)
+    this.items.getItemfirstImgUrl(res[i].Id).then(
+        itemurl=>{
+            console.log('itemurl',itemurl.urls);
+this.itemimg.push(itemurl.urls)
+        });
+}
           } else if(res == null || res.length<10){
               this.help+=10
 
@@ -95,12 +104,23 @@ console.log('result',this.all)
 
                 this.common.loadDismess();
 
-                console.log('res',res)
+                //console.log('res',res)
 
                 if(res !=null){
                 for (let i=0; i < res.length; i++) {
+                    this.items.getItemfirstImgUrl(res[i].Id).then(
+                        itemurl=>{
+                            console.log('itemurl',itemurl);
+
+                        });
+                    this.items.getItemfirstImgUrl(res[i].Id).then(
+                        itemurl=>{
+                            console.log('itemurl',itemurl.urls);
+                            this.itemimg.push(itemurl.urls)
+                        });
                     this.all.push(res[i])
                 }}
+                console.log('items',this.all);
                 infiniteScroll.complete();
                 resolve();
 

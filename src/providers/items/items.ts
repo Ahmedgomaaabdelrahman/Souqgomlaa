@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import {Http, Headers,RequestOptions} from '@angular/http';
-import 'rxjs/add/operator/map';
 import {BehaviorSubject} from "rxjs";
+import 'rxjs/add/operator/map';
+
 import {DomainProvider} from "../domain/domain";
 
 /*
@@ -90,6 +91,7 @@ return this.http.post(this.baseUrl+'/ItemIn',seller).map(res=>res.json().res);
     }
     urls:any;
     imgNames:any;
+
     getItemsImgsUrls(itemId:number):Promise<any>{
         let self=this;
         let promise=new Promise((resolve,reject)=>{
@@ -109,6 +111,29 @@ return this.http.post(this.baseUrl+'/ItemIn',seller).map(res=>res.json().res);
                }
            }
         });
+        });
+
+        return promise;
+    }
+    getItemfirstImgUrl(itemId:number):Promise<any>{
+        let self=this;
+        let promise=new Promise((resolve,reject)=>{
+
+            this.getItemImagesIDs(itemId).subscribe(res=>{
+                self. urls=[]
+                self. imgNames=[]
+                if(res[0]!=null)
+                    self.  urls.push(this.baseUrl+'/ItemImages/'+res[0].Image);
+                    // self.  imgNames.push(res[i].Image);
+
+                    // if(i==(res.length-1)){
+                        console.log('imgs names',self. imgNames)
+                        let imgObject={'urls':self.urls,'imgNames': self. imgNames}
+
+                        resolve(imgObject);
+                    // }
+                // }
+            });
         });
 
         return promise;

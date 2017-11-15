@@ -1,19 +1,18 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
-import Pusher from 'pusher-js';
-// import { Push, PushObject, PushOptions } from '@ionic-native/push';
 import { FCM } from '@ionic-native/fcm';
 import {DomainProvider} from "../domain/domain";
 import * as firebase from "firebase";
+import {timestamp} from "rxjs/operator/timestamp";
 declare var FCMPlugin;
 
-const socket = new Pusher('90a90fff9718b47744df', {
-    cluster:  "us2",
-    // authEndpoint: '/pusher/auth/',
-    encrypted: true
-
-});
+// const socket = new Pusher('90a90fff9718b47744df', {
+//     cluster:  "us2",
+//     // authEndpoint: '/pusher/auth/',
+//     encrypted: true
+//
+// });
 /*
   Generated class for the ChatProvider provider.
 
@@ -30,19 +29,32 @@ export class ChatProvider {
 
   }
   sendMsg(msg){
-this.ref.push('hi firebase')
+this.ref.child('user/'+msg.currentID+'/'+msg.reciverId).set(
+    {date:timestamp}
+);
+      this.ref.child('msgs').push().set(
+          {date:timestamp,
+              body:msg.body,
+
+          }
+      );
+    }
+    msgsRecived(msg){
+this.ref.child('user/'+msg.currentID).once('value').then(data=>{
+data.val();
+});
     }
 
 
-  listenToAChannel(Token){
-      Pusher.log = (msg) => {
-          console.log(msg);
-      };
-      const channel = socket.subscribe("token");
-      channel.bind('message', function (data) {
-          console.log(data.message);
-      });
-  }
+  // listenToAChannel(Token){
+  //     Pusher.log = (msg) => {
+  //         console.log(msg);
+  //     };
+  //     const channel = socket.subscribe("token");
+  //     channel.bind('message', function (data) {
+  //         console.log(data.message);
+  //     });
+  // }
 
 getDviceToken(uid):Promise<any>{
     let promise=new Promise((resolve,reject)=>{
