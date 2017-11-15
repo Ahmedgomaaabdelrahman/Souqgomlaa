@@ -12,21 +12,25 @@ page-notifications {
         padding: 0 5px ;
     }
 
-    .menu{
-            border: 1px solid gray;
+   
+}
+.menu{
+   font-size: 3.5rem;
     padding: 0 5px;
     border-radius: 10px;
     background: #074b91;
-    color: white;
+    color: white;;
+    margin-top: 5px;
     }
-}
 
 .notifiyp{
-    text-align: end;
+    text-align: center;
     margin: -5px 0;
     font-size: 25px;
     font-family: cairobold;
     color: #074b91;
+    display: block;
+    margin: auto;
 }
 
 .notrow{
@@ -43,5 +47,19 @@ page-notifications {
         color: #4c4b4b;
         font-family: cairoreg;
     } 
+}
+.myimg{
+    height: 50px;
+    width: 50px;
+    margin: auto;
+    background-color: white;
+    margin-left: 70px;
+    border-radius: 10px;
+}
+.imgMail{   
+    color: white;
+    font-size: 3.5rem;
+    margin-top: 8px;
+  
 }
 }

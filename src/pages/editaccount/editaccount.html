@@ -67,8 +67,10 @@
 <div *ngIf="mode">
       <ion-item class="logitem" id="upload">
      <p>تحميل صوره شخصية</p>
+     <div style="display: inline-block;margin-right: 27%;">
           <ion-icon class="gallery" (click)="useCam(0)" name="images"></ion-icon>
           <ion-icon class="gallery" (click)="useCam(1)" name="camera"></ion-icon>
+        </div>
  </ion-item>
      <div class="topdiv" >
          <img src={{img}}>
