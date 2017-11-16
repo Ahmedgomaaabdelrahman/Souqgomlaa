@@ -37,13 +37,16 @@
     </div>
     <img class="per"  src="assets/imgs/per.png">
 </div>
+    <form #f="ngForm">
 <ion-footer no-lines class="chatfooter">
     <ion-row class="grayrow">
     
       <ion-col col-10>
-        <textarea class=textbuttom></textarea>
+        <textarea [(ngModel)]="M" name="M" class=textbuttom required></textarea>
       </ion-col>
-      <ion-col col-2><ion-icon class="camera" name="ios-camera-outline"></ion-icon></ion-col>
+      <ion-col col-2><button ion-button [disabled]="!f.valid"  (click)="send()" class="camera" name="ios-camera-outline"></button>
+      <!--<ion-col col-2><ion-icon (click)="send()" name="camra" class="camera" ></ion-icon>-->
+      </ion-col>
     </ion-row>
-    </ion-footer>
+</ion-footer></form>
 </ion-content>

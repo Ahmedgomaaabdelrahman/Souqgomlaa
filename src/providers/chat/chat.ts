@@ -29,22 +29,89 @@ export class ChatProvider {
 
   }
   sendMsg(msg){
-this.ref.child('user/'+msg.currentID+'/'+msg.reciverId).set(
-    {date:timestamp}
-);
-      this.ref.child('msgs').push().set(
-          {date:timestamp,
-              body:msg.body,
-
+        //get stored key if exists for chat msgs between two users
+      this.ref.child('user/'+msg.currentID+'/'+msg.reciverID+'/key')
+          .once('value').then(sloredkey=> {
+              //if a new msg will be exists then generate new key
+          if(sloredkey.val() ==null){
+              //generating the new key
+          let key = this.ref.child('msgs').push().once('value').then(data => {
+              //insert the date of the new msg in the both users refs
+              this.ref.child('user/' + msg.currentID + '/' + msg.reciverID).set(
+                  {
+                      date: Date.now(),
+                      key: data.key
+                  }
+              );
+              this.ref.child('user/' + msg.reciverID + '/' + msg.currentID).set(
+                  {
+                      date: Date.now(),
+                      key: data.key
+                  }
+              );
+              //then  push the msg details in the new key generated
+              this.ref.child('msgs/' + data.key).push().set(
+                  {
+                      date: Date.now(),
+                      body: msg.body,
+                      sender: msg.currentID,
+                      reciver: msg.reciverID
+                  }
+              );
+          });
+      }
+      //if an old conversation has been started already
+       else   if(sloredkey.val() !=null){
+              //changing date only in users key
+                  this.ref.child('user/' + msg.currentID + '/' + msg.reciverID+'/date').set(Date.now());
+                  this.ref.child('user/' + msg.reciverID + '/' + msg.currentID+'/date').set(Date.now());
+                  //store the new msg to the stored key we retrieved from sender tab
+              // thats meen there was a conversation already started
+                  this.ref.child('msgs/' + sloredkey.val()).push().set(
+                      {
+                          date: Date.now(),
+                          body: msg.body,
+                          sender: msg.currentID,
+                          reciver: msg.reciverID
+                      }
+                  );
           }
-      );
-    }
-    msgsRecived(msg){
-this.ref.child('user/'+msg.currentID).once('value').then(data=>{
-data.val();
-});
-    }
 
+      });
+
+
+    }
+    msgsRecived(currentID):Promise<any>{
+      let promise=new Promise((resolve,reject)=>{
+
+this.ref.child('user/').child(currentID).orderByValue().once('value').then(data=>{
+data.val();
+resolve(data.val());
+});
+      });
+      return promise;
+    }
+    getOpenedMessages(currentID):Promise<any>{
+      let promise=new Promise((resolve,reject)=>{
+      this.ref.child('user/'+currentID).on('value', snapshot =>{
+          // if(snapshot.val()!=null)
+          resolve(snapshot.val())
+          // else reject('فارغ')
+      });
+    });
+  return promise;
+  }
+
+allmsgs(currentID):Promise<any>{
+    let promise=new Promise((resolve,reject)=> {
+
+        this.ref.child('msgs/').orderByValue().startAt('').once('value').then(data => {
+            data.val();
+            resolve(data.val());
+        });
+    });
+    return promise;
+    }
 
   // listenToAChannel(Token){
   //     Pusher.log = (msg) => {

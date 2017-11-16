@@ -6,6 +6,7 @@ import {CommonProvider} from "../../providers/common/common";
 import {ItemsProvider} from "../../providers/items/items";
 import {DomainProvider} from "../../providers/domain/domain";
 import {FavProvider} from "../../providers/fav/fav";
+import {MessagedetailsPage} from "../messagedetails/messagedetails";
 
 @Component({
   selector: 'page-proddetails',
@@ -65,6 +66,10 @@ res:any=[];
         });
         });
       // this.star=star;
+
+    }
+    contact(){
+        this.navCtrl.push(MessagedetailsPage,this.navParams.data.SellerId);
 
     }
 }
