@@ -4,18 +4,18 @@
    </div>
 
 
-  <form class="forma">
+  <form class="forma" #f="ngForm">
     <ion-item class="logitem" style="background-image:url('assets/imgs/phone.png');background-repeat: no-repeat;background-position: 96%;" >
       <!--<ion-label ></ion-label>-->
-      <ion-input [(ngModel)]="phone" id="phone" name="phone" type="tel" placeholder="رقم الهاتف" ></ion-input>
+      <ion-input [(ngModel)]="phone" id="phone" name="phone" type="tel" placeholder="رقم الهاتف" required></ion-input>
     </ion-item>
 
     <ion-item class="logitem" style="background-image:url('assets/imgs/lock.png');background-repeat: no-repeat;background-position: 96%;">
       <!--<ion-label ></ion-label>-->
-      <ion-input [(ngModel)]="password" id="password" name="password" type="text" placeholder="كلمه المرور" ></ion-input>
+      <ion-input [(ngModel)]="password" id="password" name="password" type="password" placeholder="كلمه المرور" required></ion-input>
     </ion-item>
 
-    <button ion-button clear (click)="goHome()" class="enter">الدخول</button>
+    <button ion-button clear [disabled]="!f.valid" (click)="goHome()" class="enter">الدخول</button>
   </form>
    <button class="btn" (click)="signUp()" ion-button block>سجل الان</button>
    <button class="btn" (click)="visitor()"ion-button block>الدخول كزائر</button>
