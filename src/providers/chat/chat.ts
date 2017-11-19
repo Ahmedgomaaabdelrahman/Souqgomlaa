@@ -29,6 +29,7 @@ export class ChatProvider {
 
   }
   sendMsg(msg){
+
         //get stored key if exists for chat msgs between two users
       this.ref.child('user/'+msg.currentID+'/'+msg.reciverID+'/key')
           .once('value').then(sloredkey=> {
@@ -39,14 +40,23 @@ export class ChatProvider {
               //insert the date of the new msg in the both users refs
               this.ref.child('user/' + msg.currentID + '/' + msg.reciverID).set(
                   {
+                      sellerId:msg.sellerId,
+                      body: msg.body,
                       date: Date.now(),
-                      key: data.key
+                      key: data.key,
+                      buyerId:msg.buyerId,
+                      // otherUser: msg.otherUser,
+
                   }
               );
               this.ref.child('user/' + msg.reciverID + '/' + msg.currentID).set(
                   {
+                      sellerId:msg.sellerId,
+                      body: msg.body,
                       date: Date.now(),
-                      key: data.key
+                      key: data.key,
+                      buyerId:msg.buyerId,
+
                   }
               );
               //then  push the msg details in the new key generated
@@ -63,8 +73,20 @@ export class ChatProvider {
       //if an old conversation has been started already
        else   if(sloredkey.val() !=null){
               //changing date only in users key
-                  this.ref.child('user/' + msg.currentID + '/' + msg.reciverID+'/date').set(Date.now());
-                  this.ref.child('user/' + msg.reciverID + '/' + msg.currentID+'/date').set(Date.now());
+                  this.ref.child('user/' + msg.currentID + '/' + msg.reciverID).update(  {
+                      sellerId:msg.sellerId,
+                      body: msg.body,
+                      date: Date.now(),
+                      buyerId:msg.buyerId,
+                  });
+                  this.ref.child('user/' + msg.reciverID + '/' + msg.currentID).update(  {
+                      sellerId:msg.sellerId,
+                      body: msg.body,
+                      date: Date.now(),
+                      buyerId:msg.buyerId,
+
+                  });
+
                   //store the new msg to the stored key we retrieved from sender tab
               // thats meen there was a conversation already started
                   this.ref.child('msgs/' + sloredkey.val()).push().set(
@@ -81,31 +103,62 @@ export class ChatProvider {
 
 
     }
-    msgsRecived(currentID):Promise<any>{
-      let promise=new Promise((resolve,reject)=>{
+//     msgsRecived(currentID):Promise<any>{
+//       let promise=new Promise((resolve,reject)=>{
+//
+// this.ref.child('user/').child(currentID).orderByValue().once('value').then(data=>{
+// data.val();
+//     var returnArr = [];
+// var i=0;
+//     data.forEach((childSnapshot) =>{
+//         var item = childSnapshot.val();
+//         item.key = childSnapshot.key;
+// let l={'`i`':item};
+//         returnArr.push(l);
+//         i++;
+//     },i);
+//
+// resolve(returnArr);
+// });
+//       });
+//       return promise;
+//     }
+    getMessagesForDetailsPagetodetailsmessages(currentID,sellerId):Promise<any>{
+        let promise=new Promise((resolve,reject)=>{
+            this.ref.child('user/'+currentID+'/'+sellerId).on('value', snapshot =>{
+                // // if(snapshot.val()!=null)
+                // var returnArr = [];
+                // for(var i in snapshot.val()){
+                //     returnArr.push(snapshot.val()[i]);
+                //
+                // }
 
-this.ref.child('user/').child(currentID).orderByValue().once('value').then(data=>{
-data.val();
-resolve(data.val());
-});
-      });
-      return promise;
+                resolve(snapshot.val());
+            });
+        });
+        return promise;
     }
+
     getOpenedMessages(currentID):Promise<any>{
       let promise=new Promise((resolve,reject)=>{
       this.ref.child('user/'+currentID).on('value', snapshot =>{
           // if(snapshot.val()!=null)
-          resolve(snapshot.val())
-          // else reject('فارغ')
+          var returnArr = [];
+          for(var i in snapshot.val()){
+                  returnArr.push(snapshot.val()[i]);
+
+          }
+
+          resolve(returnArr);
       });
     });
   return promise;
   }
 
-allmsgs(currentID):Promise<any>{
+allmsgs(key):Promise<any>{
     let promise=new Promise((resolve,reject)=> {
 
-        this.ref.child('msgs/').orderByValue().startAt('').once('value').then(data => {
+        this.ref.child('msgs/'+key).orderByValue().startAt('').once('value').then(data => {
             data.val();
             resolve(data.val());
         });
@@ -126,13 +179,14 @@ allmsgs(currentID):Promise<any>{
 getDviceToken(uid):Promise<any>{
     let promise=new Promise((resolve,reject)=>{
           this.fcm.getToken().then(token=>{
-       let req={
+              resolve(token)
+
+              let req={
            'Id':uid,
            'Token':token
        }
               this.http.post(this.domain.url+'/storeTokenId',req).subscribe(res=>{
                   console.log('fcm response',res)
-                  resolve(res)
               });
 
           }).catch(e=>{

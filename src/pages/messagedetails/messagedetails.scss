@@ -46,9 +46,12 @@ color: #074b91;
     display: block;
 }
 .talktext{
-padding: 1em;
+    padding: 1em;
     text-align: left;
-line-height: 1.5em;
+    line-height: 1.5em;
+    height: auto;
+    margin-bottom: 29px;
+    width: auto;
 }
    
 .tri-right.btm-right:after{
@@ -78,7 +81,16 @@ border-color: lightgray lightgray transparent transparent;
 
 }
 .per{
-    float: left;
+    float: right;
+    position: relative;
+    left: 34px;
+    bottom: 24px;
+}
+    .pel{
+        float: left;
+        position: relative;
+        right: 34px;
+        bottom: 24px;
 }
 .textbuttom{
     width: 100%;

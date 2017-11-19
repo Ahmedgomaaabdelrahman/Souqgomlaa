@@ -27,13 +27,17 @@
 
 
 <div>
-  <ion-row class="itemrow" (click)="goDetails()">
-    <ion-col col-2><img class="per" src="assets/imgs/per.png"></ion-col>
+  <ion-row class="itemrow" *ngFor="let messager of messegers;let i=index" (click)="goDetails(messegers[i])">
+    <ion-col col-2>
+      <!--<img class="per" src="{{D}}/profileImages_thump/{{messager.seller.image}}">-->
+    </ion-col>
     <ion-col col-10 style="padding: 10px;">
-      <p class="infop">----------------------------------------------------</p>
+      <p class="infop">{{names[i]}}</p>
+
+      <p class="infop">{{messager.body}}</p>
     </ion-col>
   </ion-row>
-  <img class="trash" src="assets/imgs/trash.png">
+  <!--<img class="trash" src="assets/imgs/trash.png">-->
 </div>
 <!--<div>-->
   <!--<ion-row class="itemrow">-->

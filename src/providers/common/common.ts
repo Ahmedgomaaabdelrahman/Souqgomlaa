@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Storage } from '@ionic/storage';
-import {LoadingController, ToastController} from "ionic-angular";
+import {Events, LoadingController, ToastController} from "ionic-angular";
 import { Camera, CameraOptions } from '@ionic-native/camera';
 
 /*
@@ -14,7 +14,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
 @Injectable()
 export class CommonProvider {
 
-  constructor(private camera: Camera,public loadingCtrl: LoadingController, public toast:ToastController,private store:Storage,public http: Http) {
+  constructor(public event:Events,private camera: Camera,public loadingCtrl: LoadingController, public toast:ToastController,private store:Storage,public http: Http) {
     console.log('Hello CommonProvider Provider');
   }
 storeValue(key:any,value:any){
@@ -90,4 +90,8 @@ loading:any;
         })
         return promise;
     }
+    eventPublish(ev,content){
+        this.event.publish(ev, content)
+    }
+
 }

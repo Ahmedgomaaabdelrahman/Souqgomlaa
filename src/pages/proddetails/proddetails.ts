@@ -7,6 +7,7 @@ import {ItemsProvider} from "../../providers/items/items";
 import {DomainProvider} from "../../providers/domain/domain";
 import {FavProvider} from "../../providers/fav/fav";
 import {MessagedetailsPage} from "../messagedetails/messagedetails";
+import {ChatProvider} from "../../providers/chat/chat";
 
 @Component({
   selector: 'page-proddetails',
@@ -17,7 +18,7 @@ Name=this.navParams.data.SellerId.Name;
 image=this.navParams.data.SellerId.image;
 D:any;
 star:string;
-  constructor(public favProvider:FavProvider,public domain:DomainProvider,public itemsProvider:ItemsProvider,public common:CommonProvider,public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public chat :ChatProvider,public favProvider:FavProvider,public domain:DomainProvider,public itemsProvider:ItemsProvider,public common:CommonProvider,public navCtrl: NavController, public navParams: NavParams) {
       console.log('ionViewDidLoad ProddetailsPage',this.navParams.data.SellerId.Name);
       // this.Name=this.navParams.data.SellerId.Name
       this.D=this.domain.url;
@@ -69,7 +70,13 @@ res:any=[];
 
     }
     contact(){
-        this.navCtrl.push(MessagedetailsPage,this.navParams.data.SellerId);
+        console.log(this.navParams.data.SellerId)
 
+        this.common.getStoredValue('S').then(user=>{
+        this.chat.getMessagesForDetailsPagetodetailsmessages(user.Id,this.navParams.data.SellerId.sellerId).then(res=>{
+            this.navCtrl.push(MessagedetailsPage,{instances:res});
+
+        })
+        })
     }
 }

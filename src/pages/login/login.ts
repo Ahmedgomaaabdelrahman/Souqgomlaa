@@ -17,7 +17,7 @@ phone:number;
 password:number;
   constructor(public chat:ChatProvider,public events:Events,public commonProvider:CommonProvider,public auth:AuthServiceProvider,public navCtrl: NavController, public navParams: NavParams) {
   }
-
+ref=firebase.database().ref();
   ionViewDidLoad() {
     // console.log('ionViewDidLoad LoginPage');
     //    this.auth.getD().subscribe(response=>
@@ -52,14 +52,16 @@ this.commonProvider.loadDismess();
 
       }else{
 this.chat.getDviceToken(response.Id).then(res=>{
+    console.log(response.Id+'/devtoken'+res)
+    this.ref.child('user/'+response.Id+'/devtoken').set(res);
             // this.chat.listenToAChannel("eLml4NJxK5U:APA91bGl0kthK8hW48jl1Gsyi9niG4eOl5Pd0Zvw7XEzCgulMUk1OpK5nY_JbH1xkmGckzwUEfiIQ1MF6FdSb3YUuAdkJjAjQ6ozOqyG7pYKnBNWj5EAOTEWHyx2vCJAzhgvpkfoMiYt");
 });
             this.commonProvider.loadDismess();
             this.commonProvider.presentToast('تم الدخول بنجاح','اغلاق')
             this.events.publish('guest',false)
+            this.commonProvider.storeValue('S',response)
 
             this.events.publish('userType',response.Type)
-            this.commonProvider.storeValue('S',response)
             if(response.Type==1){
                 this.navCtrl.setRoot(MygoodsPage,{'data':0})
             }else{
