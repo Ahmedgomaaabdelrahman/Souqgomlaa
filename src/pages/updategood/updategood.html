@@ -7,7 +7,18 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title><myheader></myheader></ion-title>
+      <ion-title>
+          <ion-icon class="menuT" menuToggle name="menu" ></ion-icon>
+          <img class="imgLogo" src="assets/imgs/icon.png">
+          <ion-icon class="imgPer" name="person" (click)="goPer()"></ion-icon>
+          <ion-icon class="imgMail" name="mail" (click)="goChat()"></ion-icon>
+    
+          <ion-buttons right (click)="mainPage()">
+            <button ion-button  icon-only style="float: left;position: absolute;top: -45px;left: 0px;" >
+              <ion-icon style="color:white" ios="ios-arrow-back" md="md-arrow-back"></ion-icon><br>
+            </button>
+          </ion-buttons>
+      </ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -15,54 +26,44 @@
 
 <ion-content>
  <ion-row class="toprow">
-   <ion-col col-2>  
-     <ion-icon class="menu" menuToggle name="menu" ></ion-icon>
-   </ion-col>
-   <!-- <ion-col col-5><p class="notifiyp">البحث عن بضاعة</p></ion-col> -->
-   <ion-col col-10 >
-    
-     <div>
-        <p class="notifiyp">تعديل بضاعه</p>
-     
-        <ion-icon name="mail" style="float:left" (click)="goChat()"></ion-icon>
-        <img src="assets/imgs/per.png"style="float:left" (click)="goPer()">
-     </div>
-   </ion-col>
+        تعديل بضاعه
  </ion-row>
-    <button ion-button block color={{color}} (click)="statusManege()" >{{status}}</button>
+    <button class="Topbutton" ion-button block color={{color}} (click)="statusManege()" >{{status}}</button>
 
  <form class="forma" #f="ngForm">
      
     <ion-item class="logitem">
       <!--<ion-label ></ion-label>-->
-      <ion-input type="text" [(ngModel)]="itemName" id="itemName" name="itemName"   value={{itemName}} placeholder="الاسم" ></ion-input>
+      <ion-input type="text" [(ngModel)]="itemName" id="itemName" name="itemName"   value={{itemName}} placeholder="الاسم" required></ion-input>
     </ion-item>
 
     <ion-item class="logitem">
       <!--<ion-label ></ion-label>-->
-      <ion-input [(ngModel)]="quantity" name="quantity" id="quantity"  type="text" value={{quantity}} placeholder="الكمية" ></ion-input>
+      <ion-input [(ngModel)]="quantity" name="quantity" id="quantity"  type="text" value={{quantity}} placeholder="الكمية" required></ion-input>
     </ion-item>
     
        <ion-item class="logitem">
       <!--<ion-label ></ion-label>-->
-      <ion-input [(ngModel)]="origin" name="origin" id="origin" type="text" value={{origin}} placeholder="بلد المنشأ" ></ion-input>
+      <ion-input [(ngModel)]="origin" name="origin" id="origin" type="text" value={{origin}} placeholder="بلد المنشأ" required></ion-input>
     </ion-item>
 
        <ion-item class="logitem">
       <!--<ion-label ></ion-label>-->
-      <ion-input  [(ngModel)]="price" name="price" id="price" type="number"  placeholder="السعر" ></ion-input>
+      <ion-input  [(ngModel)]="price" name="price" id="price" type="number"  placeholder="السعر" required></ion-input>
     </ion-item>
 
 
 
     <ion-item class="logitem">
-      <ion-textarea  [(ngModel)]="description" name="description" id="description" type="text" value={{description}} placeholder="الوصف"></ion-textarea>
+      <ion-textarea  [(ngModel)]="description" name="description" id="description" type="text" value={{description}} placeholder="الوصف" required></ion-textarea>
     </ion-item>
      <ion-item class="logitem">
          <!-- <ion-icon ion-button block  class="gallery" (click)="useCam(0)" name="images"></ion-icon>
          <ion-icon ion-button block class="gallery" (click)="useCam(1)" name="camera"></ion-icon> -->
-         <ion-icon class="gallery" (click)="useCam(0)" name="images"></ion-icon>
-         <ion-icon class="gallery" (click)="useCam(1)" name="camera"></ion-icon>
+         <div style="margin-right: 34%;font-size: 3.5rem;color: #074b91;">
+         <ion-icon  (click)="useCam(0)" name="images"></ion-icon>
+         <ion-icon style="padding-right: 15px;" (click)="useCam(1)" name="camera"></ion-icon>
+        </div>
      </ion-item>     <ion-slides dir="rtl" pager>
          <ion-slide *ngFor="let imag of images;let i=index" [attr.data-index]="i">
              <ion-icon  (click)="deletImgModal(i)" ios="ios-trash" md="md-trash"></ion-icon>
@@ -71,6 +72,6 @@
 
          </ion-slide>
      </ion-slides>
-    <button ion-button clear (click)="submit()" class="enter">تم</button>
+    <button ion-button clear [disabled]="!f.valid" (click)="submit()" class="enter">تم</button>
 </form>
 </ion-content>

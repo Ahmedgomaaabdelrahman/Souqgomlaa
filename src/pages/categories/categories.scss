@@ -1,22 +1,11 @@
 page-categories {
 .toprow{
-    height: 60px;
-    margin: 10px 20px;
-   
     text-align: center;
-    ion-icon{
-        font-size: 2.4em;
-        color: #074b91;
-        padding: 0 5px ;
-    }
+    margin: auto;
+    display: block;
+    font-size: 2.4em;
+    color: #074b91;
 
-    .menu{
-            border: 1px solid gray;
-    padding: 0 5px;
-    border-radius: 10px;
-    background: #074b91;
-    color: white;
-    }
 }
 
 .notifiyp{
@@ -41,4 +30,25 @@ page-categories {
         height:60px;
     }
 }
+.menuT{color: white;
+    font-size: 3.5rem;
+    float: right;margin-top: 16px;
+display: unset !important}
+  .imgLogo{background-color: white;
+    border-radius: 14px;
+    height: 60px;
+    margin-right: 34%;}
+  .imgPer{    font-size: 3rem;
+    color: white;
+    /* margin-right: 55%; */
+    margin-right: 4%;
+    padding-right: 6px;
+    position: relative;
+    top: -15px;}
+  .imgMail{    font-size: 3rem;
+    color: white;
+    margin-right: 14%;
+ 
+    position: relative;
+    top: -15px;} 
 }

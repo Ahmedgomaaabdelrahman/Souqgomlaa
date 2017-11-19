@@ -1,21 +1,12 @@
 page-updategood {
 .toprow{
-    height: 60px;
-    margin: 10px 5px;
+    display: block;
+    margin: auto;
     text-align: center;
-    ion-icon{
-        font-size: 2.4em;
-        color: #074b91;
-        padding: 0 5px ;
-    }
-
-    .menu{
-        border: 1px solid gray;
-        padding: 0 5px;
-        border-radius: 10px;
-        background: #074b91;
-        color: white;
-    }
+    color: #074b91;
+    font-size: 2.5rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .notifiyp{
@@ -56,7 +47,7 @@ page-updategood {
     border-bottom:1px solid lightgray;
   
 }
-.text-input-md{
+.text-input{
     margin: 0 18px !important;
     width: 90%;
     height: 38px;
@@ -99,7 +90,7 @@ page-updategood {
     font-family: cairobold;
    
 }
-    .button-md {
+    .Topbutton {
         margin-bottom: 20px !important;
         height: 40px;
         font-size: 2rem;
@@ -134,4 +125,25 @@ page-updategood {
         color: #104c91;
         width: 50%;
     }
+    .menuT{color: white;
+        font-size: 3.5rem;
+        float: right;margin-top: 16px;
+    display: unset !important}
+      .imgLogo{background-color: white;
+        border-radius: 14px;
+        height: 60px;
+        margin-right: 34%;}
+      .imgPer{    font-size: 3rem;
+        color: white;
+        /* margin-right: 55%; */
+        margin-right: 4%;
+        padding-right: 6px;
+        position: relative;
+        top: -15px;}
+      .imgMail{    font-size: 3rem;
+        color: white;
+        margin-right: 6%;
+        margin-top: po;
+        position: relative;
+        top: -15px;} 
 }

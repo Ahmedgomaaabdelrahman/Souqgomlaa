@@ -82,7 +82,7 @@ page-proddetails {
     .imgdiv{
         width: 85%;
         background: white;
-        margin: 50px auto auto;
+        margin: 15px auto auto;
         border-radius: 20px;
         padding: 10px 0;
         text-align: center;
@@ -90,9 +90,30 @@ page-proddetails {
             display: inline-flex;
             height: 200px;
             margin: 0 10px;
+            border-radius: 20px;
         }
     }
     .swiper-container-flip {
         overflow: hidden;
     }
+    .menuT{color: white;
+        font-size: 3.5rem;
+        float: right;margin-top: 16px;
+    display: unset !important}
+      .imgLogo{background-color: white;
+        border-radius: 14px;
+        height: 60px;
+        margin-right: 34%;}
+      .imgPer{    font-size: 3rem;
+        color: white;
+        /* margin-right: 55%; */
+        margin-right: 4%;
+        padding-right: 6px;
+        position: relative;
+        top: -15px;}
+      .imgMail{    font-size: 3rem;
+        color: white;
+        margin-right: 5%;
+        position: relative;
+        top: -15px;} 
 }
