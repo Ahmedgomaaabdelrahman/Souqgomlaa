@@ -1,3 +1,4 @@
+import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { MessagesPage } from "../messages/messages";
@@ -78,5 +79,8 @@ res:any=[];
 
         })
         })
+    }
+    mainPage(){
+        this.navCtrl.popTo(HomePage);
     }
 }

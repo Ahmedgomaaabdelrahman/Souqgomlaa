@@ -7,6 +7,7 @@ import {DomainProvider} from "../../providers/domain/domain";
 import {AuthServiceProvider} from "../../providers/auth-service/auth-service";
 
 import * as firebase from "firebase";
+import { HomePage } from '../home/home';
 
 
 @Component({
@@ -94,4 +95,7 @@ names:any
 //       this.ref.child('user/'+user.Id).unsubscribe();
       this.navCtrl.push(MessagedetailsPage,{chatInfo:m,instances:m});
   }
+  mainPage(){
+    this.navCtrl.popTo(HomePage);
+}
 }

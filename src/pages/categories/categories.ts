@@ -1,3 +1,4 @@
+import { HomePage } from './../home/home';
 import { AddgoodPage } from './../addgood/addgood';
 import { Component } from '@angular/core';
 import { NavController, ViewController,NavParams } from 'ionic-angular';
@@ -49,4 +50,7 @@ this.search.getCategories().subscribe(res=>{
 
     }
   }
+  mainPage(){
+    this.navCtrl.popTo(HomePage);
+}
 }

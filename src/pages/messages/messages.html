@@ -2,7 +2,15 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title> <myheader></myheader></ion-title>
+    <ion-title>
+        <ion-icon class="menuT" menuToggle name="menu" ></ion-icon>
+        <img class="imgLogo" src="assets/imgs/icon.png">
+        <ion-buttons right (click)="mainPage()">
+          <button ion-button  icon-only style="float: left;position: absolute;top: -45px;left: 0px;" >
+            <ion-icon style="color:white" ios="ios-arrow-back" md="md-arrow-back"></ion-icon><br>
+          </button>
+        </ion-buttons>
+      </ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -11,17 +19,11 @@
 <ion-content >
 
   <ion-row class="toprow">
-    <ion-col col-2>  
-      <ion-icon class="menu" name="menu" menuToggle></ion-icon>
-    </ion-col>
-    <ion-col col-8 class="message">
+   
+    <ion-col  class="message">
       الرسائل
     </ion-col>
-    <ion-col col-2 style="text-align: end">
-      <div>
-         <!-- <ion-icon  style="transform: rotate(90deg)"name="options"></ion-icon> -->
-      </div>
-    </ion-col>
+  
   </ion-row>
 
 
@@ -32,9 +34,9 @@
       <!--<img class="per" src="{{D}}/profileImages_thump/{{messager.seller.image}}">-->
     </ion-col>
     <ion-col col-10 style="padding: 10px;">
-      <p class="infop">{{names[i]}}</p>
+      <p class="inftop">{{names[i]}}</p>
 
-      <p class="infop">{{messager.body}}</p>
+      <p class="info">{{messager.body}}</p>
     </ion-col>
   </ion-row>
   <!--<img class="trash" src="assets/imgs/trash.png">-->

@@ -1,3 +1,4 @@
+import { HomePage } from './../home/home';
 import { UpdategoodPage } from './../updategood/updategood';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
@@ -75,5 +76,8 @@ this.goods.splice(index,1)
     console.log('item deleted : ',res)
 
 })
+    }
+    mainPage(){
+        this.navCtrl.popTo(HomePage);
     }
 }

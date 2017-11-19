@@ -70,11 +70,17 @@
 
             <!-- <ion-col col-6 style="text-align: end">
               <p class="namep" style="color: gray;">  -->
-            <img src="assets/imgs/per.png">{{Name}}
+                  <ion-col col-2>
+            <img src="assets/imgs/per.png">
+        </ion-col>
+        <ion-col col-8>
+                {{Name}}
+        </ion-col>
             <!-- </p> -->
             <!-- </ion-col> -->
-            <ion-col>
-                <button ion-button="" (click)="contact()">تواصل</button>
+            <ion-col col-2>
+                <!-- <button ion-button="" (click)="contact()">تواصل</button> -->
+                <ion-icon name="ios-chatbubbles" (click)="contact()"></ion-icon>
             </ion-col>
         </ion-row>
     </div>

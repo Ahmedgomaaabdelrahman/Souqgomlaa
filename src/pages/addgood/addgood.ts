@@ -1,3 +1,4 @@
+import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
 import {NavController, ModalController, NavParams, ViewController} from 'ionic-angular';
 import { MessagesPage } from "../messages/messages";
@@ -90,7 +91,9 @@ this.items.addItem(this.itemName,this.quantity,this.origin,this.price,this.descr
         console.log('array id : ', img)
 
     }
-
+    mainPage(){
+        this.navCtrl.popTo(HomePage);
+    }
 }
 // @Component({
 //     selector: 'page-addgood',

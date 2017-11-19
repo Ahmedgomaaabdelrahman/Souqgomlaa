@@ -1,3 +1,4 @@
+import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { MessagesPage } from "../messages/messages";
@@ -5,6 +6,7 @@ import {FavProvider} from "../../providers/fav/fav";
 import {CommonProvider} from "../../providers/common/common";
 import {ProddetailsPage} from "../proddetails/proddetails";
 import {DomainProvider} from "../../providers/domain/domain";
+import { MenuController } from 'ionic-angular/components/app/menu-controller';
 
 @Component({
   selector: 'page-favorites',
@@ -13,7 +15,7 @@ import {DomainProvider} from "../../providers/domain/domain";
 export class FavoritesPage {
     all:any;
     D:any;
-  constructor(public domain:DomainProvider,public favProvider:FavProvider,public common:CommonProvider,public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public domain:DomainProvider,public favProvider:FavProvider,public common:CommonProvider,public navCtrl: NavController, public navParams: NavParams,public menuCtrl:MenuController) {
       this.D=this.domain.url;
 
   }
@@ -37,4 +39,8 @@ export class FavoritesPage {
   goChat(){
     this.navCtrl.push(MessagesPage);
   }
+  mainPage(){
+    this.navCtrl.popTo(HomePage);
+}
+
 } 

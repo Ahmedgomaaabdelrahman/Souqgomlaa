@@ -1,22 +1,6 @@
 page-messages {
 .toprow{
-    height: 60px;
-    margin: 10px 20px;
-    
-    text-align: center;
-    ion-icon{
-        font-size: 2.4em;
-        color: #074b91;
-        padding: 0 5px ;
-    }
-
-    .menu{
-            border: 1px solid gray;
-    padding: 0 5px;
-    border-radius: 10px;
-    background: #074b91;
-    color: white;
-    }
+    text-align: center; 
 }
 .message{
 text-align: center;
@@ -30,15 +14,21 @@ color: #074b91;
     border-radius: 35px;
     margin-right: 10px;
     background-color: white;
-    height: 55px;
-    width: 84%;
+    height: auto;
+    width: 95%;
+    box-shadow:0px 7px 0px rgba(128, 128, 128, 0.15);
     margin-top: 12px;
     display: inline-flex
    
 }
-.infop{
+.inftop{
     margin: 0;
-    font-size: 12px;
+    font-size: 2rem;
+    color: #074b91;
+}
+.info{
+    font-size: 1rem;
+    margin: 0;
 }
 .trash{
     width: 8%;
@@ -51,4 +41,12 @@ color: #074b91;
 .per{
     padding: 5px;
 }
+.menuT{color: white;
+    font-size: 3.5rem;
+    float: right;margin-top: 16px;
+display: unset !important}
+  .imgLogo{background-color: white;
+    border-radius: 14px;
+    height: 60px;
+    margin-right: 34%;}
 }

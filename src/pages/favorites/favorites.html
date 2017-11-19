@@ -2,31 +2,25 @@
 <ion-header>
   
     <ion-navbar>
-      <ion-title><myheader></myheader></ion-title>
+      <ion-title>
+       
+          <ion-icon class="menuT" menuToggle  name="menu" ></ion-icon>
+    
+          <img class="imgLogo" src="assets/imgs/icon.png">
+          <ion-icon class="imgMail" name="mail" (click)="goChat()"></ion-icon>
+          <ion-buttons right (click)="mainPage()">
+            <button ion-button  icon-only style="float: left;position: absolute;top: -45px;left: 0px;" >
+              <ion-icon style="color:white" ios="ios-arrow-back" md="md-arrow-back"></ion-icon><br>
+            </button>
+          </ion-buttons>
+      </ion-title>
     </ion-navbar>
   
   </ion-header>
   
   
   <ion-content>
-   <ion-row class="toprow">
-     <ion-col col-2>  
-       <ion-icon class="menu" menuToggle name="menu" ></ion-icon>
-     </ion-col>
-      <ion-col col-6> <p class="notifiyp"> الاهتمامات</p> </ion-col>
-     <ion-col col-4 style="text-align: end">
-       <div>
-          <!-- <img class="per" src="assets/imgs/star.png"> -->
-          <ion-icon name="mail" (click)="goChat()"></ion-icon>
-          <!-- <ion-icon  style="transform: rotate(90deg)"name="options"></ion-icon> -->
-       </div>
-     </ion-col>
-   </ion-row>
-  
-  
-  
-  
-
+     <p class="notifiyp"> الاهتمامات</p>
       <div>
 
           <ion-row  *ngFor="let item of all" class="itemrow">

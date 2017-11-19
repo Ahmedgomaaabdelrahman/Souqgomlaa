@@ -1,3 +1,4 @@
+import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { MessagesPage } from "../messages/messages";
@@ -138,5 +139,7 @@ if(this.status=='معروضة')    {
 
 }
 }
-
+mainPage(){
+    this.navCtrl.popTo(HomePage);
+}
 }

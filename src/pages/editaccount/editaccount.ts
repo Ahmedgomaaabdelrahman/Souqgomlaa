@@ -1,3 +1,4 @@
+import { HomePage } from './../home/home';
 import { FavoritesPage } from '../favorites/favorites';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
@@ -111,5 +112,8 @@ this.auth.editProfile(this.id,this.name,this.email,this.password,this.phone,this
     getSelected(town:any){
         this.Location=town;
         console.log(town);
+    }
+    mainPage(){
+        this.navCtrl.popTo(HomePage);
     }
 }
