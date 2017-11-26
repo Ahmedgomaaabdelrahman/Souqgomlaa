@@ -66,7 +66,7 @@
         </div>
      </ion-item>     <ion-slides dir="rtl" pager>
          <ion-slide *ngFor="let imag of images;let i=index" [attr.data-index]="i">
-             <ion-icon  (click)="deletImgModal(i)" ios="ios-trash" md="md-trash"></ion-icon>
+             <ion-icon style="font-size: 3rem;padding: 5px;color: #074b91;"  (click)="deletImgModal(i)" ios="ios-trash" md="md-trash"></ion-icon>
 
              <img class="proimg"  src="{{imag}}">
 

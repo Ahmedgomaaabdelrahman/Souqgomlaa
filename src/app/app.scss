@@ -113,6 +113,9 @@ ion-item-sliding.active-slide.active-options-left ion-item-options:not([side=rig
     transform: translateZ(0);
     pointer-events: none;
 }
+ion-navbar.toolbar.toolbar-ios{
+    height: 67px;
+}
 // App Global Sass
 // --------------------------------------------------
 // Put style rules here that you want to apply globally. These
