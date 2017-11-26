@@ -106,20 +106,18 @@ return this._http.post(this.baseUrl+'/update',edit).map(res=>res.json().res);
       return this.baseUrl;
   }
     getUserById(id)
-    // :Promise<any>
     {
       let self=this;
-      // let promise=new Promise((resolve,reject)=>{
 
       let user={
           Id:id
       }
     return  self._http.post(self.baseUrl+'/getUser',user).map(res=> res.json().res)
-        //.subscriptions(user=>{
-         // resolve(user)
-     // });
-//       })
-// return promise;
+
+    }
+    makeVerefaied(Vcode,V){
+        let req={'Vcode':Vcode,'V':V};
+        return this._http.post(this.baseUrl+'/makeVerefaied',req).map(res=> res.json().res);
     }
 }
 

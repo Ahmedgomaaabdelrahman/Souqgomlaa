@@ -95,7 +95,8 @@ this.common.presentToast('رقم الهاتف مستخدم بالفعل','اغل
 
         this.events.publish('userType',response.Type)
         this.common.storeValue('S',response)
-        this.navCtrl.setRoot(HomePage);}
+
+        this.navCtrl.setRoot(ActivationPage,response.Id);}
 }
 //get selected town
     getSelected(town:any){
