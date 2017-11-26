@@ -32,35 +32,35 @@ export class MyApp {
         }catch(e){
             console.log(e);
         }
-        /////
+        ///////////////////////////////
         //back button handle
         //Registration of push in Android and Windows Phone
-        var lastTimeBackPress = 0;
-        var timePeriodToExit  = 2000;
+        // var lastTimeBackPress = 0;
+        // var timePeriodToExit  = 2000;
+        //
+        // platform.registerBackButtonAction(() => {
+        //     // get current active page
+        //     let view = this.nav.getActive();
+        //     // if (view.component.name == "TabsPage") {
+        //         //Double check to exit app
+        //         if (new Date().getTime() - lastTimeBackPress < timePeriodToExit) {
+        //             platform.exitApp(); //Exit from app
+        //         } else {
+        //             let toast = this.toastCtrl.create({
+        //                 message:  'انقر مرة اخري للخروج من التطبيق',
+        //                 duration: 3000,
+        //                 position: 'bottom'
+        //             });
+        //             toast.present();
+        //             lastTimeBackPress = new Date().getTime();
+        //         }
+        //     // } else {
+        //         // go to previous page
+        //         // this.nav.pop({});
+        //     // }
+        // });
 
-        platform.registerBackButtonAction(() => {
-            // get current active page
-            let view = this.nav.getActive();
-            // if (view.component.name == "TabsPage") {
-                //Double check to exit app
-                if (new Date().getTime() - lastTimeBackPress < timePeriodToExit) {
-                    platform.exitApp(); //Exit from app
-                } else {
-                    let toast = this.toastCtrl.create({
-                        message:  'انقر مرة اخري للخروج من التطبيق',
-                        duration: 3000,
-                        position: 'bottom'
-                    });
-                    toast.present();
-                    lastTimeBackPress = new Date().getTime();
-                }
-            // } else {
-                // go to previous page
-                // this.nav.pop({});
-            // }
-        });
-
-        //////
+        /////////////////////////////
         this.guestUser=false;
 
         this.events.subscribe('userType',user=>{

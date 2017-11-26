@@ -10,7 +10,7 @@ import 'rxjs/add/operator/map';
 */
 @Injectable()
 export class DomainProvider {
-    url='http://45.55.85.173';
+    url='http://sooqaljomlah.com';
   constructor(public http: Http) {
     console.log('Hello DomainProvider Provider');
   }

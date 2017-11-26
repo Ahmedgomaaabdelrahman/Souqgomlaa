@@ -6,6 +6,7 @@ import { ProfilePage } from "../profile/profile";
 import { MessagesPage } from "../messages/messages";
 import {CommonProvider} from "../../providers/common/common";
 import {ItemsProvider} from "../../providers/items/items";
+import {DomainProvider} from "../../providers/domain/domain";
 
 
 @Component({
@@ -15,8 +16,9 @@ import {ItemsProvider} from "../../providers/items/items";
 export class MygoodsPage {
 goods:any=[];
 thumps:any=[];
-  constructor(public navCtrl: NavController, public navParams: NavParams,private common:CommonProvider,private items:ItemsProvider) {
-
+D:any
+  constructor(public domain:DomainProvider,public navCtrl: NavController, public navParams: NavParams,private common:CommonProvider,private items:ItemsProvider) {
+this.D=this.domain.url
   }
   mode:any;
   ionViewWillEnter(){
@@ -31,7 +33,7 @@ thumps:any=[];
 
                    console.log('myItems',res.item[i]);
                    if(res.img[i]!=null){
-                       this.thumps.push('http://45.55.85.173/Image_Thump/'+res.img[i].Image);}
+                       this.thumps.push(this.D+'/Image_Thump/'+res.img[i].Image);}
                    this.goods.push(res.item[i]);
 
                }
