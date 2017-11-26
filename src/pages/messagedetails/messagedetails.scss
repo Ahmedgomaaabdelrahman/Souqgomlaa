@@ -47,11 +47,20 @@ color: #074b91;
     bottom: 22px;
 }
 .talktext{
-    padding: 1em;
+    padding: 1rem;
     text-align: left;
     line-height: 1.5em;
     height: auto;
-    margin-bottom: 29px;
+    margin-bottom: 35px;
+    width: auto;
+    text-align: right;
+}
+.talktext2{
+    padding: 1rem;
+    text-align: left;
+    line-height: 1.5em;
+    height: auto;
+    margin-bottom: 35px;
     width: auto;
 }
    
@@ -61,7 +70,7 @@ position: absolute;
 width: 0;
 height: 0;
 left: auto;
-right: 0px;
+right: 5px;
 bottom: -12px;
 border: 12px solid;
 border-color: white white transparent transparent;
@@ -85,13 +94,16 @@ border-color: lightgray lightgray transparent transparent;
     float: right;
     position: relative;
     left: 34px;
-    bottom: 24px;
+    bottom: 42px;
+    padding-right: 8px;
+    margin-top: 5px;
 }
     .pel{
         float: left;
         position: relative;
-        right: 34px;
+        right: 25px;
         bottom: 24px;
+       
 }
 .textbuttom{
     width: 100%;

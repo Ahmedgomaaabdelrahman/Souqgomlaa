@@ -18,7 +18,6 @@ export class AuthServiceProvider {
   _http:any;
   baseUrl:String;
 
-    // url='http://45.55.85.173';
 
     constructor(private common:CommonProvider,http :HttpModule,_http:Http,public domain:DomainProvider){
     this.http=http;

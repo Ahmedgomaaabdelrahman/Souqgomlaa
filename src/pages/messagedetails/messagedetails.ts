@@ -58,6 +58,10 @@ if(this.keyboard.didShow)this.icon="ios-send"
       console.log( this.myMsgs)
 
     console.log('ionViewDidLoad MessagedetailsPage',this.navParams.data);
+    setTimeout(() => {
+        this.content.scrollToBottom(300);
+     }, 1000);
+  
     // this.chat
   }
 
@@ -112,7 +116,10 @@ this.ref.child('n/'+res.Id+'/').set({
 
       }
   });
-  this.content.scrollToBottom();
+ // this.content.scrollToBottom();
+ setTimeout(() => {
+    this.content.scrollToBottom(300);
+ }, 1000);
   
   }
   dirClass:string;
