@@ -12,12 +12,12 @@
       <p style="text-align: center">تم ارسال رساله تاكيد لهاتفك برجاء ارسال الكود المرسل اليك</p>
    
       <p>الكود المرسل</p> 
-      <div> 
-          <ion-input type="text" maxlength="1"></ion-input>
-          <ion-input type="text" maxlength="1"></ion-input>
-          <ion-input type="text" maxlength="1"></ion-input>
-          <ion-input type="text" maxlength="1"></ion-input>
-      </div>
-      <button ion-button clear (click)="goHome()" class="enter">تسجيل</button>
+      <form #f="ngForm">
+          <ion-input [(ngModel)]="first" name="first" type="text" maxlength="4" ></ion-input>
+          <!--<ion-input [(ngModel)]="second" name="second" type="text" maxlength="1" required></ion-input>-->
+          <!--<ion-input  [(ngModel)]="thierd" name="thierd" type="text" maxlength="1"required></ion-input>-->
+          <!--<ion-input [(ngModel)]="fourth" name="fourth" type="text" maxlength="1" required></ion-input>-->
+      </form>
+      <button ion-button clear (click)="goHome()" class="enter" >تسجيل</button>
    </div>
 </ion-content>

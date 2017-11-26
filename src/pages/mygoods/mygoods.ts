@@ -46,7 +46,7 @@ this.D=this.domain.url
           
             console.log('myItems',res.item[i]);
             if(res.img[i]!=null){
-this.thumps.push('http://45.55.85.173/Image_Thump/'+res.img[i].Image);}
+this.thumps.push(this.D+'/Image_Thump/'+res.img[i].Image);}
             this.goods.push(res.item[i]);
 
         }
