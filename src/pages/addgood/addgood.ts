@@ -5,6 +5,7 @@ import { MessagesPage } from "../messages/messages";
 import { ProfilePage } from "../profile/profile";
 import {ItemsProvider} from "../../providers/items/items";
 import {CommonProvider} from "../../providers/common/common";
+import {MygoodsPage} from "../mygoods/mygoods";
 
 
 @Component({
@@ -57,7 +58,7 @@ this.items.addItem(this.itemName,this.quantity,this.origin,this.price,this.descr
       if(i==(this.images.length-1)){
       this.common.loadDismess()
       this.common.presentToast('تمت الاضافة بنجاح','تم');
-
+this.navCtrl.setRoot(MygoodsPage)
       }
   });
 

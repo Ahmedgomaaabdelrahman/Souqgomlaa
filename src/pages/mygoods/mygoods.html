@@ -40,31 +40,31 @@
   </ion-col>
 </ion-row> -->
 
-<!-- <div class="noitems">لا يوجد منتجات</div> -->
+ <div *ngIf="goods == ''" class="noitems">لا يوجد منتجات</div>
 
   <ion-list>
 
-  <ion-item-sliding cancelable="false"  *ngFor="let good of goods;let i=index" #item >
-    <ion-item cancelable="false">
-<ion-row>
-      <ion-col col-2><img class="itemimg" src={{thumps[i]}}></ion-col>
-      <ion-col col-7 style="padding-top: 20px;"> {{good.ItemName}}</ion-col>
-</ion-row>
-      <!--<ion-col col-3><button ion-button block   (click)="goUpdate(good)">تعديل</button></ion-col>-->
-    </ion-item>
-    <ion-item-options cancelable="false" side="right" >
-      <button ion-button color="danger" (click)="deleteItem(good.Id,i)" expandable="true" cancelable="false" >حذف</button>
-    </ion-item-options>
-    <ion-item-options cancelable="false" side="left">
-      <button ion-button  expandable="true" (click)="goUpdate(good)" cancelable="false">تعديل</button>
-    </ion-item-options>
-  </ion-item-sliding>
+  <!--<ion-item-sliding cancelable="false"  *ngFor="let good of goods;let i=index" #item >-->
+    <!--<ion-item cancelable="false">-->
+<!--<ion-row>-->
+      <!--<ion-col col-2><img class="itemimg" src={{thumps[i]}}></ion-col>-->
+      <!--<ion-col col-7 style="padding-top: 20px;"> {{good.ItemName}}</ion-col>-->
+<!--</ion-row>-->
+      <!--&lt;!&ndash;<ion-col col-3><button ion-button block   (click)="goUpdate(good)">تعديل</button></ion-col>&ndash;&gt;-->
+    <!--</ion-item>-->
+    <!--<ion-item-options cancelable="false" side="right" >-->
+      <!--<button ion-button color="danger" (click)="deleteItem(good.Id,i)" expandable="true" cancelable="false" >حذف</button>-->
+    <!--</ion-item-options>-->
+    <!--<ion-item-options cancelable="false" side="left">-->
+      <!--<button ion-button  expandable="true" (click)="goUpdate(good)" cancelable="false">تعديل</button>-->
+    <!--</ion-item-options>-->
+  <!--</ion-item-sliding>-->
   
-<ion-row style="background-color: white;">
-  <ion-col col-2><img  class="itemimg" src="assets/imgs/comm.png"></ion-col>
-  <ion-col col-8>منتج منت منتج منتج منتج</ion-col>
-  <ion-col col-1> <ion-icon class="settings" name="settings"></ion-icon></ion-col>
-  <ion-col col-1><ion-icon class="trash" name="trash"></ion-icon></ion-col>
+<ion-row   *ngFor="let good of goods;let i=index" style="background-color: white;">
+  <ion-col col-2><img  class="itemimg"  src={{thumps[i]}}></ion-col>
+  <ion-col col-8>{{good.ItemName}}</ion-col>
+  <ion-col col-1> <ion-icon  class="settings" name="settings" (click)="goUpdate(good)"></ion-icon></ion-col>
+  <ion-col col-1><ion-icon class="trash" name="trash" (click)="deleteItem(good.Id,i)"></ion-icon></ion-col>
 </ion-row>
 <hr style="margin: 0;">
   </ion-list>
