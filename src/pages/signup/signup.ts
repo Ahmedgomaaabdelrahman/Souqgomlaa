@@ -90,13 +90,14 @@ this.common.presentToast('رقم الهاتف مستخدم بالفعل','اغل
     }
 
     else {
+
         this.common.presentToast('مرحبا! تم التسجيل بنجاح','اغلاق');
         this.events.publish('guest',false)
 
         this.events.publish('userType',response.Type)
-        this.common.storeValue('S',response)
+        // this.common.storeValue('S',response)
 
-        this.navCtrl.setRoot(ActivationPage,response.Id);}
+        this.navCtrl.setRoot(ActivationPage,response);}
 }
 //get selected town
     getSelected(town:any){

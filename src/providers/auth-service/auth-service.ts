@@ -116,8 +116,12 @@ return this._http.post(this.baseUrl+'/update',edit).map(res=>res.json().res);
 
     }
     makeVerefaied(Vcode,V){
-        let req={'Vcode':Vcode,'V':V};
+        let req={'Vcode':Vcode,'Id':V};
         return this._http.post(this.baseUrl+'/makeVerefaied',req).map(res=> res.json().res);
+    }
+    reSendVcode(id,vcode){
+        let req={'Id':id,'Vcode':vcode};
+        return this._http.post(this.baseUrl+'/reSendVcode',req).map(res=> res.json().res);
     }
 }
 

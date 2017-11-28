@@ -19,5 +19,6 @@
           <!--<ion-input [(ngModel)]="fourth" name="fourth" type="text" maxlength="1" required></ion-input>-->
       </form>
       <button ion-button clear (click)="goHome()" class="enter" >تسجيل</button>
+       <p  *ngIf="flag" (click)="resend()" style="text-align: center">اضغط لاعادة الارسال</p>
    </div>
 </ion-content>
