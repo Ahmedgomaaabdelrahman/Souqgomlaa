@@ -61,4 +61,22 @@ display: unset !important}
             height: 60px;
             margin-right: 15% !important; 
         }}
+        .noitems{
+            text-align: center;
+            font-size: 2.5rem;
+            color: gray;
+            margin-top: 50%;
+        }
+        .settings{
+            padding-top: 50%;
+            font-size: 2rem;
+            padding: 5px;
+            color: #074b91;
+        }
+        .trash{
+            padding-top: 50%;
+            font-size: 2rem;
+            padding: 5px;
+            color: red;
+        }
 }
