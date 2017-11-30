@@ -1,8 +1,9 @@
 import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import {Events, NavController, NavParams} from 'ionic-angular';
 import {AuthServiceProvider} from "../../providers/auth-service/auth-service";
 import {CommonProvider} from "../../providers/common/common";
+import {MygoodsPage} from "../mygoods/mygoods";
 
 
 @Component({
@@ -15,7 +16,7 @@ flag:boolean;
     // second:number;
     // thierd:number;
     // fourth:number;
-  constructor(public common:CommonProvider,public auth:AuthServiceProvider,public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public events:Events,public common:CommonProvider,public auth:AuthServiceProvider,public navCtrl: NavController, public navParams: NavParams) {
 this.flag=false;
   }
 
@@ -29,9 +30,15 @@ this.flag=false;
 this.auth.makeVerefaied(Vcode,this.navParams.data.Id).subscribe(res=>{
   console.log(res)
 if(res==1){
-    this.common.storeValue('S',this.navParams.data)
+    this.events.publish('guest', false);
+    this.common.storeValue('S', this.navParams.data);
 
-    this.navCtrl.setRoot(HomePage);
+    this.events.publish('userType', this.navParams.data.Type);
+    if (this.navParams.data.Type == 1) {
+        this.navCtrl.setRoot(MygoodsPage, {'data': 0})
+    } else {
+        this.navCtrl.setRoot(HomePage);
+    }
   }else {
   this.flag=true;
   this.common.presentToast('الكود الذي ادخلته غير صحيح','اغلاق')
