@@ -23,12 +23,13 @@ ref=firebase.database().ref();
   constructor(public event:Events,public keyboard: Keyboard,public common:CommonProvider,public chat:ChatProvider,public navCtrl: NavController, public navParams: NavParams) {
       this.common.getStoredValue('S').then(user=>{
           this.myId=user.Id
-          this.content.scrollToBottom();
+          // this.content.scrollToBottom();
       })
 this.icon="ios-send"
       let self=this
       this.myMsgs=[]
 //chat//
+    if(this.navParams.data.instances.key!=null){
       this.ref.child('msgs/'+this.navParams.data.instances.key).on('value', data =>{
 
           this.chat.allmsgs(this.navParams.data.instances.key).then(msgs=>{
@@ -39,21 +40,22 @@ this.icon="ios-send"
         console.log( msgs[i])
 
     }
-   
-    
+
+
 })
-setTimeout(() => {
-    this.content.scrollToBottom(300);
- }, 1000);
-  })
+// setTimeout(() => {
+//     // this.content.scrollToBottom(300);
+//  }, 1000);
+  })}
+
 //////chat//////
 if(this.keyboard.didShow)this.icon="ios-send"
       else if(this.keyboard.didHide)this.icon="ios-send"
 
 
   }
- 
-    
+
+
 
 
   ionViewDidLoad(){
@@ -61,10 +63,10 @@ if(this.keyboard.didShow)this.icon="ios-send"
       console.log( this.myMsgs)
 
     console.log('ionViewDidLoad MessagedetailsPage',this.navParams.data);
-    setTimeout(() => {
-        this.content.scrollToBottom(300);
-     }, 1000);
-  
+    // setTimeout(() => {
+    //     // this.content.scrollToBottom(300);
+    //  }, 1000);
+
     // this.chat
   }
 
@@ -120,10 +122,10 @@ this.ref.child('n/'+res.Id+'/').set({
       }
   });
  // this.content.scrollToBottom();
- setTimeout(() => {
-    this.content.scrollToBottom(300);
- }, 1000);
-  
+ // setTimeout(() => {
+ //    // this.content.scrollToBottom(300);
+ // }, 1000);
+
   }
   dirClass:string;
   mainPage(){

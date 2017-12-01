@@ -52,7 +52,9 @@ names:any
                       // .then(otherUser=>{
                           .subscribe(sellerId => {
                               // console.log(sellerId)
+                            if(sellerId !=null){
                               this.names.push(sellerId.Name)
+                            }
 
                           });
 // })

@@ -74,9 +74,19 @@ res:any=[];
         console.log(this.navParams.data.SellerId)
 
         this.common.getStoredValue('S').then(user=>{
+          console.log('data passed to chat',user.Id,this.navParams.data.SellerId.sellerId)
         this.chat.getMessagesForDetailsPagetodetailsmessages(user.Id,this.navParams.data.SellerId.sellerId).then(res=>{
-            this.navCtrl.push(MessagedetailsPage,{instances:res});
+          console.log('data passed to chat',res)
+// if(res!=null) {
+//   this.navCtrl.push(MessagedetailsPage, {instances: res});
+// }else{
+            let send={
+        buyerId:user.Id,sellerId:this.navParams.data.SellerId.sellerId
 
+            }
+  this.navCtrl.push(MessagedetailsPage, {instances: send});
+
+// }
         })
         })
     }

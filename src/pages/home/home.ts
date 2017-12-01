@@ -32,18 +32,21 @@ this.itemimg=[];
       this.items.getAllItems({'i': 0}).subscribe(res => {
 
           if (res != null) {
+              console.log('get all  result',res)
+
               this.valid = true;
               this.all = res;
               console.log(this.all)
               this.i = res[(res.length) - 1].Id;
 
-for(let i=0;i<=this.i;i++){
-    if(res[i]!=null)
+for(let i=0;i<this.i;i++){
+    if(res[i]!=null){
     this.items.getItemfirstImgUrl(res[i].Id).then(
         itemurl=>{
             console.log('itemurl',itemurl.urls);
 this.itemimg.push(itemurl.urls)
         });
+    }
 }
           } else if(res == null || res.length<10){
               this.help+=10
@@ -69,9 +72,22 @@ if(this.mode!=1) {
     this.valid = true;
 
     self.all=[];
+    this.itemimg=[]
+
     this.searchProvider.search(this.navParams.data.cat,this.navParams.data.town).subscribe(data=>{
-        console.log('result',data)
+        console.log('search result',data)
         self.all=data;
+        console.log('search result',self.all.length)
+
+        for(let i=0;i<=self.all.length;i++){
+            if(data[i]!=null)
+                this.items.getItemfirstImgUrl(data[i].Id).then(
+                    itemurl=>{
+                        console.log('iiiiiiiimages',itemurl.urls);
+                        this.itemimg.push(itemurl.urls)
+                    });
+        }
+
     })
 } else {
     this.valid = false;
