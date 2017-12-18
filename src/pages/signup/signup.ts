@@ -26,12 +26,16 @@ export class SignupPage {
     selectOptions:any;
   constructor(public events:Events,private camera: Camera,public common:CommonProvider,private _towns:TownsProvider,private auth:AuthServiceProvider,public navCtrl: NavController, public navParams: NavParams) {
       this.mode=this.navParams.data;
-      this.selectOptions = {
-          title: 'اختر مدينة',
-          mode: 'md'
-      };
+    //   this.selectOptions = {
+    //       title: 'اختر مدينة',
+    //       mode: 'md'
+    //   };
       console.log('i am ',this.mode)
-      this._towns.getTowns().subscribe(res=>{
+ 
+  }
+
+  ionViewWillEnter() {
+     this._towns.getTowns().subscribe(res=>{
           console.log('towns res',res)
           console.log('towns res',res.length)
 for(let i=0;i<res.length;i++){
@@ -39,12 +43,7 @@ let x=res[i].Location
     this.towns.push(res[i].Location);
 
 }
-      })
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad SignupPage');
-  }
+      })  }
   Img:any;
   useCam(source){
       this.common.camPic(source).then(res=>{

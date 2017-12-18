@@ -8,9 +8,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:476131137040:android:300a3d5d69a4bc15",
+        "mobilesdk_app_id": "1:476131137040:android:f65dd8e6a112fc0c",
         "android_client_info": {
-          "package_name": "com.souq.com"
+          "package_name": "com.souq.souq123"
         }
       },
       "oauth_client": [
