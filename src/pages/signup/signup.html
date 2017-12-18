@@ -14,35 +14,35 @@
       </ion-row>
     <ion-item class="logitem">
       <!--<ion-label ></ion-label>-->
-      <ion-input [(ngModel)]="Name" id="Name" name="name"  type="text" placeholder="الاسم" required="true" required ></ion-input>
+      <ion-input [(ngModel)]="Name" name="name"  type="text" placeholder="الاسم" required="true" required ></ion-input>
     </ion-item>
 
     <ion-item class="logitem">
       <!--<ion-label ></ion-label>-->
-      <ion-input [(ngModel)]="Email" id="Email" name="Email"  type="email" placeholder="البريد الالكترونى" required="true" required></ion-input>
+      <ion-input [(ngModel)]="Email"  name="Email"  type="email" placeholder="البريد الالكترونى" required="true" required></ion-input>
     </ion-item>
     
        <ion-item class="logitem">
       <!--<ion-label ></ion-label>-->
-      <ion-input [(ngModel)]="Phone" id="Phone" name="Phone"  type="tel" placeholder="رقم الهاتف" required="true" required></ion-input>
+      <ion-input [(ngModel)]="Phone"  name="Phone"  type="tel" placeholder="رقم الهاتف" required="true" required></ion-input>
     </ion-item>
 
        <ion-item class="logitem">
       <!--<ion-label ></ion-label>-->
-      <ion-input [(ngModel)]="Password"  id="Password" name="Password"  type="password" placeholder="كلمه المرور" required="true" required ></ion-input>
+      <ion-input [(ngModel)]="Password"   name="Password"  type="password" placeholder="كلمه المرور" required="true" required ></ion-input>
     </ion-item>
 
-      <ion-item  class="logitem">
+      <ion-item  class="selector">
 
               <ion-label>اختر المدينة</ion-label>
-              <ion-select [(ngModel)]="location" name="location" id="location" interface="popover" [selectOptions]="selectOptions"  okText="اختر" cancelText="الغاء" required="true">
-                  <ion-option (ionSelect)="getSelected(town)"  *ngFor="let town of towns" value=`${{town}}` required>{{town}}</ion-option>
+              <ion-select [(ngModel)]="location" name="location"    okText="اختر" cancelText="الغاء" required="true">
+                  <ion-option (ionSelect)="getSelected(town)"  *ngFor="let town of towns" value={{town}} required>{{town}}</ion-option>
               </ion-select>
             </ion-item>
 
       <ion-item *ngIf="mode" class="logitem">
  
-      <ion-input  [(ngModel)]="Commercial_Register" id="Commercial_Register" name="Commercial_Register"  type="text" placeholder="السجل التجارى"  required="true"></ion-input>
+      <ion-input  [(ngModel)]="Commercial_Register"  name="Commercial_Register"  type="text" placeholder="السجل التجارى"  required="true"></ion-input>
     </ion-item>
     <ion-item class="logitemI" id="upload">
         <div *ngIf="mode">

@@ -20,13 +20,20 @@ page-signup {
     margin-top: 20px;
     font-family: cairobold;
 }
+.selector{
+    margin: 0 auto !important;
+    width: 90%;
+    height: 60px;
+    max-width: 90%;
+    padding: 0 !important;
+}
 .logitem{
     margin: 0 auto !important;
     width: 90%;
     height: 60px;
     max-width: 90%;
     padding: 0 !important;
-    position: static;
+    // position: static;
   
 }.logitemI{
     margin: 0 auto !important;
@@ -34,7 +41,7 @@ page-signup {
     height: 70px;
     max-width: 90%;
     padding: 0 !important;
-    position: static;
+    // position: static;
 
 }
 .text-input-md{
