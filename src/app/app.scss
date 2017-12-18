@@ -38,7 +38,7 @@
     display: none !important;
 }
 .back-button-ios.show-back-button{
-    display:block !important;
+    display:none;
 }
 .imgmenu{
     margin: 20px auto;
@@ -48,6 +48,9 @@
 
 .menu-inner{
     width: 150px;
+}
+ion-navbar.toolbar.toolbar-ios {
+    height: 70px;
 }
 
 .menubtn{
