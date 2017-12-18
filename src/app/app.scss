@@ -50,9 +50,11 @@
     width: 150px;
 }
 ion-navbar.toolbar.toolbar-ios {
-    height: 70px;
+    height: 80px !important;
 }
-
+.toolbar-title-ios{
+    padding-top: 15px !important;
+}
 .menubtn{
     width: 65%;
     margin: 10px auto;
