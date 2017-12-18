@@ -14,4 +14,13 @@ page-signtype {
     margin: 30px auto;
     font-family: cairobold ;
 }
+.toolbar-background {
+    background: #ececec !important;
+}
+.header-ios .toolbar-ios:last-child .toolbar-background-ios{
+    display: none;
+}
+.header-md::after{
+    display: none;
+}
 }

@@ -33,7 +33,13 @@
 .back-button.show-back-button {
     display: none !important;
 }
+.back-button-text-ios {
 
+    display: none !important;
+}
+.back-button-ios.show-back-button{
+    display:block !important;
+}
 .imgmenu{
     margin: 20px auto;
     width: 40%;
