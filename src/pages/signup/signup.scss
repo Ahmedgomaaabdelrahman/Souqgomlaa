@@ -9,6 +9,12 @@ page-signup {
     margin: auto;
     border-radius: 20px;
 }
+.toolbar-background {
+    background: #ececec !important;
+}
+.header-ios .toolbar-ios:last-child .toolbar-background-ios{
+    display: none;
+}
 
 .enter{
     width: 100%;
@@ -69,5 +75,8 @@ page-signup {
             font-size: 4rem;
             color: #2a64a1;
 
+    }
+    .header-md::after{
+        display: none;
     }
 }
