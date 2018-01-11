@@ -43,10 +43,11 @@ this.icon="ios-send"
 
 
 })
-setTimeout(() => {
-    this.content.scrollToBottom(300);
- }, 1000);
-  })}
+// setTimeout(() => {
+//     this.content.scrollToBottom(300);
+//  }, 1000);
+  })
+}
 
 //////chat//////
 if(this.keyboard.didShow)this.icon="ios-send"

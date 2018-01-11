@@ -39,6 +39,7 @@ names:any
           this.realmsgs=[];
           this.names=[];
           this.ref.child('user/'+user.Id).on('value', snapshot =>{
+
           if(user.Type==0) {
           //     this.userType='sellerId'
           //
@@ -48,24 +49,34 @@ names:any
           // }
               this.chat.getOpenedMessages(user.Id).then(data => {
                   self.messegers = data;
-                  console.log(self.messegers)
+                  console.log(data.length)
 
                   if(data !=null){
-                  for (let i = 0; i < self.messegers.length; i++) {
+                      //self.realmsgs=[]
+                  for (let i = 0; i < data.length; i++) {
                       self.auth.getUserById( self.messegers [i]['sellerId'])
                       // .then(otherUser=>{
                           .subscribe(sellerId => {
                               //self.realmsgs=[]
                               // console.log(sellerId)
                             if(sellerId !=null && sellerId.Id==data[i]['sellerId']){
-                                self.names.push(sellerId.Name)
-                                self.realmsgs.push(data[i])
+                                // if(self.names[i] !=null){
+                                // self.names.splice(i,1)
+                                // self.realmsgs.splice(i,1)}
+                                self.names[i]=sellerId.Name
+
+                                self.realmsgs[i]=data[i]
+                                // self.names.push(buyerId.Name)
+                                // self.realmsgs.push(data[i])
                                console.log(sellerId)
                                console.log(sellerId.Id==data[i]['sellerId'])
                             }
 
                           });
 // })
+                      if(i==data.length-1){
+                          break;
+                      }
                   }
                   // console.log(data.length)
                   // console.log(data)
@@ -76,27 +87,36 @@ names:any
               this.chat.getOpenedMessages(user.Id).then(data => {
                   self.messegers = data;
                   // self.realmsgs = data;
-                  console.log(self.messegers)
+                  console.log(data.length)
                   if(data !=null) {
+                     // self.realmsgs=[]
 
-                      for (let i = 0; i < self.messegers.length; i++) {
+                      for (let i = 0; i <data.length; i++) {
                           self.auth.getUserById(data[i]['buyerId'])
                               .subscribe(buyerId => {
                                 //  self.realmsgs=[]
 
                                   // console.log(buyerId)
-                                  if(buyerId != null && buyerId.Id== self.messegers[i]['buyerId']) {
+                                  if(buyerId != null && buyerId.Id== self.messegers[i]['buyerId'] ) {
                                       console.log(buyerId)
                                       console.log(buyerId.Id== self.messegers[i]['buyerId'])
+                                      // if(self.names[i] !=null){
+                                      //     self.names.splice(i,1)
+                                      //     self.realmsgs.splice(i,1)}
 
-                                      self.names.push(buyerId.Name)
-                                      self.realmsgs.push(data[i])
+                                      self.names[i]=buyerId.Name
+
+                                      self.realmsgs[i]=data[i]
+                                      // self.names.push(buyerId.Name)
+                                      // self.realmsgs.push(data[i])
                                   }
                               });
 // })
+                          if(i==data.length-1){
+                              break;
+                          }
                       }
-                      // console.log(data.length)
-                      // console.log(data)
+
                   }
               })
 
