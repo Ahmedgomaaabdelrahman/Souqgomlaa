@@ -28,7 +28,7 @@ color: #074b91;
 .talk-bubble {
     display: inline-block;
     border-radius: 20px;
-    position: relative;
+    //position: relative;
     width: 300px;
     height: auto;
     background-color: white;
@@ -107,6 +107,7 @@ border-color: lightgray lightgray transparent transparent;
        
 }
 .textbuttom{
+    position: fixed;
     width: 100%;
     border-radius: 9px;
     padding: 1px;
