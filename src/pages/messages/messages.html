@@ -30,14 +30,14 @@
 
 <div>
   <ion-row class="itemrow" *ngFor="let messager of realmsgs;let i=index" (click)="goDetails(realmsgs[i])">
-  <div *ngIf="messager.body != null && names[i] !==null ">
+  <div *ngIf="messager != null && names[i] !==null ">
     <ion-col col-2>
       <!--<img class="per" src="{{D}}/profileImages_thump/{{messager.seller.image}}">-->
     </ion-col>
     <ion-col col-10 style="padding: 10px;">
       <p class="inftop">{{names[i]}}</p>
 
-      <p class="info">{{messager.body}}</p>
+      <p class="info">{{messager['body']}}</p>
     </ion-col>
 </div>
   </ion-row>
