@@ -50,10 +50,11 @@ page-editaccount {
     height: 60px;
     max-width: 90%;
     padding: 0 !important;
-    position: static;
+    //position: static;
     border-bottom:1px solid lightgray;
   
 }
+
 .text-input-md{
     margin: 0 18px !important;
     width: 90%;
@@ -98,13 +99,13 @@ page-editaccount {
         /* margin-right: 55%; */
         margin-right: 4%;
         padding-right: 6px;
-        position: relative;
+       // position: relative;
         top: -15px;}
       .imgMail{    font-size: 3rem;
         color: white;
         margin-right: 6%;
         margin-top: po;
-        position: relative;
+       // position: relative;
         top: -15px;} 
         .title-ios{
             img{
