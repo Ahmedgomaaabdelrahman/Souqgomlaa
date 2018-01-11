@@ -14,6 +14,7 @@ import {ItemSearchProvider} from "../../providers/item-search/item-search";
 })
 export class HomePage {
 all:any;
+realAll:any;
 itemimg:any;
 details:any;
 i:any
@@ -28,6 +29,8 @@ this.valid=false;
   }
   help:any;
   getItems(){
+      this.all=[]
+      this.realAll=[]
 this.itemimg=[];
       this.items.getAllItems({'i': 0}).subscribe(res => {
 
@@ -45,6 +48,7 @@ for(let i=0;i<this.i;i++){
         itemurl=>{
             console.log('itemurl',itemurl.urls);
 this.itemimg.push(itemurl.urls)
+            this.realAll.push(res[i])
         });
     }
 }
@@ -61,6 +65,7 @@ this.itemimg.push(itemurl.urls)
 ionViewWillEnter(){
 this.help=0;
     this.all=[];
+    this.realAll=[]
     let self=this;
     this.mode=this.navParams.data.mode
     this.D=this.domain.url;
@@ -72,6 +77,7 @@ if(this.mode!=1) {
     this.valid = true;
 
     self.all=[];
+    self.realAll=[];
     this.itemimg=[]
 
     this.searchProvider.search(this.navParams.data.cat,this.navParams.data.town).subscribe(data=>{
@@ -85,6 +91,7 @@ if(this.mode!=1) {
                     itemurl=>{
                         console.log('iiiiiiiimages',itemurl.urls);
                         this.itemimg.push(itemurl.urls)
+                        this.realAll.push(data[i])
                     });
         }
 
@@ -94,7 +101,7 @@ if(this.mode!=1) {
 }
 this.common.loadDismess();
 
-console.log('result',this.all)
+console.log('result',this.realAll)
 
 }
   goDetails(item :any){
@@ -118,7 +125,7 @@ console.log('result',this.all)
             let x={'i':f}
             this.items.getAllItems(x).subscribe(res=>{
 
-                this.common.loadDismess();
+                //this.common.loadDismess();
 
                 //console.log('res',res)
 
@@ -134,9 +141,9 @@ console.log('result',this.all)
                             console.log('itemurl',itemurl.urls);
                             this.itemimg.push(itemurl.urls)
                         });
-                    this.all.push(res[i])
+                    this.realAll.push(res[i])
                 }}
-                console.log('items',this.all);
+                console.log('items',this.realAll);
                 infiniteScroll.complete();
                 resolve();
 
