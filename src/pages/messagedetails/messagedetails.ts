@@ -18,12 +18,16 @@ M:any;
 icon:any;
 myMsgs:any;
 myId:any;
+scrollContent:any;
 ref=firebase.database().ref();
 
   constructor(public event:Events,public keyboard: Keyboard,public common:CommonProvider,public chat:ChatProvider,public navCtrl: NavController, public navParams: NavParams) {
+      // this.scrollContent=this.content['_scroll']['initialized']
       this.common.getStoredValue('S').then(user=>{
           this.myId=user.Id
-          this.content.scrollToBottom();
+          // this.content.scrollToBottom();
+          console.log('fffffff',this.content)
+          if(this.content._scroll['initialized']) this.content.scrollToBottom(0)
       })
 this.icon="ios-send"
       let self=this
@@ -44,8 +48,8 @@ this.icon="ios-send"
 
 })
 // setTimeout(() => {
-//     this.content.scrollToBottom(300);
-//  }, 1000);
+          if(this.content._scroll['initialized']) this.content.scrollToBottom(0)
+          //  }, 1000);
   })
 }
 
@@ -65,8 +69,7 @@ if(this.keyboard.didShow)this.icon="ios-send"
 
     console.log('ionViewDidLoad MessagedetailsPage',this.navParams.data);
     setTimeout(() => {
-        this.content.scrollToBottom(300);
-     }, 1000);
+        if(this.content._scroll['initialized']) this.content.scrollToBottom(0)     }, 1000);
 
     // this.chat
   }
@@ -122,8 +125,7 @@ this.ref.child('n/'+res.Id+'/').set({
 
       }
   });
- this.content.scrollToBottom();
- // setTimeout(() => {
+        if(this.content._scroll['initialized']) this.content.scrollToBottom(0) // setTimeout(() => {
  //    // this.content.scrollToBottom(300);
  // }, 1000);
 
