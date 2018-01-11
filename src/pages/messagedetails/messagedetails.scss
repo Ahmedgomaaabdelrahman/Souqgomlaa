@@ -66,7 +66,7 @@ color: #074b91;
    
 .tri-right.btm-right:after{
 content: ' ';
-position: absolute;
+position: fixed;
 width: 0;
 height: 0;
 left: auto;
@@ -79,7 +79,7 @@ border-color: white white transparent transparent;
     
 .tri-left.btm-right:after{  
 content: ' ';
-position: absolute;
+position: fixed;
 width: 0;
 height: 0;
 transform: rotate(280deg);
