@@ -29,7 +29,8 @@
 
 
 <div>
-  <ion-row class="itemrow" *ngFor="let messager of messegers;let i=index" (click)="goDetails(messegers[i])">
+  <ion-row class="itemrow" *ngFor="let messager of realmsgs;let i=index" (click)="goDetails(messegers[i])">
+  <div *ngIf="messager.body != null && names[i] !==null ">
     <ion-col col-2>
       <!--<img class="per" src="{{D}}/profileImages_thump/{{messager.seller.image}}">-->
     </ion-col>
@@ -38,6 +39,7 @@
 
       <p class="info">{{messager.body}}</p>
     </ion-col>
+</div>
   </ion-row>
   <!--<img class="trash" src="assets/imgs/trash.png">-->
 </div>

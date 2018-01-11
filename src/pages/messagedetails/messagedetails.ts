@@ -1,5 +1,5 @@
 import { Component,ViewChild } from '@angular/core';
-import {Events, Keyboard, NavController, NavParams} from 'ionic-angular';
+import {Content, Events, Keyboard, NavController, NavParams} from 'ionic-angular';
 import {ChatProvider} from "../../providers/chat/chat";
 import {CommonProvider} from "../../providers/common/common";
 import {Observable} from "rxjs/Observable";
@@ -13,7 +13,7 @@ import { HomePage } from '../home/home';
   templateUrl: 'messagedetails.html',
 })
 export class MessagedetailsPage {
-    @ViewChild('content') content:any;
+    @ViewChild(Content) content:any;
 M:any;
 icon:any;
 myMsgs:any;
@@ -23,7 +23,7 @@ ref=firebase.database().ref();
   constructor(public event:Events,public keyboard: Keyboard,public common:CommonProvider,public chat:ChatProvider,public navCtrl: NavController, public navParams: NavParams) {
       this.common.getStoredValue('S').then(user=>{
           this.myId=user.Id
-          // this.content.scrollToBottom();
+          this.content.scrollToBottom();
       })
 this.icon="ios-send"
       let self=this
@@ -43,9 +43,9 @@ this.icon="ios-send"
 
 
 })
-// setTimeout(() => {
-//     // this.content.scrollToBottom(300);
-//  }, 1000);
+setTimeout(() => {
+    this.content.scrollToBottom(300);
+ }, 1000);
   })}
 
 //////chat//////
@@ -63,9 +63,9 @@ if(this.keyboard.didShow)this.icon="ios-send"
       console.log( this.myMsgs)
 
     console.log('ionViewDidLoad MessagedetailsPage',this.navParams.data);
-    // setTimeout(() => {
-    //     // this.content.scrollToBottom(300);
-    //  }, 1000);
+    setTimeout(() => {
+        this.content.scrollToBottom(300);
+     }, 1000);
 
     // this.chat
   }
@@ -121,7 +121,7 @@ this.ref.child('n/'+res.Id+'/').set({
 
       }
   });
- // this.content.scrollToBottom();
+ this.content.scrollToBottom();
  // setTimeout(() => {
  //    // this.content.scrollToBottom(300);
  // }, 1000);
