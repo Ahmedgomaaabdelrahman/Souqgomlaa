@@ -214,8 +214,11 @@ resolve(token)
             }else{
                 //Notification was received in foreground. Maybe the user needs to be notified.
                 console.log(context.getActive().name)
-                alert(context.getActive().name);
-                if(context.getActive().component!='MessagedetailsPage' && this.navCtrl.getActive().component!='MessagesPage'){
+                // alert(context.getActive().c);
+                var MessagedetailsPage=context.getActive().name
+                var MessagesPage=context.getActive().name
+
+                if(MessagedetailsPage!="MessagedetailsPage" && MessagesPage !=="MessagesPage"){
                 alert('لديك رسالة جديدة');
 
                 }
