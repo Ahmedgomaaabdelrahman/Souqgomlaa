@@ -25,6 +25,7 @@ d:any
   constructor(public navParams:NavParams,public searchProvider:ItemSearchProvider,public domain:DomainProvider,public items:ItemsProvider,public common:CommonProvider,public menuCtrl:MenuController,public navCtrl: NavController) {
 
 this.valid=false;
+      console.log('context',this.navCtrl);
 
   }
   help:any;

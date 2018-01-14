@@ -27,7 +27,8 @@ ref=firebase.database().ref();
           this.myId=user.Id
           // this.content.scrollToBottom();
           console.log('fffffff',this.content)
-          if(this.content._scroll['initialized']) this.content.scrollToBottom(0)
+          // if(this.content._scroll['initialized'])
+              this.content.scrollToBottom(0)
       })
 this.icon="ios-send"
       let self=this
@@ -44,18 +45,20 @@ this.icon="ios-send"
         console.log( msgs[i])
 
     }
+              // this.content.scrollToBottom(0)
 
 
 })
-// setTimeout(() => {
-          if(this.content._scroll['initialized']) this.content.scrollToBottom(0)
-          //  }, 1000);
+ setTimeout(() => {
+//           if(this.content._scroll['initialized'])
+              this.content.scrollToBottom(0)
+            }, 300);
   })
 }
 
 //////chat//////
-if(this.keyboard.didShow)this.icon="ios-send"
-      else if(this.keyboard.didHide)this.icon="ios-send"
+// if(this.keyboard.didShow)this.icon="ios-send"
+//       else if(this.keyboard.didHide)this.icon="ios-send"
 
 
   }
@@ -69,13 +72,15 @@ if(this.keyboard.didShow)this.icon="ios-send"
 
     console.log('ionViewDidLoad MessagedetailsPage',this.navParams.data);
     setTimeout(() => {
-        if(this.content._scroll['initialized']) this.content.scrollToBottom(0)     }, 1000);
+        // if(this.content._scroll['initialized']) this.content.scrollToBottom(0)
+        this.content.scrollToBottom(0)
+    }, 1000);
 
     // this.chat
   }
 
     send(){
-    console.log(this.navParams.data.sellerId);
+    console.log(this.navParams.data);
   this.common.getStoredValue('S').then(res=>{
       console.log(res.Type)
       if(res.Type==0){

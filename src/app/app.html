@@ -7,10 +7,13 @@
       <ion-list no-lines>
 
 
-        <button *ngIf="!type"  class="menubtn" menuClose ion-item (click)="onSearch()">
-           <img src="assets/imgs/search.png"><br>البحث
-        </button>
 
+          <button   class="menubtn" menuClose ion-item (click)="mainPage()">
+           <img src="assets/imgs/headicon.png"><br>الرئيسية
+        </button>
+          <button *ngIf="!type"  class="menubtn" menuClose ion-item (click)="onSearch()">
+              <img src="assets/imgs/search.png"><br>البحث
+          </button>
           <div *ngIf="!guestUser">
           <!-- <button *ngIf="type" class="menubtn" menuClose ion-item (click)="onNotify()">
               <img src="assets/imgs/notifiy.png"><br>الاشعارات
