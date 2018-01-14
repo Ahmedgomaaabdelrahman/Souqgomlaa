@@ -5,6 +5,7 @@ import { FCM } from '@ionic-native/fcm';
 import {DomainProvider} from "../domain/domain";
 import * as firebase from "firebase";
 import {timestamp} from "rxjs/operator/timestamp";
+// import {NavController} from "ionic-angular";
 declare var FCMPlugin;
 
 // const socket = new Pusher('90a90fff9718b47744df', {
@@ -204,14 +205,20 @@ resolve(token)
       })});
       return promise;
   }
-    onTokenRecived(){
+    onTokenRecived(context){
         FCMPlugin.onNotification(function (token){
             if(token.wasTapped){
                 //Notification was received on device tray and tapped by the user.
-                alert( JSON.stringify(token) );
+            //    alert( JSON.stringify(token) );
+
             }else{
                 //Notification was received in foreground. Maybe the user needs to be notified.
-                // alert( JSON.stringify(token) );
+                console.log(context.getActive().name)
+                alert(context.getActive().name);
+                if(context.getActive().component!='MessagedetailsPage' && this.navCtrl.getActive().component!='MessagesPage'){
+                alert('لديك رسالة جديدة');
+
+                }
             }
         })
         //   .catch(function (e){

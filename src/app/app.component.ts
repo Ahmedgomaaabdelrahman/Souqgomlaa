@@ -28,7 +28,8 @@ export class MyApp {
     platform.ready().then(() => {
 
         try {
-            this.chat.onTokenRecived();
+            this.chat.onTokenRecived(this.nav);
+
         }catch(e){
             console.log(e);
         }
@@ -64,6 +65,7 @@ export class MyApp {
         this.guestUser=false;
 
         this.events.subscribe('userType',user=>{
+
             if(user==1){
                 this.type=true;
 
@@ -99,6 +101,7 @@ this.rootPage=LoginPage;
       statusBar.styleDefault();
       splashScreen.hide();
     });
+
   }
 
   toggleclose(){
@@ -128,10 +131,14 @@ this.rootPage=LoginPage;
    onMyGoods(){
      this.nav.push(MygoodsPage,{'data':0});
    }
+
    logOut(){
       this.auth .logOut();
       this.nav.setRoot(LoginPage);
       this.nav.push(LoginPage);
    }
+    mainPage(){
+        this.nav.setRoot(HomePage);
+    }
 }
 
