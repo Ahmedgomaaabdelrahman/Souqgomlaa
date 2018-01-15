@@ -1,4 +1,5 @@
-import { Component,ViewChild } from '@angular/core';
+import { Component,ViewChild,NgZone } from '@angular/core';
+
 import {Content, Events, Keyboard, NavController, NavParams} from 'ionic-angular';
 import {ChatProvider} from "../../providers/chat/chat";
 import {CommonProvider} from "../../providers/common/common";
@@ -21,7 +22,7 @@ myId:any;
 scrollContent:any;
 ref=firebase.database().ref();
 
-  constructor(public event:Events,public keyboard: Keyboard,public common:CommonProvider,public chat:ChatProvider,public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public zone:NgZone,public event:Events,public keyboard: Keyboard,public common:CommonProvider,public chat:ChatProvider,public navCtrl: NavController, public navParams: NavParams) {
       // this.scrollContent=this.content['_scroll']['initialized']
       this.common.getStoredValue('S').then(user=>{
           this.myId=user.Id
@@ -32,26 +33,36 @@ ref=firebase.database().ref();
       })
 this.icon="ios-send"
       let self=this
-      this.myMsgs=[]
+      this.zone.run(()=>{
+          this.myMsgs=[]
+      })
 //chat//
     if(this.navParams.data.instances.key!=null){
       this.ref.child('msgs/'+this.navParams.data.instances.key).on('value', data =>{
 
-          this.chat.allmsgs(this.navParams.data.instances.key).then(msgs=>{
-    console.log(msgs)
-    self.myMsgs=[]
-    for(var i in msgs){
-        self.myMsgs.push(msgs[i]);
-        console.log( msgs[i])
+          this.chat.allmsgs(this.navParams.data.instances.key).then(msgs=>{this.zone.run((
 
-    }
+          )=>{
+              console.log(msgs)
+              self.myMsgs=[]
+              for(var i in msgs){
+               this.zone.run(()=>{   self.myMsgs.push(msgs[i]);})
+                  console.log( msgs[i])
+
+              }
+
               // this.content.scrollToBottom(0)
+          })
 
 
 })
  setTimeout(() => {
-//           if(this.content._scroll['initialized'])
+     try{
+          if(this.content._scroll['initialized'])
               this.content.scrollToBottom(0)
+     }catch(e){
+         console.log(e)
+     }
             }, 300);
   })
 }

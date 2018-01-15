@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable, NgZone} from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { FCM } from '@ionic-native/fcm';
@@ -23,7 +23,7 @@ declare var FCMPlugin;
 @Injectable()
 export class ChatProvider {
     ref=firebase.database().ref();
-    constructor(public domain:DomainProvider,private fcm: FCM,public http: Http) {
+    constructor(public zone:NgZone,public domain:DomainProvider,private fcm: FCM,public http: Http) {
     console.log('Hello ChatProvider Provider');
 
 
@@ -207,6 +207,7 @@ resolve(token)
   }
     onTokenRecived(context){
         FCMPlugin.onNotification(function (token){
+            this.zone.runOutsideAngular(()=>{
             if(token.wasTapped){
                 //Notification was received on device tray and tapped by the user.
             //    alert( JSON.stringify(token) );
@@ -219,10 +220,11 @@ resolve(token)
                 var MessagesPage=context.getActive().name
 
                 if(MessagedetailsPage!="MessagedetailsPage" && MessagesPage !=="MessagesPage"){
-                alert('لديك رسالة جديدة');
+                // alert('لديك رسالة جديدة');
 
                 }
             }
+                })
         })
         //   .catch(function (e){
         //   console.log("onNotification",e)

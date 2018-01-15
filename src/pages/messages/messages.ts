@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,NgZone } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { MessagedetailsPage } from "../messagedetails/messagedetails";
 import {ChatProvider} from "../../providers/chat/chat";
@@ -18,7 +18,7 @@ export class MessagesPage {
 messegers:any;
 realmsgs:any
 D:any;
-  constructor(public auth:AuthServiceProvider,public domain:DomainProvider,public common:CommonProvider,public chat:ChatProvider,public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public zone:NgZone,public auth:AuthServiceProvider,public domain:DomainProvider,public common:CommonProvider,public chat:ChatProvider,public navCtrl: NavController, public navParams: NavParams) {
       this.D=this.domain.url;
   }
 // ionViewWillEnter() {
@@ -34,10 +34,12 @@ names:any
 
       let self=this;
       this.common.getStoredValue('S').then(user=>{
+this.zone.runGuarded(()=>{
+    this.messegers=[];
+    this.realmsgs=[];
+    this.names=[];
+})
 
-          this.messegers=[];
-          this.realmsgs=[];
-          this.names=[];
           this.ref.child('user/'+user.Id).on('value', snapshot =>{
 
           if(user.Type==0) {

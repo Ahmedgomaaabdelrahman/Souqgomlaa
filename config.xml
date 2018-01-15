@@ -90,7 +90,7 @@
     <plugin name="cordova-plugin-camera" spec="^2.4.1" />
     <plugin name="cordova-plugin-fcm" spec="^2.1.2" />
     <allow-navigation href="http://192.168.1.100:8100" />
-    <engine name="browser" spec="^5.0.1" />
+    <engine name="browser" spec="^5.0.3" />
+    <engine name="android" spec="6.3.0" />
     <engine name="ios" spec="~4.3.1" />
-    <engine name="android" spec="~6.3.0" />
 </widget>
