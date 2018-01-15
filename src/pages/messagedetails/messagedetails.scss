@@ -108,20 +108,21 @@ border-color: lightgray lightgray transparent transparent;
 }
 .textbuttom{
     position: fixed;
-    bottom: 10px;
+    //bottom: 10px;
     width: 100%;
     border-radius: 9px;
     padding: 1px;
     font-size: 1.3rem;
 }
-.camera{
-    font-size: 4rem;
-    margin-right: 10px;
-    margin-left: 10px;
-    color: #074b91;
-}
+//.camera{
+//    font-size: 4rem;
+//    margin-right: 10px;
+//    margin-left: 10px;
+//    color: #074b91;
+//}
 .grayrow{
     background-color: lightgray;
+    position: fixed;
 }
 .chatfooter{
     position: fixed;

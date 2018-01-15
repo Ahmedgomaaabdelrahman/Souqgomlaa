@@ -34,7 +34,7 @@ names:any
 
       let self=this;
       this.common.getStoredValue('S').then(user=>{
-this.zone.runGuarded(()=>{
+this.zone.run(()=>{
     this.messegers=[];
     this.realmsgs=[];
     this.names=[];
