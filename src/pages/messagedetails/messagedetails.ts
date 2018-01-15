@@ -1,4 +1,4 @@
-import { Component,ViewChild } from '@angular/core';
+import { Component,ViewChild ,NgZone} from '@angular/core';
 import {Content, Events, Keyboard, NavController, NavParams} from 'ionic-angular';
 import {ChatProvider} from "../../providers/chat/chat";
 import {CommonProvider} from "../../providers/common/common";
@@ -21,8 +21,16 @@ myId:any;
 scrollContent:any;
 ref=firebase.database().ref();
 
-  constructor(public event:Events,public keyboard: Keyboard,public common:CommonProvider,public chat:ChatProvider,public navCtrl: NavController, public navParams: NavParams) {
-      // this.scrollContent=this.content['_scroll']['initialized']
+  constructor(public ngZone:NgZone,public event:Events,public keyboard: Keyboard,public common:CommonProvider,public chat:ChatProvider,public navCtrl: NavController, public navParams: NavParams) {
+      
+
+  }
+
+
+
+
+  ionViewWillEnter(){
+// this.scrollContent=this.content['_scroll']['initialized']
       this.common.getStoredValue('S').then(user=>{
           this.myId=user.Id
           // this.content.scrollToBottom();
@@ -37,7 +45,7 @@ this.icon="ios-send"
     if(this.navParams.data.instances.key!=null){
       this.ref.child('msgs/'+this.navParams.data.instances.key).on('value', data =>{
 
-          this.chat.allmsgs(this.navParams.data.instances.key).then(msgs=>{
+          this.chat.allmsgs(this.navParams.data.instances.key).then(msgs=>{this.ngZone.run(() => {
     console.log(msgs)
     self.myMsgs=[]
     for(var i in msgs){
@@ -46,7 +54,7 @@ this.icon="ios-send"
 
     }
               // this.content.scrollToBottom(0)
-
+})
 
 })
  setTimeout(() => {
@@ -59,14 +67,6 @@ this.icon="ios-send"
 //////chat//////
 // if(this.keyboard.didShow)this.icon="ios-send"
 //       else if(this.keyboard.didHide)this.icon="ios-send"
-
-
-  }
-
-
-
-
-  ionViewDidLoad(){
 
       console.log( this.myMsgs)
 
