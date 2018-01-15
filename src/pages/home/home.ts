@@ -59,7 +59,9 @@ this.itemimg.push(itemurl.urls)
               // this.getItems();
               this.valid = false;
           }
-          this.common.loadDismess();
+          try{
+              this.common.loadDismess();
+          }catch (e){}
 
       })
   }
@@ -100,7 +102,9 @@ if(this.mode!=1) {
 } else {
     this.valid = false;
 }
-this.common.loadDismess();
+    try{
+        this.common.loadDismess();
+    }catch (e){}
 
 console.log('result',this.realAll)
 
