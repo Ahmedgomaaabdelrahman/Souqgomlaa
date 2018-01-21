@@ -47,7 +47,7 @@
 }
 
 .menu-inner{
-    width: 150px;
+    width: 200px;
 }
 ion-navbar.toolbar.toolbar-ios {
     height: 80px !important;
@@ -55,8 +55,15 @@ ion-navbar.toolbar.toolbar-ios {
 .toolbar-title-ios{
     padding-top: 15px !important;
 }
+button.item-ios:not([detail-none]) .item-inner {
+    background-image: none;
+    padding: 0;
+}
+.item-ios{
+        padding-left: 10px;
+}
 .menubtn{
-    width: 65%;
+    width: 80%;
     margin: 10px auto;
     border-radius: 20px;
     text-align: center;

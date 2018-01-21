@@ -17,6 +17,7 @@ page-profile {
     background: #074b91;
     color: white;
     }
+   
 }
 
 .topdiv{
@@ -96,4 +97,9 @@ display: unset !important}
             height: 60px;
             margin-right: 11% !important; 
         }}
+
+ [col-8] {
+    padding: 5px;
+    font-size: 14px;
+}        
 }

@@ -35,25 +35,20 @@ p{
 .infop{
     margin: 0;
     font-size: 12px;
+    width: 100px;
 }
-[col-3]{
+[col-6]{
     p{
-       margin-top: 18px;
-       text-align: end;
+       margin-top: 35px;
     }
 }
 .detp{
-    text-align: end;
-    /* width: 50px; */
-    margin-top: -19px;
-    margin-left:-15px;
-    margin-right:-15px;
+    width: 100px;
     color: #074b91;
     font-weight: bold;
 }
 .imgp{
     margin-top: 17px;
-    text-align: end;
     font-size: 14px;
     color: #074b91;
     font-weight: bold;

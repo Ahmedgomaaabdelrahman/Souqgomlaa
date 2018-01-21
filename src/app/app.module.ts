@@ -40,6 +40,8 @@ import { ChatProvider } from '../providers/chat/chat';
 import { ChatHandle } from '../providers/chat/chatHandle';
 import { FCM } from '@ionic-native/fcm';
 import * as firebase from "firebase";
+import { Push, PushObject, PushOptions } from '@ionic-native/push';
+import { BackgroundMode } from '@ionic-native/background-mode';
 
 // class CameraMock extends Camera {
 //     getPicture(options) {
@@ -131,8 +133,8 @@ firebase.initializeApp(firebaseConfig);
     ItemsProvider,
     ItemSearchProvider,
     DomainProvider,
-    FavProvider,
-    ChatProvider,FCM
+    FavProvider,BackgroundMode,
+    ChatProvider,FCM,Push
   ]
 })
 export class AppModule {}

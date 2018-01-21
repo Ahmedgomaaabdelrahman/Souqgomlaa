@@ -16,6 +16,21 @@ import {AuthServiceProvider} from "../providers/auth-service/auth-service";
 import { HomePage } from '../pages/home/home';
 import { Events } from 'ionic-angular';
 import {ChatProvider} from "../providers/chat/chat";
+import { Push, PushObject, PushOptions } from '@ionic-native/push';
+import { BackgroundMode } from '@ionic-native/background-mode';
+
+//   const options: PushOptions = {
+// //    android: {},
+//    ios: {
+//        alert: 'true',
+//        badge: true,
+//        sound: 'false'
+//    },
+// //    windows: {},
+// //    browser: {
+//     //    pushServiceURL: 'http://push.api.phonegap.com/v1/push'
+// //    }
+// };
 
 @Component({
   templateUrl: 'app.html'
@@ -24,12 +39,42 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
   rootPage:any ;
 
-  constructor(public chat:ChatProvider,public events: Events,private toastCtrl:ToastController,private auth:AuthServiceProvider,private common:CommonProvider,public menuCtrl:MenuController ,platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
+  constructor(private backgroundMode: BackgroundMode,public push:Push,public chat:ChatProvider,public events: Events,private toastCtrl:ToastController,private auth:AuthServiceProvider,private common:CommonProvider,public menuCtrl:MenuController ,platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
+
     platform.ready().then(() => {
+      this.backgroundMode.enable();
 
+// chat  
+ //push test
+  //       this.push.hasPermission()
+  // .then((res: any) => {
+
+  //   if (res.isEnabled) {
+  //     console.log('We have permission to send push notifications');
+  //     this.push.listChannels().then((channels) => console.log('List of channels', channels))
+
+  //   } else {
+  //     console.log('We do not have permission to send push notifications');
+  //   }
+
+  // });
+
+// const pushObject: PushObject = this.push.init(options);
+
+
+// pushObject.on('notification').subscribe((notification: any) => console.log('Received a notification', notification));
+
+// pushObject.on('registration').subscribe((registration: any) => console.log('Device registered', registration));
+
+// pushObject.on('error').subscribe(error => console.error('Error with Push plugin', error));
+///////
         try {
-            this.chat.onTokenRecived(this.nav);
+                       
 
+           this.chat.onTokenRecived(this.nav);
+            this.chat.onTokenIdRefresh();
+
+ //this.chat.pushN();
         }catch(e){
             console.log(e);
         }

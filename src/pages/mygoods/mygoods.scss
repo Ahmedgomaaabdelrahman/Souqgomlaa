@@ -14,12 +14,12 @@ page-mygoods {
     [col-2]{
         text-align:center;
     }
-    [col-7]{
-        text-align: start;
-        font-size: 15px;
-        color: #4c4b4b;
-        font-family: cairoreg;
-    }
+    // [col-7]{
+    //     text-align: start;
+    //     font-size: 15px;
+    //     color: #4c4b4b;
+    //     font-family: cairoreg;
+    // }
 }
 
 .btn{
@@ -69,14 +69,14 @@ display: unset !important}
         }
         .settings{
             padding-top: 50%;
-            font-size: 2rem;
+            font-size: 35px;
             padding: 5px;
             color: #074b91;
         }
         .trash{
             padding-top: 50%;
-            font-size: 2rem;
-            padding: 5px;
+            font-size: 34px;
+            padding: 5px 0;
             color: red;
         }
 }
