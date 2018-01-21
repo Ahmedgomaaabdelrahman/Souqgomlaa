@@ -19,16 +19,16 @@
 <ion-content >
 
   <ion-row class="toprow">
-   
+
     <ion-col  class="message">
       الرسائل
     </ion-col>
-  
+
   </ion-row>
 
 
 
-<div>
+<div *ngIf="!noMessagesYet">
   <ion-row class="itemrow" *ngFor="let messager of realmsgs;let i=index" (click)="goDetails(realmsgs[i])">
   <div *ngIf="messager != null && names[i] !==null ">
     <ion-col col-2>
@@ -43,22 +43,6 @@
   </ion-row>
   <!--<img class="trash" src="assets/imgs/trash.png">-->
 </div>
-<!--<div>-->
-  <!--<ion-row class="itemrow">-->
-    <!--<ion-col col-2><img class="per" src="assets/imgs/per.png"></ion-col>-->
-    <!--<ion-col col-10 style="padding: 10px;">-->
-      <!--<p class="infop">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</p>-->
-    <!--</ion-col>-->
-  <!--</ion-row>-->
-  <!--<img class="trash" src="assets/imgs/trash.png">-->
-<!--</div>-->
-<!--<div>-->
-  <!--<ion-row class="itemrow">-->
-      <!--<ion-col col-2><img class="per" src="assets/imgs/per.png"></ion-col>-->
-      <!--<ion-col col-10 style="padding: 10px;">-->
-          <!--<p class="infop">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</p>-->
-      <!--</ion-col>-->
-    <!--</ion-row>-->
-  <!--<img class="trash" src="assets/imgs/trash.png">-->
-<!--</div>      -->
+  <div *ngIf="noMessagesYet" class="noitems"><p>لا يوجد رسائل</p></div>
+
 </ion-content>

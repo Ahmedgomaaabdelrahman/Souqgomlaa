@@ -47,7 +47,7 @@ this.icon="ios-send"
               self.myMsgs=[]
               for(var i in msgs){
                this.zone.run(()=>{   self.myMsgs.push(msgs[i]);})
-                  console.log( msgs[i])
+                  // console.log( msgs[i])
 
               }
 
@@ -111,7 +111,7 @@ this.ref.child('n/'+res.Id+'/').set({
             // sender:res.Id,
             otherUser: this.navParams.data.instances.sellerId
         }
-        console.log(msg);
+        // console.log(msg);
 
         this.chat.sendMsg(msg);
         this.M=''
@@ -135,7 +135,7 @@ this.ref.child('n/'+res.Id+'/').set({
               otherUser: this.navParams.data.instances.buyerId
 
           }
-          console.log(msg);
+          // console.log(msg);
           this.chat.sendMsg(msg);
           this.M=''
 

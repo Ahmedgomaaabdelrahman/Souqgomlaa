@@ -1,7 +1,7 @@
 import { ProfilePage } from './../profile/profile';
 import { ProddetailsPage } from './../proddetails/proddetails';
 import { Component } from '@angular/core';
-import { NavController,MenuController,NavParams } from 'ionic-angular';
+import {NavController, MenuController, NavParams, Events} from 'ionic-angular';
 import { MessagesPage } from "../messages/messages";
 import {ItemsProvider} from "../../providers/items/items";
 import {CommonProvider} from "../../providers/common/common";
@@ -13,6 +13,7 @@ import {ItemSearchProvider} from "../../providers/item-search/item-search";
   templateUrl: 'home.html'
 })
 export class HomePage {
+  newMessage:boolean;
 all:any;
 realAll:any;
 itemimg:any;
@@ -22,8 +23,8 @@ d:any
     D:string;
     valid:boolean;
     mode:any;
-  constructor(public navParams:NavParams,public searchProvider:ItemSearchProvider,public domain:DomainProvider,public items:ItemsProvider,public common:CommonProvider,public menuCtrl:MenuController,public navCtrl: NavController) {
-
+  constructor(public events:Events, public navParams:NavParams,public searchProvider:ItemSearchProvider,public domain:DomainProvider,public items:ItemsProvider,public common:CommonProvider,public menuCtrl:MenuController,public navCtrl: NavController) {
+    this.newMessage=false;
 this.valid=false;
       console.log('context',this.navCtrl);
 
@@ -56,7 +57,6 @@ this.itemimg.push(itemurl.urls)
           } else if(res == null || res.length<10){
               this.help+=10
 
-              // this.getItems();
               this.valid = false;
           }
           try{
@@ -66,6 +66,12 @@ this.itemimg.push(itemurl.urls)
       })
   }
 ionViewWillEnter(){
+    let selfm=this
+    this.events.subscribe('newMessage', (message)=> {
+      console.log('newMessage',message)
+      selfm.newMessage=message
+
+    })
 this.help=0;
     this.all=[];
     this.realAll=[]
@@ -110,10 +116,9 @@ console.log('result',this.realAll)
 
 }
   goDetails(item :any){
-    // console.log('iiiiiii',item)
     this.navCtrl.push(ProddetailsPage,item);
   }
-  
+
   goPer(){
     this.navCtrl.push(ProfilePage);
   }
@@ -130,9 +135,6 @@ console.log('result',this.realAll)
             let x={'i':f}
             this.items.getAllItems(x).subscribe(res=>{
 
-                //this.common.loadDismess();
-
-                //console.log('res',res)
 
                 if(res !=null){
                 for (let i=0; i < res.length; i++) {
@@ -155,6 +157,7 @@ console.log('result',this.realAll)
             })
         })
     }
-   //  ionViewWillLeave() {
-   // }
+    ionViewWillLeave() {
+      // this.newMessage==false;
+   }
 }

@@ -6,6 +6,8 @@ import {DomainProvider} from "../domain/domain";
 import * as firebase from "firebase";
 import {timestamp} from "rxjs/operator/timestamp";
 import { Push, PushObject, PushOptions } from '@ionic-native/push';
+import {MessagesPage} from "../../pages/messages/messages";
+import {Events} from "ionic-angular";
 
 // import {NavController} from "ionic-angular";
 declare var FCMPlugin;
@@ -36,7 +38,7 @@ const options : PushOptions = {
 @Injectable()
 export class ChatProvider {
     ref=firebase.database().ref();
-    constructor(private push: Push,public zone:NgZone,public domain:DomainProvider,private fcm: FCM,public http: Http) {
+    constructor(private events:Events,private push: Push,public zone:NgZone,public domain:DomainProvider,private fcm: FCM,public http: Http) {
     console.log('Hello ChatProvider Provider');
 
 
@@ -120,26 +122,7 @@ export class ChatProvider {
 
 
     }
-//     msgsRecived(currentID):Promise<any>{
-//       let promise=new Promise((resolve,reject)=>{
-//
-// this.ref.child('user/').child(currentID).orderByValue().once('value').then(data=>{
-// data.val();
-//     var returnArr = [];
-// var i=0;
-//     data.forEach((childSnapshot) =>{
-//         var item = childSnapshot.val();
-//         item.key = childSnapshot.key;
-// let l={'`i`':item};
-//         returnArr.push(l);
-//         i++;
-//     },i);
-//
-// resolve(returnArr);
-// });
-//       });
-//       return promise;
-//     }
+
     getMessagesForDetailsPagetodetailsmessages(currentID,sellerId):Promise<any>{
         let promise=new Promise((resolve,reject)=>{
             this.ref.child('user/'+currentID+'/'+sellerId).on('value', snapshot =>{
@@ -230,20 +213,24 @@ resolve(token)
  console.log('FCM Fired : Token :: ',token)
             // this.zone.runOutsideAngular(()=>{
             if(token.wasTapped){
+              this.events.publish('newMessage',true)
                 //Notification was received on device tray and tapped by the user.
             //    alert( JSON.stringify(token) );
+              context.push(MessagesPage);
 
             }else{
+              this.events.publish('newMessage',true)
+              // this.events.subscribe('checkNewMessage',)
                 //Notification was received in foreground. Maybe the user needs to be notified.
                 console.log(context.getActive().name)
                 // alert(context.getActive().c);
-                var MessagedetailsPage=context.getActive().name
-                var MessagesPage=context.getActive().name
+                // var MessagedetailsPage=context.getActive().name
+                // var MessagesPage=context.getActive().name
+              // context.push(MessagesPage);
+              //   if(MessagedetailsPage!="MessagedetailsPage" && MessagesPage !=="MessagesPage"){
+                // alert('لديك رسالة جديدة');
 
-                if(MessagedetailsPage!="MessagedetailsPage" && MessagesPage !=="MessagesPage"){
-                alert('لديك رسالة جديدة');
-
-                }
+                // }
             }
                 // })
         })

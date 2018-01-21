@@ -9,7 +9,7 @@ ion-buttons{
 .toprow{
 
     text-align: center;
- 
+
 
     .menu{
             border: 1px solid gray;
@@ -25,8 +25,8 @@ ion-buttons{
     border-radius: 20px;
     background-color: white;
     height: 238px;
-  
-   
+
+
 }
 p{
     font-family: cairoreg;
@@ -79,9 +79,22 @@ display: unset !important}
     padding-right: 6px;
     position: relative;
     top: -15px;}
-  .imgMail{    font-size: 3rem;
+  .imgMail {
+    font-size: 3rem;
     color: white;
-    margin-right: 6%;
+    margin-right: 29%;
     position: relative;
-    top: -15px;} 
+    top: -15px;
+  }  .imgMailNew {
+    font-size: 3rem;
+    color: rgba(245, 15, 16, 0.69);
+    margin-right: 29%;
+    position: relative;
+    top: -15px;
+  }
+//  .imgMail{    font-size: 3rem;
+//    color: white;
+//    margin-right: 6%;
+//    position: relative;
+//    top: -15px;}
 }

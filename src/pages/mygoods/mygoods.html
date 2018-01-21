@@ -8,18 +8,19 @@
 
   <ion-navbar>
     <ion-title>
-      
+
       <ion-icon class="menuT" menuToggle name="menu" ></ion-icon>
       <img class="imgLogo" src="assets/imgs/icon.png">
       <ion-icon class="imgPer" name="person" (click)="goPer()"></ion-icon>
-      <ion-icon class="imgMail" name="mail"  (click)="goChat()"></ion-icon>
-
+      <!--<ion-icon class="imgMail" name="mail"  (click)="goChat()"></ion-icon>-->
+      <ion-icon *ngIf="!newMessage" class="imgMail" name="mail" (click)="goChat()"></ion-icon>
+      <ion-icon *ngIf="newMessage" class="imgMailNew" name="mail" (click)="goChat()"></ion-icon>
       <ion-buttons clear right (click)="mainPage()">
         <button ion-button   icon-only style="float: left;position: absolute;top: -45px;left: 0px;" >
           <ion-icon style="color:white" ios="ios-arrow-back" md="md-arrow-back"></ion-icon><br>
         </button>
       </ion-buttons>
- 
+
     </ion-title>
   </ion-navbar>
 
@@ -59,7 +60,7 @@
       <!--<button ion-button  expandable="true" (click)="goUpdate(good)" cancelable="false">تعديل</button>-->
     <!--</ion-item-options>-->
   <!--</ion-item-sliding>-->
-  
+
 <ion-row   *ngFor="let good of goods;let i=index" style="background-color: white;">
   <ion-col col-3><img  class="itemimg"  src={{thumps[i]}}></ion-col>
   <ion-col col-6 style="font-size: 20px;">{{good.ItemName}}</ion-col>

@@ -1,11 +1,12 @@
 <ion-header>
   <ion-navbar>
       <ion-title>
-          
+
           <ion-icon class="menuT" menuToggle name="menu" ></ion-icon>
           <img class="imgLogo" src="assets/imgs/icon.png">
-          <ion-icon class="imgPer" name="person" (click)="goPer()"></ion-icon>
-          <ion-icon class="imgMail" name="mail" (click)="goChat()"></ion-icon>
+          <!--<ion-icon class="imgPer" name="person" (click)="goPer()"></ion-icon>-->
+          <ion-icon *ngIf="!newMessage" class="imgMail" name="mail" (click)="goChat()"></ion-icon>
+          <ion-icon *ngIf="newMessage" class="imgMailNew" name="mail" (click)="goChat()"></ion-icon>
           <ion-buttons right (click)="mainPage()">
             <button ion-button  icon-only style="float: left;position: absolute;top: -45px;left: 0px;" >
               <ion-icon style="color:white" ios="ios-arrow-back" md="md-arrow-back"></ion-icon><br>
@@ -16,21 +17,9 @@
 </ion-header>
 
 <ion-content>
- 
-<div *ngIf="valid">
-<!-- 
-<ion-row  *ngFor="let item of all" class="itemrow">
 
-    <ion-col col-2><img src="{{D}}/profileImages_thump/{{item.SellerId.image}}"></ion-col>
-   <ion-col col-7 >
-      <p class="infop" > {{item.ItemName}}</p>
-      <p class="detp" (click)="goDetails(item)">التفاصيل</p>
-   </ion-col>
-   <ion-col col-3>
-      <p class="imgp">
-      <img src="assets/imgs/loc.png">{{item.Location}}</p>
-   </ion-col>
-</ion-row> -->
+<div *ngIf="valid">
+
 
    <div  *ngFor="let item of realAll;let i=index" class="itemrow">
       <img class="imgd" src="{{itemimg[i]}}">
@@ -45,7 +34,7 @@
     <img src="assets/imgs/loc.png">{{item.Location}}</p>
   </ion-col>
  </ion-row>
-</div> 
+</div>
 </div>
     <ion-infinite-scroll *ngIf="mode != 1"   (ionInfinite)="doInfinite($event)">
         <ion-infinite-scroll-content>
@@ -58,5 +47,5 @@
 
 
 
-  
+
 </ion-content>
