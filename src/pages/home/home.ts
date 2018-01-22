@@ -1,6 +1,6 @@
 import { ProfilePage } from './../profile/profile';
 import { ProddetailsPage } from './../proddetails/proddetails';
-import { Component } from '@angular/core';
+import { Component,NgZone } from '@angular/core';
 import {NavController, MenuController, NavParams, Events} from 'ionic-angular';
 import { MessagesPage } from "../messages/messages";
 import {ItemsProvider} from "../../providers/items/items";
@@ -23,8 +23,9 @@ d:any
     D:string;
     valid:boolean;
     mode:any;
-  constructor(public events:Events, public navParams:NavParams,public searchProvider:ItemSearchProvider,public domain:DomainProvider,public items:ItemsProvider,public common:CommonProvider,public menuCtrl:MenuController,public navCtrl: NavController) {
-    this.newMessage=false;
+  constructor(public zone:NgZone,public events:Events, public navParams:NavParams,public searchProvider:ItemSearchProvider,public domain:DomainProvider,public items:ItemsProvider,public common:CommonProvider,public menuCtrl:MenuController,public navCtrl: NavController) {
+    this.zone.run(()=>{
+      this.newMessage=false;})
 this.valid=false;
       console.log('context',this.navCtrl);
 
