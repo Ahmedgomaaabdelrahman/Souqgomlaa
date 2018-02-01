@@ -5,24 +5,24 @@ import { FCM } from '@ionic-native/fcm';
 import {DomainProvider} from "../domain/domain";
 import * as firebase from "firebase";
 import {timestamp} from "rxjs/operator/timestamp";
-import { Push, PushObject, PushOptions } from '@ionic-native/push';
+// import { Push, PushObject, PushOptions } from '@ionic-native/push';
 import {MessagesPage} from "../../pages/messages/messages";
 import {Events} from "ionic-angular";
 
 // import {NavController} from "ionic-angular";
 declare var FCMPlugin;
-const options : PushOptions = {
-//    android: {},
-   ios: {
-       alert: 'true',
-       badge: true,
-       sound: 'true'
-   },
-//    windows: {},
-//    browser: {
-    //    pushServiceURL: 'http://push.api.phonegap.com/v1/push'
-//    }
-};
+// const options : PushOptions = {
+// //    android: {},
+//    ios: {
+//        alert: 'true',
+//        badge: true,
+//        sound: 'true'
+//    },
+// //    windows: {},
+// //    browser: {
+//     //    pushServiceURL: 'http://push.api.phonegap.com/v1/push'
+// //    }
+// };
 // const socket = new Pusher('90a90fff9718b47744df', {
 //     cluster:  "us2",
 //     // authEndpoint: '/pusher/auth/',
@@ -38,7 +38,7 @@ const options : PushOptions = {
 @Injectable()
 export class ChatProvider {
     ref=firebase.database().ref();
-    constructor(private events:Events,private push: Push,public zone:NgZone,public domain:DomainProvider,private fcm: FCM,public http: Http) {
+    constructor(private events:Events,public zone:NgZone,public domain:DomainProvider,private fcm: FCM,public http: Http) {
     console.log('Hello ChatProvider Provider');
 
 
@@ -251,44 +251,44 @@ resolve(token)
     //   return  this.http.post(this.domain.url+'/sendMessage',req).map(res=>res.json().res);
     // }
 
-      pushN(){
-      // to check if we have permission
-this.push.hasPermission()
-  .then((res: any) => {
+//       pushN(){
+//       // to check if we have permission
+// this.push.hasPermission()
+//   .then((res: any) => {
 
-    if (res.isEnabled) {
-      console.log('We have permission to send push notifications');
-    } else {
-      console.log('We do not have permission to send push notifications');
-    }
+//     if (res.isEnabled) {
+//       console.log('We have permission to send push notifications');
+//     } else {
+//       console.log('We do not have permission to send push notifications');
+//     }
 
-  });
+//   });
 
-// Create a channel (Android O and above). You'll need to provide the id, description and importance properties.
-this.push.createChannel({
- id: "testchannel1",
- description: "My first test channel",
- // The importance property goes from 1 = Lowest, 2 = Low, 3 = Normal, 4 = High and 5 = Highest.
- importance: 3
-}).then(() => console.log('Channel created'));
+// // Create a channel (Android O and above). You'll need to provide the id, description and importance properties.
+// this.push.createChannel({
+//  id: "testchannel1",
+//  description: "My first test channel",
+//  // The importance property goes from 1 = Lowest, 2 = Low, 3 = Normal, 4 = High and 5 = Highest.
+//  importance: 3
+// }).then(() => console.log('Channel created'));
 
-// Delete a channel (Android O and above)
-this.push.deleteChannel('testchannel1').then(() => console.log('Channel deleted'));
+// // Delete a channel (Android O and above)
+// this.push.deleteChannel('testchannel1').then(() => console.log('Channel deleted'));
 
-// Return a list of currently configured channels
-this.push.listChannels().then((channels) => console.log('List of channels', channels))
+// // Return a list of currently configured channels
+// this.push.listChannels().then((channels) => console.log('List of channels', channels))
 
-// to initialize push notifications
-
-
-
-const pushObject: PushObject = this.push.init(options);
+// // to initialize push notifications
 
 
-pushObject.on('notification').subscribe((notification: any) => console.log('Received a notification', notification));
 
-pushObject.on('registration').subscribe((registration: any) => console.log('Device registered', registration));
+// const pushObject: PushObject = this.push.init(options);
 
-pushObject.on('error').subscribe(error => console.error('Error with Push plugin', error));
-  }
+
+// pushObject.on('notification').subscribe((notification: any) => console.log('Received a notification', notification));
+
+// pushObject.on('registration').subscribe((registration: any) => console.log('Device registered', registration));
+
+// pushObject.on('error').subscribe(error => console.error('Error with Push plugin', error));
+//   }
 }

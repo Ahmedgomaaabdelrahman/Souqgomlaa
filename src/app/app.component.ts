@@ -16,7 +16,7 @@ import {AuthServiceProvider} from "../providers/auth-service/auth-service";
 import { HomePage } from '../pages/home/home';
 import { Events } from 'ionic-angular';
 import {ChatProvider} from "../providers/chat/chat";
-import { Push, PushObject, PushOptions } from '@ionic-native/push';
+// import { Push, PushObject, PushOptions } from '@ionic-native/push';
 import { BackgroundMode } from '@ionic-native/background-mode';
 
 
@@ -28,7 +28,7 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
   rootPage:any ;
 
-  constructor(private backgroundMode: BackgroundMode,public push:Push,public chat:ChatProvider,public events: Events,private toastCtrl:ToastController,private auth:AuthServiceProvider,private common:CommonProvider,public menuCtrl:MenuController ,platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
+  constructor(private backgroundMode: BackgroundMode,public chat:ChatProvider,public events: Events,private toastCtrl:ToastController,private auth:AuthServiceProvider,private common:CommonProvider,public menuCtrl:MenuController ,platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
 
     platform.ready().then(() => {
       //this.backgroundMode.enable();
