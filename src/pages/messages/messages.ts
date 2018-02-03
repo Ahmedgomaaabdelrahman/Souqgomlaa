@@ -52,7 +52,8 @@ this.zone.run(()=>{
               this.chat.getOpenedMessages(user.Id).then(data => {
                   self.messegers = data;
                   console.log(data.length)
-                if(data.length==0){
+                  console.log(data)
+                if(data.length==1 ||data.length==0){
                   this.noMessagesYet=true;
                 }else {
                   this.noMessagesYet=false;
