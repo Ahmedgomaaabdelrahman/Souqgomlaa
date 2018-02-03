@@ -35,7 +35,13 @@ d:any
       this.zone.run(()=>{message})
       selfm.newMessage=message
 
-    })})
+    })
+      this.events.subscribe('sendAlertMsg', (message)=> {
+      console.log('newMessage',message)
+
+    })
+
+    })
 this.valid=false;
       // console.log('context',this.navCtrl);
 
