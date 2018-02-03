@@ -24,7 +24,7 @@ D:any;
 star:string;
 guestUser
   constructor(public events :Events,public chat :ChatProvider,public favProvider:FavProvider,public domain:DomainProvider,public itemsProvider:ItemsProvider,public common:CommonProvider,public navCtrl: NavController, public navParams: NavParams) {
-      console.log('ionViewDidLoad ProddetailsPage',this.navParams.data.SellerId.Name);
+      console.log(' ProddetailsPage',this.navParams.data);
       // this.Name=this.navParams.data.SellerId.Name
       this.D=this.domain.url;
   this.events.subscribe('guest',guest=>{

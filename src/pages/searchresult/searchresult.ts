@@ -12,7 +12,10 @@ import {ItemSearchProvider} from "../../providers/item-search/item-search";
 export class SearchresultPage {
 town:any;
 cat:any;
-  constructor(public searchProvider:ItemSearchProvider,public navCtrl: NavController, public navParams: NavParams) {
+  constructor
+  (public searchProvider:ItemSearchProvider,
+   public navCtrl: NavController,
+   public navParams: NavParams) {
 
   }
   ionViewWillEnter(){
@@ -30,7 +33,7 @@ this.searchProvider.search(this.cat,this.town).subscribe(data=>{
 goDetails(){
     this.navCtrl.push(ProddetailsPage);
   }
-  
+
   goPer(){
     this.navCtrl.push(ProfilePage);
   }

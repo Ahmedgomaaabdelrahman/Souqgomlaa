@@ -28,13 +28,13 @@ d:any
     this.zone.run(()=>{
       this.newMessage=false;})
 this.valid=false;
-      console.log('context',this.navCtrl);
+      // console.log('context',this.navCtrl);
 
   }
   help:any;
 
-openImage(){
-    this.navCtrl.push(BigimagePage);
+openImage(img){
+    this.navCtrl.push(BigimagePage,{"image":img});
 }
 
 

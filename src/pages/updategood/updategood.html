@@ -12,7 +12,7 @@
           <img class="imgLogo" src="assets/imgs/icon.png">
           <ion-icon class="imgPer" name="person" (click)="goPer()"></ion-icon>
           <ion-icon class="imgMail" name="mail" (click)="goChat()"></ion-icon>
-    
+
           <ion-buttons right (click)="mainPage()">
             <button ion-button  icon-only style="float: left;position: absolute;top: -45px;left: 0px;" >
               <ion-icon style="color:white" ios="ios-arrow-back" md="md-arrow-back"></ion-icon><br>
@@ -31,31 +31,34 @@
     <button class="Topbutton" ion-button block color={{color}} (click)="statusManege()" >{{status}}</button>
 
  <form class="forma" #f="ngForm">
-     
+
     <ion-item class="logitem">
-      <ion-label staked> الاسم</ion-label>
+      <ion-label staked>الاسم       :</ion-label>
       <ion-input type="text" [(ngModel)]="itemName" id="itemName" name="itemName"   value={{itemName}} placeholder="الاسم" required></ion-input>
     </ion-item>
 
     <ion-item class="logitem">
-      <ion-label staked> الكميه</ion-label>
+
+      <ion-label staked>الكميه     :</ion-label>
       <ion-input [(ngModel)]="quantity" name="quantity" id="quantity"  type="text" value={{quantity}} placeholder="الكمية" required></ion-input>
     </ion-item>
-    
+
        <ion-item class="logitem">
-      <ion-label staked>بلد المنشأ</ion-label>
+      <ion-label staked>بلد المنشأ :</ion-label>
       <ion-input [(ngModel)]="origin" name="origin" id="origin" type="text" value={{origin}} placeholder="بلد المنشأ" required></ion-input>
     </ion-item>
 
        <ion-item class="logitem">
-      <ion-label staked> السعر</ion-label>
+
+         <ion-label staked>السعر      :</ion-label>
       <ion-input  [(ngModel)]="price" name="price" id="price" type="number"  placeholder="السعر" required></ion-input>
     </ion-item>
 
 
 
     <ion-item class="logitem">
-       <ion-label staked> الوصف</ion-label>
+
+      <ion-label staked>الوصف      :</ion-label>
       <ion-textarea  [(ngModel)]="description" name="description" id="description" type="text" value={{description}} placeholder="الوصف" required></ion-textarea>
     </ion-item>
      <ion-item class="logitem">

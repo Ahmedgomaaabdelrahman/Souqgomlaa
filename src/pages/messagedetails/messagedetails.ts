@@ -21,13 +21,20 @@ myMsgs:any;
 myId:any;
 scrollContent:any;
 ref=firebase.database().ref();
-
+oneTimeMsg:boolean;
   constructor(public zone:NgZone,public event:Events,public keyboard: Keyboard,public common:CommonProvider,public chat:ChatProvider,public navCtrl: NavController, public navParams: NavParams) {
       // this.scrollContent=this.content['_scroll']['initialized']
       this.common.getStoredValue('S').then(user=>{
           this.myId=user.Id
           // this.content.scrollToBottom();
-          console.log('fffffff',this.content)
+          console.log('fffffff',this.navParams.data)
+        let self=this
+        if(this.navParams.get('instances').key !=null){
+          self.oneTimeMsg=false;
+        }else{
+          self.oneTimeMsg=true;
+
+        }
           // if(this.content._scroll['initialized'])
               this.content.scrollToBottom(0)
       })
@@ -144,7 +151,11 @@ this.ref.child('n/'+res.Id+'/').set({
         if(this.content._scroll['initialized']) this.content.scrollToBottom(0) // setTimeout(() => {
  //    // this.content.scrollToBottom(300);
  // }, 1000);
-
+if(this.oneTimeMsg){
+          // this.common.presentToast("")
+          this.common.presentToast('تم الارسال بنجاح',null)
+          this.navCtrl.setRoot(HomePage)
+}
   }
   dirClass:string;
   mainPage(){

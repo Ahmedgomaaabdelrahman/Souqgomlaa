@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams,ViewController } from 'ionic-angular';
 import { MessagesPage } from "../messages/messages";
 import {TownsProvider} from "../../providers/towns/towns";
+import {HomePage} from "../home/home";
 
 
 @Component({
@@ -27,4 +28,8 @@ ionViewWillEnter(){
     select(town){
     this.view.dismiss(town)
     }
+  mainPage(){
+    this.navCtrl.popTo(HomePage);
+
+  }
 }

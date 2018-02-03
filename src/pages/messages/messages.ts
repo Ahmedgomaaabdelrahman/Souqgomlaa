@@ -55,7 +55,7 @@ this.zone.run(()=>{
                   self.messegers = data;
                   console.log(data.length)
                   console.log(data)
-                if(data.length==1 ||data.length==0){
+                if(data.length==0){
                   this.noMessagesYet=true;
                 }else {
                   this.noMessagesYet=false;
@@ -92,7 +92,7 @@ this.zone.run(()=>{
                   data})
                   self.messegers = data;
                   console.log(data.length)
-                if(data.length==1 ||data.length==0){
+                if(data.length==0){
                   this.noMessagesYet=true;
                 }else {
                   this.noMessagesYet=false;

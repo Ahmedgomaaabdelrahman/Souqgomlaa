@@ -24,35 +24,37 @@
 
 
 <ion-content>
- <ion-row class="toprow">  
-        تعديل الصفحه الشخصية  
+ <ion-row class="toprow">
+        تعديل الصفحه الشخصية
  </ion-row>
 
 
  <form class="forma" #f="ngForm">
-     
+
     <ion-item class="logitem">
       <ion-label staked>الاسم</ion-label>
       <ion-input type="text" [(ngModel)]="name" id="name" name="name" value="{{name}}" placeholder="الاسم" required></ion-input>
     </ion-item>
 
     <ion-item class="logitem">
-      <ion-label staked>البريد الالكترونى</ion-label>
+      <ion-label staked>البريد الالكترونى    :</ion-label>
       <ion-input type="email" [(ngModel)]="email" id="email" name="email" value="{{email}}" placeholder="البريد الالكترونى" required></ion-input>
     </ion-item>
-    
+
        <ion-item class="logitem">
-      <ion-label staked>رقم الهاتف</ion-label>
+         <ion-label staked>رقم الهاتف          :</ion-label>
            <ion-input [(ngModel)]="phone" name="phone" type="number" placeholder="رقم الهاتف" required ></ion-input>
     </ion-item>
 
      <ion-item class="logitem">
-      <ion-label staked>السجل التجارى</ion-label>
+
+       <ion-label staked>السجل التجارى       :</ion-label>
       <ion-input type="text" [(ngModel)]="Commercial_Register" name="Commercial_Register" id="Commercial_Register" value="{{Commercial_Register}}" placeholder="السجل التجاري" required></ion-input>
     </ion-item>
 
        <ion-item class="logitem">
-      <ion-label staked>كلمه المرور</ion-label>
+
+         <ion-label staked>كلمه المرور         :</ion-label>
       <ion-input type="password" [(ngModel)]="password" name="password" id="password" placeholder="كلمه المرور"  required>{{password}}</ion-input>
     </ion-item>
 
@@ -72,7 +74,7 @@
         </div>
  </ion-item>
      <div class="topdiv" >
-         <img style="border-radius: 20px;
+         <img *ngIf="img!=null" style="border-radius: 20px;
          width: 92%;
          display: block;
          margin: auto;
