@@ -1,6 +1,6 @@
 import { HomePage } from './../home/home';
 import { UpdategoodPage } from './../updategood/updategood';
-import { Component } from '@angular/core';
+import {Component, NgZone} from '@angular/core';
 import {Events, NavController, NavParams,AlertController } from 'ionic-angular';
 import { ProfilePage } from "../profile/profile";
 import { MessagesPage } from "../messages/messages";
@@ -19,13 +19,15 @@ thumps:any=[];
 D:any
   newMessage:boolean;
 
-  constructor(private alertCtrl: AlertController,public events:Events,public domain:DomainProvider,public navCtrl: NavController, public navParams: NavParams,private common:CommonProvider,private items:ItemsProvider) {
+  constructor(public zone:NgZone,private alertCtrl: AlertController,public events:Events,public domain:DomainProvider,public navCtrl: NavController, public navParams: NavParams,private common:CommonProvider,private items:ItemsProvider) {
 this.D=this.domain.url
   }
   mode:any;
   ionViewWillEnter(){
     let self =this
-    this.  newMessage=false;
+
+    this.zone.run(()=>{
+      this.newMessage=false;})
     this.events.subscribe('newMessage', (message)=> {
       console.log('newMessage',message)
       self.newMessage=message
