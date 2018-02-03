@@ -38,8 +38,8 @@ removeStoredKey(key:any){
     presentToast(msg:string,closeText:string,callback?) {
         const toast = this.toast.create({
             message: msg,
-            duration: 3000,
-            position: 'top'
+            duration: 4000,
+            position: 'bottom'
             ,dismissOnPageChange:true,
             showCloseButton:true
             ,closeButtonText:closeText
