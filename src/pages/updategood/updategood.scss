@@ -8,7 +8,10 @@ page-updategood {
     margin-top: 10px;
     margin-bottom: 10px;
 }
-
+textarea.text-input {
+    resize: none;
+    line-height: 55px;
+}
 .notifiyp{
     margin: 0;
     font-size: 20px;

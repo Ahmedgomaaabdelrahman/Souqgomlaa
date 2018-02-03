@@ -33,28 +33,29 @@
  <form class="forma" #f="ngForm">
      
     <ion-item class="logitem">
-      <!--<ion-label ></ion-label>-->
+      <ion-label staked> الاسم</ion-label>
       <ion-input type="text" [(ngModel)]="itemName" id="itemName" name="itemName"   value={{itemName}} placeholder="الاسم" required></ion-input>
     </ion-item>
 
     <ion-item class="logitem">
-      <!--<ion-label ></ion-label>-->
+      <ion-label staked> الكميه</ion-label>
       <ion-input [(ngModel)]="quantity" name="quantity" id="quantity"  type="text" value={{quantity}} placeholder="الكمية" required></ion-input>
     </ion-item>
     
        <ion-item class="logitem">
-      <!--<ion-label ></ion-label>-->
+      <ion-label staked>بلد المنشأ</ion-label>
       <ion-input [(ngModel)]="origin" name="origin" id="origin" type="text" value={{origin}} placeholder="بلد المنشأ" required></ion-input>
     </ion-item>
 
        <ion-item class="logitem">
-      <!--<ion-label ></ion-label>-->
+      <ion-label staked> السعر</ion-label>
       <ion-input  [(ngModel)]="price" name="price" id="price" type="number"  placeholder="السعر" required></ion-input>
     </ion-item>
 
 
 
     <ion-item class="logitem">
+       <ion-label staked> الوصف</ion-label>
       <ion-textarea  [(ngModel)]="description" name="description" id="description" type="text" value={{description}} placeholder="الوصف" required></ion-textarea>
     </ion-item>
      <ion-item class="logitem">

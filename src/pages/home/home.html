@@ -22,7 +22,7 @@
 
 
    <div  *ngFor="let item of realAll;let i=index" class="itemrow">
-      <img class="imgd" src="{{itemimg[i]}}">
+      <img class="imgd" src="{{itemimg[i]}}" (click)="openImage()">
 <ion-row >
   <ion-col col-2><img src="{{D}}/profileImages_thump/{{item.SellerId.image}}"></ion-col>
   <ion-col col-4>

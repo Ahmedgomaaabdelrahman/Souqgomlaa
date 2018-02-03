@@ -1,3 +1,4 @@
+import { BigimagePage } from './../bigimage/bigimage';
 import { ProfilePage } from './../profile/profile';
 import { ProddetailsPage } from './../proddetails/proddetails';
 import { Component,NgZone } from '@angular/core';
@@ -31,6 +32,12 @@ this.valid=false;
 
   }
   help:any;
+
+openImage(){
+    this.navCtrl.push(BigimagePage);
+}
+
+
   getItems(){
       this.all=[]
       this.realAll=[]

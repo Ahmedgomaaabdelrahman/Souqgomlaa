@@ -40,8 +40,10 @@ import { ChatProvider } from '../providers/chat/chat';
 import { ChatHandle } from '../providers/chat/chatHandle';
 import { FCM } from '@ionic-native/fcm';
 import * as firebase from "firebase";
+
 // import { Push, PushObject, PushOptions } from '@ionic-native/push';
 import { BackgroundMode } from '@ionic-native/background-mode';
+import { BigimagePage } from "../pages/bigimage/bigimage";
 
 // class CameraMock extends Camera {
 //     getPicture(options) {
@@ -85,7 +87,8 @@ firebase.initializeApp(firebaseConfig);
     HeaderComponent,
     SearchresultPage,
     MygoodsPage,
-    UpdategoodPage
+    UpdategoodPage,
+    BigimagePage
       // ,
     // ItemsPipe
   ],
@@ -118,7 +121,8 @@ firebase.initializeApp(firebaseConfig);
     HeaderComponent,
     SearchresultPage,
     MygoodsPage,
-    UpdategoodPage
+    UpdategoodPage,
+    BigimagePage
   ],
   providers: [
     StatusBar,
