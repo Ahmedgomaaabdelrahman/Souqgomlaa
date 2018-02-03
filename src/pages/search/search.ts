@@ -53,5 +53,8 @@ town:any;
   }
   goChat(){
     this.navCtrl.push(MessagesPage);
-  }  
+  }
+  mainPage(){
+    this.navCtrl.popTo(HomePage);
+  }
 }
