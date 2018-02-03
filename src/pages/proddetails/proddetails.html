@@ -2,7 +2,7 @@
 <ion-header>
 
     <ion-navbar>
-        <ion-title>                      
+        <ion-title>
 <ion-icon class="menuT" menuToggle name="menu" ></ion-icon>
 <img class="imgLogo" src="assets/imgs/icon.png">
 <ion-icon class="imgMail" name="mail" (click)="goChat()"></ion-icon>
@@ -36,8 +36,8 @@
         </ion-slides>
     </div>
     <div class="infodiv">
-        
-        <p><img src="{{D}}/profileImages_thump/{{image}}"></p>
+
+        <p><img  *ngIf="image!=null" src="{{D}}/profileImages_thump/{{image}}"></p>
         <ion-row>
             <ion-col col-6>وصف المنتج</ion-col>
             <ion-col col-6><p>{{res.Description}}</p></ion-col>
@@ -59,7 +59,7 @@
             <ion-col col-6>السعر</ion-col>
             <ion-col col-6>
                 <p style="font-size: 16px;">
-                    {{res.Price}}
+                    {{res.Price}} ريال
                 </p>
             </ion-col>
             <!-- <ion-col col-6>
