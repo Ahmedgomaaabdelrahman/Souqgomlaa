@@ -1,14 +1,14 @@
 <ion-menu [content]="nav"side="right">
     <ion-content style="background-color: #bdbdbd;">
       <div class="imgmenu" (click)="toggleclose()">
-          <img  src="assets/imgs/menu.png">    
+          <img  src="assets/imgs/menu.png">
       </div>
-     
+
       <ion-list no-lines>
 
 
 
-          <button   class="menubtn" menuClose ion-item (click)="mainPage()">
+          <button  *ngIf="!type" class="menubtn" menuClose ion-item (click)="mainPage()">
            <img src="assets/imgs/headicon.png"><br>الرئيسية
         </button>
           <button *ngIf="!type"  class="menubtn" menuClose ion-item (click)="onSearch()">
