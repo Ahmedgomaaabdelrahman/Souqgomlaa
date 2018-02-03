@@ -11,6 +11,7 @@ import {FavProvider} from "../../providers/fav/fav";
 import {MessagedetailsPage} from "../messagedetails/messagedetails";
 import {ChatProvider} from "../../providers/chat/chat";
 import { Events } from 'ionic-angular';
+import {BigimagePage} from "../bigimage/bigimage";
 
 @Component({
   selector: 'page-proddetails',
@@ -109,4 +110,7 @@ res:any=[];
     mainPage(){
         this.navCtrl.popTo(HomePage);
     }
+  maximaizeImage(image){
+      this.navCtrl.push(BigimagePage,{'image':image})
+  }
 }

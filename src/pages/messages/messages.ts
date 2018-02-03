@@ -46,7 +46,9 @@ this.zone.run(()=>{
 })
 
           this.ref.child('user/'+user.Id).on('value', snapshot =>{
+            this.zone.run(()=>{
 
+              user.Type})
           if(user.Type==0) {
 
               this.chat.getOpenedMessages(user.Id).then(data => {
@@ -85,9 +87,12 @@ this.zone.run(()=>{
           }else{
 
               this.chat.getOpenedMessages(user.Id).then(data => {
+                this.zone.run(()=>{
+
+                  data})
                   self.messegers = data;
                   console.log(data.length)
-                if(data.length==0){
+                if(data.length==1 ||data.length==0){
                   this.noMessagesYet=true;
                 }else {
                   this.noMessagesYet=false;

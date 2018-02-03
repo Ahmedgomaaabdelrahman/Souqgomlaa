@@ -30,7 +30,7 @@
             <ion-slide *ngFor="let imag of images;let i=index" [attr.data-index]="i">
                 <!--<ion-icon  (click)="deletImgModal(i)" ios="ios-trash" md="md-trash"></ion-icon>-->
 
-                <img class="proimg"  src="{{imag}}">
+                <img class="proimg" (click)="maximaizeImage(imag)"  src="{{imag}}">
 
             </ion-slide>
         </ion-slides>

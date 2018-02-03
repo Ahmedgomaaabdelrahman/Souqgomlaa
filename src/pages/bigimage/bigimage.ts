@@ -9,10 +9,12 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class BigimagePage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad BigimagePage');
+  }
+image
+  ionViewWillEnter() {
+    this.image=this.navParams.get('image')
+    console.log(this.navParams.get('image'));
   }
 
 }
