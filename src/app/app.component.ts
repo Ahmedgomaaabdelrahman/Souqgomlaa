@@ -31,7 +31,7 @@ export class MyApp {
   constructor(private backgroundMode: BackgroundMode,public chat:ChatProvider,public events: Events,private toastCtrl:ToastController,private auth:AuthServiceProvider,private common:CommonProvider,public menuCtrl:MenuController ,platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
 
     platform.ready().then(() => {
-      //this.backgroundMode.enable();
+      this.backgroundMode.enable();
 
 
         try {

@@ -212,14 +212,18 @@ resolve(token)
         FCMPlugin.onNotification( (token)=>{
  console.log('FCM Fired : Token :: ',token)
             // this.zone.runOutsideAngular(()=>{
+          this.zone.run(()=>{
             if(token.wasTapped){
-              this.events.publish('newMessage',true)
+              this.zone.run(()=>{
+              this.events.publish('newMessage',true)})
                 //Notification was received on device tray and tapped by the user.
-            //    alert( JSON.stringify(token) );
+               alert( 'لديك رسالة جديدة' );
               context.push(MessagesPage);
 
             }else{
-              this.events.publish('newMessage',true)
+              this.zone.run(()=>{
+
+              this.events.publish('newMessage',true)})
               // this.events.subscribe('checkNewMessage',)
                 //Notification was received in foreground. Maybe the user needs to be notified.
                 console.log(context.getActive().name)
@@ -232,7 +236,7 @@ resolve(token)
 
                 // }
             }
-                // })
+                })
         })
         //   .catch(function (e){
         //   console.log("onNotification",e)
