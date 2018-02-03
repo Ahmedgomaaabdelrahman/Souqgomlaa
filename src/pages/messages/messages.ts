@@ -20,6 +20,7 @@ D:any;
 noMessagesYet:boolean;
   constructor(public events:Events,public zone:NgZone,public auth:AuthServiceProvider,public domain:DomainProvider,public common:CommonProvider,public chat:ChatProvider,public navCtrl: NavController, public navParams: NavParams) {
       this.D=this.domain.url;
+  // this.noMessagesYet=true;
   }
 
     userType:any;
@@ -27,7 +28,7 @@ noMessagesYet:boolean;
     ref=firebase.database().ref();
 
     ionViewWillEnter() {
-      this.noMessagesYet=false
+      this.noMessagesYet=true;
       this.events.publish('newMessage',false)
       // this.zone.run(()=>{
         // this.messegers=[];
