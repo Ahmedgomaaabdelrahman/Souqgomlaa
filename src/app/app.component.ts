@@ -18,6 +18,7 @@ import { Events } from 'ionic-angular';
 import {ChatProvider} from "../providers/chat/chat";
 // import { Push, PushObject, PushOptions } from '@ionic-native/push';
 import { BackgroundMode } from '@ionic-native/background-mode';
+import {MessagesPage} from "../pages/messages/messages";
 
 
 
@@ -31,18 +32,26 @@ export class MyApp {
   constructor(private backgroundMode: BackgroundMode,public chat:ChatProvider,public events: Events,private toastCtrl:ToastController,private auth:AuthServiceProvider,private common:CommonProvider,public menuCtrl:MenuController ,platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
 
     platform.ready().then(() => {
-      //this.backgroundMode.enable();
+      this.backgroundMode.enable();
 
 
-        try {
+        // try {
 
 
-           this.chat.onTokenRecived(this.nav);
+           this.chat.onTokenRecived(this.nav).then((res)=>{
+             if(res){
+               this.nav.setRoot(MessagesPage)
+               // alert('background')
+             }else{
+               // alert('forground')
+
+             }
+           });
             this.chat.onTokenIdRefresh();
 
-        }catch(e){
-            console.log(e);
-        }
+        // }catch(e){
+        //     console.log(e);
+        // }
         ///////////////////////////////
         //back button handle
         //Registration of push in Android and Windows Phone

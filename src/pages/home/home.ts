@@ -26,7 +26,22 @@ d:any
     mode:any;
   constructor(public zone:NgZone,public events:Events, public navParams:NavParams,public searchProvider:ItemSearchProvider,public domain:DomainProvider,public items:ItemsProvider,public common:CommonProvider,public menuCtrl:MenuController,public navCtrl: NavController) {
     this.zone.run(()=>{
-      this.newMessage=false;})
+      this.newMessage})
+    let selfm=this
+    this.zone.run(()=>{
+
+      this.events.subscribe('newMessage', (message)=> {
+      console.log('newMessage',message)
+      this.zone.run(()=>{message})
+      selfm.newMessage=message
+
+    })
+      this.events.subscribe('sendAlertMsg', (message)=> {
+      console.log('newMessage',message)
+
+    })
+
+    })
 this.valid=false;
       // console.log('context',this.navCtrl);
 
@@ -74,12 +89,12 @@ this.itemimg.push(itemurl.urls)
       })
   }
 ionViewWillEnter(){
-    let selfm=this
-    this.events.subscribe('newMessage', (message)=> {
-      console.log('newMessage',message)
-      selfm.newMessage=message
-
-    })
+    // let selfm=this
+    // this.events.subscribe('newMessage', (message)=> {
+    //   console.log('newMessage',message)
+    //   selfm.newMessage=message
+    //
+    // })
 this.help=0;
     this.all=[];
     this.realAll=[]

@@ -206,89 +206,51 @@ resolve(token)
       })});
       return promise;
   }
-    onTokenRecived(context){
+    onTokenRecived(context):Promise<any>{
+    let promise=new Promise((resolve,reject)=>{
+
+
          console.log('fcm subscribtion starts')
 
         FCMPlugin.onNotification( (token)=>{
  console.log('FCM Fired : Token :: ',token)
             // this.zone.runOutsideAngular(()=>{
-            if(token.wasTapped){
-              this.events.publish('newMessage',true)
-                //Notification was received on device tray and tapped by the user.
-            //    alert( JSON.stringify(token) );
-              context.push(MessagesPage);
+          this.zone.run(()=>{
 
+            this.zone.run(()=>{
+              this.events.publish('sendAlertMsg',true)
+
+              this.events.publish('newMessage',true)})
+            this.zone.run(()=>{token.wasTapped})
+            if(token.wasTapped){
+              this.zone.run(()=>{
+                this.events.publish('newMessage',true)
+                this.events.publish('sendAlertMsg',true)
+              })
+                //Notification was received on device tray and tapped by the user.
+               // alert( 'لديك رسالة جديدة' );
+              context.push(MessagesPage);
+resolve(true)
             }else{
-              this.events.publish('newMessage',true)
+              // alert(token.wasTapped)
+              resolve(false)
+              this.zone.run(()=>{
+                this.events.publish('sendAlertMsg',true)
+              this.events.publish('newMessage',true)})
               // this.events.subscribe('checkNewMessage',)
                 //Notification was received in foreground. Maybe the user needs to be notified.
                 console.log(context.getActive().name)
-                // alert(context.getActive().c);
-                // var MessagedetailsPage=context.getActive().name
-                // var MessagesPage=context.getActive().name
-              // context.push(MessagesPage);
-              //   if(MessagedetailsPage!="MessagedetailsPage" && MessagesPage !=="MessagesPage"){
-                // alert('لديك رسالة جديدة');
 
-                // }
             }
-                // })
+                })
         })
-        //   .catch(function (e){
-        //   console.log("onNotification",e)
-        // });
+
         FCMPlugin.onTokenRefresh(function (token){
                             alert('لديك رسالة جديدة');
 
-            // alert( token );
         })
-
+    })
+return promise;
     }
-    // sendMessage(){
-    //     let req={
-    //         'From':5,'To':5,'IsRead':true,'Body':'hey am from here'
-    //     }
-    //   return  this.http.post(this.domain.url+'/sendMessage',req).map(res=>res.json().res);
-    // }
 
-//       pushN(){
-//       // to check if we have permission
-// this.push.hasPermission()
-//   .then((res: any) => {
-
-//     if (res.isEnabled) {
-//       console.log('We have permission to send push notifications');
-//     } else {
-//       console.log('We do not have permission to send push notifications');
-//     }
-
-//   });
-
-// // Create a channel (Android O and above). You'll need to provide the id, description and importance properties.
-// this.push.createChannel({
-//  id: "testchannel1",
-//  description: "My first test channel",
-//  // The importance property goes from 1 = Lowest, 2 = Low, 3 = Normal, 4 = High and 5 = Highest.
-//  importance: 3
-// }).then(() => console.log('Channel created'));
-
-// // Delete a channel (Android O and above)
-// this.push.deleteChannel('testchannel1').then(() => console.log('Channel deleted'));
-
-// // Return a list of currently configured channels
-// this.push.listChannels().then((channels) => console.log('List of channels', channels))
-
-// // to initialize push notifications
-
-
-
-// const pushObject: PushObject = this.push.init(options);
-
-
-// pushObject.on('notification').subscribe((notification: any) => console.log('Received a notification', notification));
-
-// pushObject.on('registration').subscribe((registration: any) => console.log('Device registered', registration));
-
-// pushObject.on('error').subscribe(error => console.error('Error with Push plugin', error));
-//   }
 }
