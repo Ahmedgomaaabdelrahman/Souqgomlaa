@@ -144,13 +144,14 @@ return this.http.post(this.baseUrl+'/ItemIn',seller).map(res=>res.json().res);
                 price:number,
                 description:string,
                 category:string,
-                status:string
+                status:string,Location:string
     ){
         let newItem=
             {'Id':itemId,
                 'ItemName':name,
                 'Quantity':quantity,
                 'Origin':origin,
+                'Location':Location,
                 'Price':price,
                 'Description':description,
                 'Category':category,

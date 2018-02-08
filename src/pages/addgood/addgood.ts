@@ -6,6 +6,7 @@ import { ProfilePage } from "../profile/profile";
 import {ItemsProvider} from "../../providers/items/items";
 import {CommonProvider} from "../../providers/common/common";
 import {MygoodsPage} from "../mygoods/mygoods";
+import {TownsProvider} from "../../providers/towns/towns";
 
 
 @Component({
@@ -23,15 +24,30 @@ sellerId:number;
 category:string;
 status:string;
     img:any;
+  // Location:any;
+  towns:any=[];
+  selectOptions:any;
     images:any=[];
-  constructor(public modalCtrl: ModalController,private items:ItemsProvider,public navCtrl: NavController, public navParams: NavParams,private common:CommonProvider) {
+  constructor(private _towns:TownsProvider, public modalCtrl: ModalController,private items:ItemsProvider,public navCtrl: NavController, public navParams: NavParams,private common:CommonProvider) {
+    this.selectOptions = {
+      title: 'اختر مدينة',
+      mode: 'md'
+    };
+    this._towns.getTowns().subscribe(res=>{
+      console.log('towns res',res)
+      console.log('towns res',res.length)
+      for(let i=0;i<res.length;i++){
+        let x=res[i].Location
+        this.towns.push(res[i].Location);
 
+      }
+    })
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddgoodPage');
   }
-  
+
   goChat(){
     this.navCtrl.push(MessagesPage);
   }
@@ -45,7 +61,7 @@ status:string;
       this.location=res.Location;
       this.status='معروضة';
         this.category=this.navParams.data;
-this.items.addItem(this.itemName,this.quantity,this.origin,this.price,this.description,this.location
+this.items.addItem(this.itemName,this.quantity,this.origin,this.price,this.description,this.Location
 ,this.sellerId,this.category,this.status).subscribe(res=>{
 
   console.log(res);
@@ -92,6 +108,11 @@ this.navCtrl.setRoot(MygoodsPage)
         console.log('array id : ', img)
 
     }
+  Location
+  getSelected(town:any){
+    this.Location=town;
+    console.log(town);
+  }
     mainPage(){
         this.navCtrl.popTo(HomePage);
     }

@@ -5,6 +5,7 @@ import { MessagesPage } from "../messages/messages";
 import { ProfilePage } from "../profile/profile";
 import {CommonProvider} from "../../providers/common/common";
 import {ItemsProvider} from "../../providers/items/items";
+import {TownsProvider} from "../../providers/towns/towns";
 
 @Component({
   selector: 'page-updategood',
@@ -17,14 +18,28 @@ export class UpdategoodPage {
     price:number;
     description:string;
     category:string;
+  towns:any=[];
+  selectOptions:any;
     res:any=[];
     status:any;
     img:any;
     images:any=[];
     imagesToDelete:any=[];
 
-  constructor(public itemsProvider:ItemsProvider,public common:CommonProvider,public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private _towns:TownsProvider, public itemsProvider:ItemsProvider,public common:CommonProvider,public navCtrl: NavController, public navParams: NavParams) {
+    this.selectOptions = {
+      title: 'اختر مدينة',
+      mode: 'md'
+    };
+    this._towns.getTowns().subscribe(res=>{
+      console.log('towns res',res)
+      console.log('towns res',res.length)
+      for(let i=0;i<res.length;i++){
+        let x=res[i].Location
+        this.towns.push(res[i].Location);
 
+      }
+    })
   }
     ionViewWillEnter() {
 //setting the values of html tags
@@ -54,7 +69,11 @@ this.status=this.res.Status;
           //using another array to get img name used to be deleted
           this.imagesToDelete=res.imgNames;
         })}
-
+  Location
+  getSelected(town:any){
+    this.Location=town;
+    console.log(town);
+  }
 
   goChat(){
     this.navCtrl.push(MessagesPage);
@@ -86,7 +105,7 @@ this.common.presentToast('تم الحذف بنجاح','اغلاق');
 //update the item
     submit(){
         this.common.presentLoadingDefault('برجاء الانتظار حتي اكتمال التعديل ...')
-this.itemsProvider.updateItem(this.res.Id,this.itemName,this.quantity,this.origin,this.price,this.description,this.category,this.status).subscribe(res=>{
+this.itemsProvider.updateItem(this.res.Id,this.itemName,this.quantity,this.origin,this.price,this.description,this.category,this.status,this.Location).subscribe(res=>{
 
     //
     // console.log(res);

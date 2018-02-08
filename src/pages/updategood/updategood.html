@@ -66,6 +66,7 @@
     white-space: pre-wrap;" staked>الوصف      :</ion-label>
       <ion-textarea  [(ngModel)]="description" name="description" id="description" type="text" value={{description}} placeholder="الوصف" required></ion-textarea>
     </ion-item>
+
      <ion-item class="logitem">
          <!-- <ion-icon ion-button block  class="gallery" (click)="useCam(0)" name="images"></ion-icon>
          <ion-icon ion-button block class="gallery" (click)="useCam(1)" name="camera"></ion-icon> -->
@@ -73,7 +74,16 @@
          <ion-icon  (click)="useCam(0)" name="images"></ion-icon>
          <ion-icon style="padding-right: 15px;" (click)="useCam(1)" name="camera"></ion-icon>
         </div>
-     </ion-item>     <ion-slides dir="rtl" pager>
+     </ion-item>
+   <ion-item class="logitem">
+
+     <ion-label>اختر المدينة</ion-label>
+     <ion-select [(ngModel)]="location" name="location" id="location" interface="popover" [selectOptions]="selectOptions"  okText="اختر" cancelText="الغاء" required="true">
+       <ion-option (ionSelect)="getSelected(town)"  *ngFor="let town of towns" value=`${{town}}` required>{{town}}</ion-option>
+     </ion-select>
+   </ion-item>
+
+   <ion-slides dir="rtl" pager>
          <ion-slide *ngFor="let imag of images;let i=index" [attr.data-index]="i">
              <ion-icon style="font-size: 3rem;padding: 5px;color: #074b91;"  (click)="deletImgModal(i)" ios="ios-trash" md="md-trash"></ion-icon>
 
