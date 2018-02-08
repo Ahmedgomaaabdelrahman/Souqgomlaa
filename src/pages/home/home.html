@@ -22,9 +22,15 @@
 
 
    <div  *ngFor="let item of realAll;let i=index" class="itemrow">
-      <img class="imgd" src="{{itemimg[i]}}" (click)="openImage(itemimg[i])">
+     <img *ngIf="itemimg[i]==''" class="imgd"  src="assets/imgs/icon.png">
+
+     <img *ngIf="itemimg[i]!=''" class="imgd" src="{{itemimg[i]}}" (click)="openImage(itemimg[i])">
 <ion-row >
-  <ion-col *ngIf="item.SellerId.image!=null" col-2><img src="{{D}}/profileImages_thump/{{item.SellerId.image}}"></ion-col>
+  <ion-col  col-2>
+    <img *ngIf="item.SellerId.image!=null" src="{{D}}/profileImages_thump/{{item.SellerId.image}}">
+    <img *ngIf="item.SellerId.image==null"  src="assets/imgs/icon.png">
+
+  </ion-col>
   <!--<ion-col *ngIf="item.SellerId.image==null" col-2><img src="../../assets/imgs/account.png"></ion-col>-->
   <ion-col col-4>
     <p class="infop">{{item.ItemName}}</p>

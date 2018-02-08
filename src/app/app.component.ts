@@ -20,6 +20,7 @@ import {ChatProvider} from "../providers/chat/chat";
 import { BackgroundMode } from '@ionic-native/background-mode';
 import {MessagesPage} from "../pages/messages/messages";
 
+import { Network } from '@ionic-native/network';
 
 
 @Component({
@@ -29,12 +30,38 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
   rootPage:any ;
 
-  constructor(private backgroundMode: BackgroundMode,public chat:ChatProvider,public events: Events,private toastCtrl:ToastController,private auth:AuthServiceProvider,private common:CommonProvider,public menuCtrl:MenuController ,platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
+  constructor(private network: Network,private backgroundMode: BackgroundMode,public chat:ChatProvider,public events: Events,private toastCtrl:ToastController,private auth:AuthServiceProvider,private common:CommonProvider,public menuCtrl:MenuController ,platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
 
     platform.ready().then(() => {
       // this.backgroundMode.enable();
 
+// watch network for a disconnect
+      let disconnectSubscription = this.network.onDisconnect().subscribe(() => {
+        console.log('network was disconnected :-(');
+alert('يرجي التاكد من الاتصال بالانترنت')
+      });
 
+// stop disconnect watch
+//       disconnectSubscription.unsubscribe();
+
+
+// watch network for a connection
+      let connectSubscription = this.network.onConnect().subscribe(() => {
+        console.log('network connected!');
+        alert('متصل')
+
+        // We just got a connection but we need to wait briefly
+        // before we determine the connection type. Might need to wait.
+        // prior to doing any api requests as well.
+        setTimeout(() => {
+          if (this.network.type === 'wifi') {
+            console.log('we got a wifi connection, woohoo!');
+          }
+        }, 3000);
+      });
+
+// stop connect watch
+//       connectSubscription.unsubscribe();
         // try {
 
 

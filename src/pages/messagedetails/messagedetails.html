@@ -14,15 +14,15 @@
 
 <ion-content #content padding>
 <!-- <ion-row class="toprow">
-  <ion-col col-2>  
+  <ion-col col-2>
     <ion-icon class="menu" name="menu" menuToggle></ion-icon>
   </ion-col>
   <ion-col col-6 class="chatname">
-احمد المصري 
+احمد المصري
    </ion-col>
-  <ion-col col-4 style="text-align: end"> 
+  <ion-col col-4 style="text-align: end">
     <div> -->
-      
+
         <!-- <ion-icon name="mail" (click)="message()"></ion-icon> -->
         <!-- <ion-icon  style="transform: rotate(90deg)"name="options"></ion-icon> -->
     <!-- </div>
@@ -38,15 +38,23 @@
   <div  *ngFor="let somemessage of myMsgs">
   <div *ngIf="somemessage.sender==myId" class="talk-bubble2 tri-left btm-right">
     <div>
+      <div>
+        {{somemessage.date | date:'dd/MM/y'}}
+
+      </div>
       <div class="talktext">
         {{somemessage.body}}
       </div>
       <img  class="pel" src="assets/imgs/per.png">
     </div>
   </div>
-  
+
       <div *ngIf="somemessage.sender!=myId" class="talk-bubble tri-right btm-right">
         <div>
+          <div>
+            {{somemessage.date | date:'dd/MM/y'}}
+
+          </div>
           <div class="talktext2">
               {{somemessage.body}}
           </div>
@@ -54,13 +62,13 @@
       </div>
     </div>
 </div>
-   
+
 
 </ion-content>
 <ion-footer no-lines class="chatfooter">
    <form #f="ngForm">
     <ion-row class="grayrow">
-    
+
       <ion-col col-10>
         <textarea [(ngModel)]="M" name="M" class=textbuttom required></textarea>
       </ion-col>

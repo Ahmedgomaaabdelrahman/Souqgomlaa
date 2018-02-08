@@ -17,6 +17,11 @@ page-editaccount {
     margin: auto;
     margin-top: 10px;
 }
+  .profiletext{
+    display: inline-block;
+    width: 40%;
+    //margin: 34px 5px 13px 0;!important;
+  }
 .notifiyp{
     margin: 2px 0;
     font-size: 12px;
@@ -73,7 +78,12 @@ page-editaccount {
         border-bottom: none !important;
     }
 #upload{
-    border-bottom: none;
+  border-bottom: none;
+  height:60px;
+  margin: 10px !important;
+  .item-inner{
+    height:100%;
+  }
 }
 #uploadimg{
     width: 30px;

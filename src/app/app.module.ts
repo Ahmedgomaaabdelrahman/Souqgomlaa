@@ -40,6 +40,8 @@ import { ChatProvider } from '../providers/chat/chat';
 import { ChatHandle } from '../providers/chat/chatHandle';
 import { FCM } from '@ionic-native/fcm';
 import * as firebase from "firebase";
+import { Network } from '@ionic-native/network';
+
 
 // import { Push, PushObject, PushOptions } from '@ionic-native/push';
 import { BackgroundMode } from '@ionic-native/background-mode';
@@ -138,7 +140,7 @@ firebase.initializeApp(firebaseConfig);
     ItemSearchProvider,
     DomainProvider,
     FavProvider,BackgroundMode,
-    ChatProvider,FCM
+    ChatProvider,FCM,Network
     // ,Push
   ]
 })

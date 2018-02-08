@@ -6,6 +6,7 @@ import {CommonProvider} from "../../providers/common/common";
 import {Observable} from "rxjs/Observable";
 import * as firebase from "firebase";
 import { HomePage } from '../home/home';
+import {MessagesPage} from "../messages/messages";
 
 
 
@@ -110,6 +111,7 @@ this.ref.child('n/'+res.Id+'/').set({
         let msg = {
             currentID: res.Id,
             buyerId: res.Id,
+            date:firebase.database.ServerValue.TIMESTAMP,
             reciverID: this.navParams.data.instances.sellerId,
             details: this.navParams.data.instances,
             body: this.M,
@@ -132,7 +134,8 @@ this.ref.child('n/'+res.Id+'/').set({
           let msg = {
               currentID: res.Id,
               reciverID: this.navParams.data.instances.buyerId,
-              details: null,
+            date:firebase.database.ServerValue.TIMESTAMP,
+            details: null,
               body: this.M,
               senderId:res.Id,
               // sender:res.Id,
@@ -154,7 +157,7 @@ this.ref.child('n/'+res.Id+'/').set({
 if(this.oneTimeMsg){
           // this.common.presentToast("")
           this.common.presentToast('تم الارسال بنجاح',null)
-          this.navCtrl.setRoot(HomePage)
+          this.navCtrl.setRoot(MessagesPage)
 }
   }
   dirClass:string;
