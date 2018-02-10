@@ -90,9 +90,21 @@
             <!-- </p> -->
             <!-- </ion-col> -->
             <ion-col col-2>
-                <!-- <button ion-button="" (click)="contact()">تواصل</button> -->
-                <ion-icon name="ios-chatbubbles" (click)="contact()"></ion-icon>
+                 <!--<button ion-button="" (click)="contact()">تواصل</button>-->
+                <ion-icon name="ios-chatbubbles" (click)="myFunction()"></ion-icon>
+                <!--<ion-icon name="ios-chatbubbles" (click)="contact()"></ion-icon>-->
             </ion-col>
         </ion-row>
+
+      <!--<button (click)="myFunction()">Try it</button>-->
+
+      <div id="myDIV">
+        <form class="forma" #f="ngForm">
+<ion-input [(ngModel)]="newmsg" id="newmsg" name="newmsg" style="width: 100% ;border:#104c91  solid" required></ion-input>
+        <button  [disabled]="!f.valid" style="background-color: #104c91"  (click)="sendMSG()" ion-button>ارسال</button>
+        <button (click)="myFunction()" style="background-color: #104c91" ion-button>الغاء</button>
+        </form>
+
+      </div>
     </div>
 </ion-content>

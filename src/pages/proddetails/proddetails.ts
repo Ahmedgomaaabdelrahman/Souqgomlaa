@@ -12,6 +12,8 @@ import {MessagedetailsPage} from "../messagedetails/messagedetails";
 import {ChatProvider} from "../../providers/chat/chat";
 import { Events } from 'ionic-angular';
 import {BigimagePage} from "../bigimage/bigimage";
+import { ModalController } from 'ionic-angular';
+import * as firebase from "firebase";
 
 @Component({
   selector: 'page-proddetails',
@@ -21,10 +23,14 @@ export class ProddetailsPage {
 Name=this.navParams.data.SellerId.Name;
 image=this.navParams.data.SellerId.image;
 D:any;
-star:string;
+  newmsg:string;
+  ref=firebase.database().ref();
+
+  star:string;
 guestUser
   constructor(public events :Events,public chat :ChatProvider,public favProvider:FavProvider,public domain:DomainProvider,public itemsProvider:ItemsProvider,public common:CommonProvider,public navCtrl: NavController, public navParams: NavParams) {
       console.log(' ProddetailsPage',this.navParams.data);
+
       // this.Name=this.navParams.data.SellerId.Name
       this.D=this.domain.url;
   this.events.subscribe('guest',guest=>{
@@ -36,7 +42,8 @@ res:any=[];
     images:any[];
     currentId:any;
   ionViewWillEnter() {
-
+    let x = document.getElementById("myDIV");
+    x.style.display = "none"
     this.res=this.navParams.data;
     let self=this;
       this.common.getStoredValue('S').then(res=>{
@@ -81,7 +88,7 @@ res:any=[];
       // this.star=star;
 
     }
-    contact(){
+  sendMSG(){
         console.log(this.navParams.data.SellerId)
 
         this.common.getStoredValue('S').then(user=>{
@@ -97,7 +104,8 @@ res:any=[];
         buyerId:user.Id,sellerId:this.navParams.data.SellerId.sellerId
 
             }
-  this.navCtrl.push(MessagedetailsPage, {instances: send});
+            this.send(this.navParams.data.SellerId.sellerId, user.Id,this.newmsg,{instances: send})
+  // this.navCtrl.push(MessagedetailsPage, {instances: send});
 
 // }
         })
@@ -107,10 +115,82 @@ res:any=[];
         }
         })
     }
+  send(seller,buyer,Msg,instances){
+    // console.log(this.navParams.data);
+    this.common.getStoredValue('S').then(res=>{
+      console.log(res.Type)
+      if(res.Type==0){
+        if(res.Id !=null) {
+          this.ref.child('n/' + res.Id + '/').set({
+            // R: this.navParams.data.instances.sellerId,
+            R: seller,
+            msg: Msg
+          })
+          let msg = {
+            currentID: res.Id,
+            buyerId: res.Id,
+            date: firebase.database.ServerValue.TIMESTAMP,
+            // reciverID: this.navParams.data.instances.sellerId,
+            reciverID: seller,
+            // details: this.navParams.data.instances,
+            details: instances,
+            body: Msg,
+            // sellerId: this.navParams.data.instances.sellerId,
+            sellerId: seller,
+            senderId: res.Id,
+            // sender:res.Id,
+            otherUser: seller
+            // otherUser: this.navParams.data.instances.sellerId
+          }
+          // console.log(msg);
+
+          this.chat.sendMsg(msg);
+          Msg = ''
+
+        this.navCtrl.push(MessagesPage)
+        }}
+        });
+    }
+      // }else{
+      //   //
+      //   this.ref.child('n/'+res.Id+'/').set({
+      //     R: this.navParams.data.instances.buyerId,
+      //     msg: this.M
+      //   })
+    //     let msg = {
+    //       currentID: res.Id,
+    //       reciverID: this.navParams.data.instances.buyerId,
+    //       date:firebase.database.ServerValue.TIMESTAMP,
+    //
+    // });
+    // if(this.content._scroll['initialized']) this.content.scrollToBottom(0) // setTimeout(() => {
+    //    // this.content.scrollToBottom(300);
+    // }, 1000);
+    // if(this.oneTimeMsg){
+    //   // this.common.presentToast("")
+    //   this.common.presentToast('تم الارسال بنجاح',null)
+    //   this.navCtrl.setRoot(MessagesPage)
+    // }
+  // }
     mainPage(){
         this.navCtrl.popTo(HomePage);
     }
   maximaizeImage(image){
       this.navCtrl.push(BigimagePage,{'image':image})
+  }
+  myFunction() {
+  var x = document.getElementById("myDIV");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+
+
+}
+
+  chatCancel(){
+    let x = document.getElementById("myDIV");
+    x.style.display === "none"
   }
 }
