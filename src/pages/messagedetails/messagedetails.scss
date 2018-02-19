@@ -38,7 +38,7 @@ color: #074b91;
 .talk-bubble2 {
     display: inline-block;
     border-radius: 20px;
-    position: relative;
+    //position: relative;
     width: 300px;
     height: auto;
     background-color: lightgray;
@@ -63,7 +63,7 @@ color: #074b91;
     margin-bottom: 35px;
     width: auto;
 }
-   
+
 .tri-right.btm-right:after{
 content: ' ';
 position: fixed;
@@ -75,9 +75,9 @@ bottom: -12px;
 border: 12px solid;
 border-color: white white transparent transparent;
 }
-    
-    
-.tri-left.btm-right:after{  
+
+
+.tri-left.btm-right:after{
 content: ' ';
 position: fixed;
 width: 0;
@@ -104,7 +104,7 @@ border-color: lightgray lightgray transparent transparent;
         position: relative;
         right: 25px;
         bottom: 35px;
-       
+
 }
 .textbuttom{
     // position: fixed;
@@ -148,7 +148,7 @@ display: unset !important}
             background-color: white;
             border-radius: 14px;
             height: 60px;
-            margin-right: 0% !important; 
+            margin-right: 0% !important;
         }}
 
 }

@@ -17,4 +17,8 @@ page-bigimage {
 .back-button.show-back-button {
     display: block !important;
 }
+  .back-button.show-back-button {
+    //display: none !important;
+    color: white;
+  }
 }

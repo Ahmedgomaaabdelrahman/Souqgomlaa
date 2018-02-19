@@ -44,7 +44,11 @@ this.D=this.domain.url
 
                    console.log('myItems',res.item[i]);
                    if(res.img[i]!=null){
-                       this.thumps.push(this.D+'/Image_Thump/'+res.img[i].Image);}
+                       this.thumps.push(this.D+'/Image_Thump/'+res.img[i].Image);
+                   }else{
+                     this.thumps.push('assets/imgs/icon.png');
+
+                   }
                    this.goods.push(res.item[i]);
 
                }
@@ -57,7 +61,9 @@ this.D=this.domain.url
 
             console.log('myItems',res.item[i]);
             if(res.img[i]!=null){
-this.thumps.push(this.D+'/Image_Thump/'+res.img[i].Image);}
+this.thumps.push(this.D+'/Image_Thump/'+res.img[i].Image);}else{
+              this.thumps.push('assets/imgs/icon.png');
+            }
             this.goods.push(res.item[i]);
 
         }

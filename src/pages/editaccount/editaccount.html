@@ -13,7 +13,9 @@
   <!--<ion-icon class="imgMail" name="star" (click)="fav()"></ion-icon>-->
   <!--<ion-icon class="imgMail" name="mail" (click)="goChat()"></ion-icon>-->
   <ion-buttons right (click)="mainPage()">
-  <button ion-button  icon-only style="float: left;position: absolute;top: -45px;left: 0px;" >
+  <button ion-button  icon-only style="float: left;
+  position: absolute;
+  top: -45px;left: 0px;" >
   <ion-icon style="color:white" ios="ios-arrow-back" md="md-arrow-back"></ion-icon><br>
   </button>
 </ion-buttons>
@@ -73,7 +75,7 @@
     </ion-item>
 <div *ngIf="mode">
       <ion-item class="logitem" id="upload">
-     <p class="profiletext">تحميل صوره شخصية</p>
+     <p class="profiletext">صوره شخصية</p>
      <div style="display: inline-block;
     margin-right: 5%;
     text-align: end;
@@ -82,8 +84,8 @@
           <ion-icon class="gallery" (click)="useCam(1)" name="camera"></ion-icon>
         </div>
  </ion-item>
-     <div class="topdiv" >
-         <img *ngIf="img!=null" style="border-radius: 20px;
+     <div  *ngIf="img!='http://sooqaljomlah.com/profileImages/null'" class="topdiv" >
+         <img style="border-radius: 20px;
          width: 92%;
          display: block;
          margin: auto;

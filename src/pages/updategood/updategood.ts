@@ -41,11 +41,14 @@ export class UpdategoodPage {
       }
     })
   }
+  townLoc
     ionViewWillEnter() {
 //setting the values of html tags
         this.res=this.navParams.data;
         this.price=this.res.Price;
-
+// this.townLoc=this.res.Location
+      this.Location=this.res.Location
+      console.log(this.Location)
         this.itemName=this.res.ItemName;
         this.quantity=this.res.Quantity;
 this.status=this.res.Status;

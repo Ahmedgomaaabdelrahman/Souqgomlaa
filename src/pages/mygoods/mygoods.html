@@ -62,8 +62,8 @@
   <!--</ion-item-sliding>-->
 
 <ion-row   *ngFor="let good of goods;let i=index" style="background-color: white;">
-  <ion-col col-3><img  class="itemimg"  src={{thumps[i]}}></ion-col>
-  <ion-col col-6 style="font-size: 20px;padding-top: 17px">{{good.ItemName}}</ion-col>
+  <ion-col (click)="goUpdate(good)" col-3><img  class="itemimg"  src={{thumps[i]}}></ion-col>
+  <ion-col (click)="goUpdate(good)" col-6 style="font-size: 20px;padding-top: 17px">{{good.ItemName}}</ion-col>
   <ion-col col-2> <ion-icon  class="settings" name="settings" (click)="goUpdate(good)"></ion-icon></ion-col>
   <ion-col col-1><ion-icon class="trash" name="trash" (click)="deleteItem(good.Id,i)"></ion-icon></ion-col>
 </ion-row>

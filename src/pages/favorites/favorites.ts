@@ -7,6 +7,7 @@ import {CommonProvider} from "../../providers/common/common";
 import {ProddetailsPage} from "../proddetails/proddetails";
 import {DomainProvider} from "../../providers/domain/domain";
 import { MenuController } from 'ionic-angular/components/app/menu-controller';
+import {BigimagePage} from "../bigimage/bigimage";
 
 @Component({
   selector: 'page-favorites',
@@ -19,20 +20,33 @@ export class FavoritesPage {
       this.D=this.domain.url;
 
   }
+  maximaizeImage(image){
+    this.navCtrl.push(BigimagePage,{'image':image})
+  }
     goDetails(item :any){
         // console.log('iiiiiii',item)
         this.navCtrl.push(ProddetailsPage,item);
     }
   ionViewWillEnter() {
       this.common.getStoredValue('S').then(res=>{
-
+try{
           this.favProvider.getMyFav(res.Id).subscribe(res=>{
-              if (res != null) {
+            console.log('res',res)
+
+
+            if (res != null) {
                   this.all = res;
                   console.log(this.all)
 
               }
-          })
+          })}catch (e)
+{
+console.log(e)
+}
+      },e=>
+      {
+        console.log(e)
+
       });
     console.log('ionViewDidLoad FavoritesPage');
   }
@@ -43,4 +57,4 @@ export class FavoritesPage {
     this.navCtrl.popTo(HomePage);
 }
 
-} 
+}

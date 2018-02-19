@@ -87,6 +87,7 @@ console.log(res.image)
     this.navCtrl.push(FavoritesPage);
   }
 submit(){
+    this.common.presentLoadingDefault('')
      let self=this
       if (this.image==undefined){
           self.image='old'
@@ -94,8 +95,14 @@ submit(){
       console.log(this.image)
       console.log(this.imgId)
 this.auth.editProfile(this.id,this.name,this.email,this.password,this.phone,this.Commercial_Register,this.image,this.Location).subscribe(res=>{
+  this.common.loadDismess()
     console.log(res);
     this.common.storeValue('S',res);
+this.common.presentToast('تم التعديل','اغلاق')
+    },e=>{
+
+  this.common.loadDismess()
+
 })
   }
 
