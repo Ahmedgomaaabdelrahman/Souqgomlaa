@@ -72,7 +72,6 @@
       "cordova-sqlite-storage": {},
       "cordova-plugin-camera": {},
       "cordova-plugin-fcm": {},
-      "cordova-plugin-background-mode": {},
       "cordova-plugin-network-information": {}
     },
     "platforms": [
