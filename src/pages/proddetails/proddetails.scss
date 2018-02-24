@@ -80,16 +80,15 @@ page-proddetails {
     }
 
     .imgdiv{
-        width: 85%;
-        background: white;
-        margin: 15px auto auto;
-        border-radius: 20px;
-        padding: 10px 0;
-        text-align: center;
+      width: 90%;
+      background: white;
+      margin: 15px auto auto;
+      border-radius: 20px;
+      padding: 10px 0;
+      text-align: center;
         img{
             display: inline-flex;
-            height: 200px;
-            margin: 0 10px;
+
             border-radius: 20px;
         }
     }
@@ -115,12 +114,12 @@ page-proddetails {
         color: white;
         margin-right: 5%;
         position: relative;
-        top: -15px;} 
+        top: -15px;}
         .title-ios{
             img{
                 background-color: white;
                 border-radius: 14px;
                 height: 60px;
-                margin-right: 8% !important; 
+                margin-right: 8% !important;
             }}
 }

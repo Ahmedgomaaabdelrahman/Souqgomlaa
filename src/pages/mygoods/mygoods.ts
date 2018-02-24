@@ -35,6 +35,7 @@ this.D=this.domain.url
     })
     this.mode=this.navParams.data.data;
     this.goods=[];
+    this.thumps=[];
     this.common.getStoredValue('S').then(res=>{
         //////////////
        if(this.mode==1){
