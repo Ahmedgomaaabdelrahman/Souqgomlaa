@@ -28,7 +28,9 @@
 
 <div class="topdiv" >
   
-  <img style="height: 130px;width: 150px;border-radius: 20px;margin-top: 60px;" src={{img}}>
+  <img *ngIf="img !=='http://sooqaljomlah.com/profileImages/'" style="height: 130px;width: 150px;border-radius: 20px;margin-top: 60px;" src={{img}}>
+  <img *ngIf="img ==='http://sooqaljomlah.com/profileImages/'" style="height: 130px;width: 150px;border-radius: 20px;margin-top: 60px;" src="assets/imgs/icon.png">
+
   <p>{{name}}</p>
   <!--<div>-->
     <!--<ion-icon name="star"></ion-icon>-->
