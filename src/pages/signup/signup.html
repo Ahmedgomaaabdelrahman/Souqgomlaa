@@ -57,7 +57,7 @@
         </div>
     </ion-item>
     <div class="topdiv" >
-        <img src="{{Img}}" >
+        <img *ngIf="Img!=''"src="{{Img}}" >
         </div>
 
         <button [disabled]="!f.valid" ion-button clear (click)="activation()" class="enter">تسجيل</button>

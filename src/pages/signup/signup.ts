@@ -44,7 +44,7 @@ let x=res[i].Location
 
 }
       })  }
-  Img:any;
+  Img:any='';
   useCam(source){
       this.common.camPic(source).then(res=>{
           console.log('img',res)
