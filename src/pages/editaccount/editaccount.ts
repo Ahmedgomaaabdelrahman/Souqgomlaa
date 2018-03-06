@@ -60,7 +60,7 @@ this.id=res.Id;
 
           this.name=res['Name'];
    this.email=res.Email;
-   this.password=res.Password;
+//    this.password=res.Password;
    this.phone=res.Phone
    this.Commercial_Register=res.Commercial_Register;
    // this.img=this.auth.getBaseUrl()+'/profileImages/'+res.image
