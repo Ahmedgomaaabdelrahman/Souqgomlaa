@@ -1,0 +1,167 @@
+page-updategood {
+.toprow{
+    display: block;
+    margin: auto;
+    text-align: center;
+    color: #074b91;
+    font-size: 2.5rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+textarea.text-input {
+    resize: none;
+    line-height: 55px;
+}
+.notifiyp{
+    margin: 0;
+    font-size: 20px;
+    font-family: cairobold;
+    display: inline-flex;
+    color: #074b91;
+    text-align: end;
+    float: right;
+}
+.forma {
+    margin-top: 20px;
+    background: white;
+    width: 85%;
+    margin: auto;
+    border-radius: 20px;
+    font-family: cairoreg;
+}
+
+.enter{
+    width: 100%;
+    font-size: 25px;
+    color: #074b91;
+    font-weight: bold;
+    height: 52px;
+    padding: 10px;
+    margin-top: 20px;
+    font-family: cairobold;
+}
+.logitem{
+    margin: 0 auto !important;
+    width: 90%;
+    height: 60px;
+    max-width: 90%;
+    padding: 0 !important;
+    //position: static;
+    border-bottom:1px solid lightgray;
+
+}
+.text-input{
+    margin: 0 18px !important;
+    width: 90%;
+    height: 38px;
+}
+  //.label-md {
+  //  margin: 13px 8px 13px 0;
+  //  white-space: pre-wrap;
+  //}
+.item-md.item-block .item-inner{
+    padding-right: 0;
+}
+
+.text-input-ios {
+    margin: 4px 38px 0;
+    padding: 0;
+    width: 65%;
+}
+ .item-md.item-block .item-inner{
+        border-bottom: none !important;
+    }
+#upload{
+    border-bottom: none;
+}
+#uploadimg{
+    width: 30px;
+    height: 30px;
+}
+
+.proimg{
+        display: inline-flex;
+        width: 100px;
+        height: 100px;
+}
+
+.addimage{
+    background: gainsboro;
+    width: 75%;
+    font-size: 20px;
+    color: #074b91;
+    height: 52px;
+    padding: 10px;
+    border-radius: 20px;
+    margin: 20px auto;
+    font-family: cairobold;
+
+}
+    .Topbutton {
+        margin-bottom: 20px !important;
+        font-size: 1.8rem;
+        font-weight: 600;
+        height: 40px;
+        font-size: 2rem;
+        border-radius: 27px;
+        overflow: hidden;
+        animation-fill-mode: inherit;
+        height: 3.6rem;
+        font-size: 1.4rem;
+        font-weight: 500;
+        margin: auto;
+        text-transform: uppercase;
+        -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+        -webkit-transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1), color 300ms cubic-bezier(0.4, 0, 0.2, 1), -webkit-box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1);
+        transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1), color 300ms cubic-bezier(0.4, 0, 0.2, 1), -webkit-box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1);
+        transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1), background-color 300ms cubic-bezier(0.4, 0, 0.2, 1), color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+        transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1), background-color 300ms cubic-bezier(0.4, 0, 0.2, 1), color 300ms cubic-bezier(0.4, 0, 0.2, 1), -webkit-box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1);
+        //margin: 0.4rem 0.2rem;
+        padding: 0 1.1em;
+    }
+    .proimg{
+        display: inline-flex;
+        width: 100px;
+        height: 100px;
+        border-radius: 20px;
+    }
+    .gallery{
+        padding: 5%;
+        font-size: 3rem;
+        height: 30px;
+        font-size: 4rem;
+        //color: #2a64a1;
+        color: #104c91;
+        width: 50%;
+    }
+    .menuT{color: white;
+        font-size: 3.5rem;
+        float: right;margin-top: 16px;
+    display: unset !important}
+      .imgLogo{background-color: white;
+        border-radius: 14px;
+        height: 60px;
+        margin-right: 34%;}
+      .imgPer{    font-size: 3rem;
+        color: white;
+        /* margin-right: 55%; */
+        margin-right: 4%;
+        padding-right: 6px;
+        position: relative;
+        top: -15px;}
+      .imgMail{    font-size: 3rem;
+        color: white;
+        margin-right: 6%;
+        margin-top: po;
+        position: relative;
+        top: -15px;}
+        .title-ios{
+            img{
+                background-color: white;
+                border-radius: 14px;
+                height: 60px;
+                margin-right: 18% !important;
+            }}
+
+}

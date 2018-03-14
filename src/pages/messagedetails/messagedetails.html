@@ -1,0 +1,82 @@
+<ion-header>
+    <ion-navbar>
+      <ion-title>
+          <ion-icon class="menuT" menuToggle name="menu" ></ion-icon>
+          <img class="imgLogo" src="assets/imgs/icon.png">
+          <ion-buttons right (click)="mainPage()">
+            <button ion-button  icon-only style="float: left;position: absolute;top: -45px;left: 0px;" >
+              <ion-icon style="color:white" ios="ios-arrow-back" md="md-arrow-back"></ion-icon><br>
+            </button>
+          </ion-buttons>
+      </ion-title>
+    </ion-navbar>
+  </ion-header>
+
+<ion-content #content padding>
+<!-- <ion-row class="toprow">
+  <ion-col col-2>
+    <ion-icon class="menu" name="menu" menuToggle></ion-icon>
+  </ion-col>
+  <ion-col col-6 class="chatname">
+احمد المصري
+   </ion-col>
+  <ion-col col-4 style="text-align: end">
+    <div> -->
+
+        <!-- <ion-icon name="mail" (click)="message()"></ion-icon> -->
+        <!-- <ion-icon  style="transform: rotate(90deg)"name="options"></ion-icon> -->
+    <!-- </div>
+  </ion-col> -->
+<!--</ion-row> -->
+
+<!--<div class="talk-bubble tri-right btm-right">-->
+    <!--<div class="talktext">-->
+      <!--<p>Flush to the bottom right. Uses .btm-right only.</p>-->
+    <!--</div>-->
+  <!--</div>-->
+  <!--<img  src="assets/imgs/per.png">-->
+  <div  *ngFor="let somemessage of myMsgs">
+  <div *ngIf="somemessage.sender==myId" class="talk-bubble2 tri-left btm-right">
+    <div>
+      <div>
+        {{somemessage.date | date:'dd/MM/y'}}
+
+      </div>
+      <div class="talktext">
+        {{somemessage.body}}
+      </div>
+      <img  class="pel" src="assets/imgs/per.png">
+    </div>
+  </div>
+
+      <div *ngIf="somemessage.sender!=myId" class="talk-bubble tri-right btm-right">
+        <div>
+          <div>
+            {{somemessage.date | date:'dd/MM/y'}}
+
+          </div>
+          <div class="talktext2">
+              {{somemessage.body}}
+          </div>
+          <img class="per" src="assets/imgs/per.png">
+      </div>
+    </div>
+</div>
+
+
+</ion-content>
+<ion-footer no-lines class="chatfooter">
+   <form #f="ngForm">
+    <ion-row class="grayrow">
+
+      <ion-col col-10>
+        <textarea [(ngModel)]="M" name="M" class=textbuttom required></textarea>
+      </ion-col>
+      <ion-col col-2><button ion-button icon-only clear [disabled]="!f.valid"  (click)="send()" >
+         <ion-icon name={{icon}}></ion-icon>
+      </button>
+      <!--<ion-col col-2><ion-icon  class="camera" name="ios-camera-outline" ></ion-icon>-->
+      </ion-col>
+    </ion-row>
+    </form>
+</ion-footer>

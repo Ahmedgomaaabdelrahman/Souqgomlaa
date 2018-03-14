@@ -1,0 +1,65 @@
+<!--
+  Generated template for the CategoriesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>
+        <ion-icon class="menuT" menuToggle name="menu" ></ion-icon>
+        <img class="imgLogo" src="assets/imgs/icon.png">
+        <ion-icon class="imgMail" name="mail" (click)="goChat()"></ion-icon>
+        <ion-buttons right (click)="mainPage()">
+          <button ion-button  icon-only style="float: left;position: absolute;top: -45px;left: 0px;" >
+            <ion-icon style="color:white" ios="ios-arrow-back" md="md-arrow-back"></ion-icon><br>
+          </button>
+        </ion-buttons>
+    </ion-title>
+  </ion-navbar>
+
+</ion-header>
+ 
+
+<ion-content>
+ <ion-row class="toprow">
+اختر القسم
+ </ion-row>
+<div >
+ <ion-row  style="margin: 20px 0;">
+    <ion-col col-6 *ngFor="let cat of cats" (click)="addGood(cat.Category)">
+        <div class="condiv">
+          <img src="{{D}}/Cat_Images/{{cat.Image}}"><br> {{cat.Category}}
+        </div>
+    </ion-col>
+
+ </ion-row>
+</div>
+  <!--<ion-row style="margin: 20px 0;">-->
+    <!--<ion-col col-6>-->
+        <!--<div class="condiv">-->
+          <!--<img src="assets/imgs/tshirt.png"><br>تيشرتات-->
+        <!--</div>-->
+    <!--</ion-col>-->
+    <!--<ion-col col-6>-->
+      <!--<div class="condiv">-->
+        <!--<img src="assets/imgs/glass.png"><br>اكسسوارات-->
+      <!--</div>-->
+    <!--</ion-col>-->
+  <!--</ion-row>-->
+
+
+  <!--<ion-row style="margin: 20px 0;">-->
+    <!--<ion-col col-6>-->
+        <!--<div class="condiv">-->
+          <!--<img src="assets/imgs/shose.png"><br>احذيه-->
+        <!--</div>-->
+    <!--</ion-col>-->
+    <!--<ion-col col-6>-->
+      <!--<div class="condiv">-->
+        <!--<img src="assets/imgs/computer.png"><br>اجهزه كمبيوتر-->
+      <!--</div>-->
+    <!--</ion-col>-->
+ <!--</ion-row>-->
+</ion-content>

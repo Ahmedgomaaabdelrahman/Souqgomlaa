@@ -1,0 +1,51 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>
+        <ion-icon class="menuT" menuToggle name="menu" ></ion-icon>
+        <img class="imgLogo" src="assets/imgs/icon.png">
+        <ion-buttons right (click)="mainPage()">
+          <button ion-button  icon-only style="float: left;position: absolute;top: -45px;left: 0px;" >
+            <ion-icon style="color:white" ios="ios-arrow-back" md="md-arrow-back"></ion-icon><br>
+          </button>
+        </ion-buttons>
+      </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+
+  <ion-row class="toprow">
+
+    <ion-col  class="message">
+      الرسائل
+    </ion-col>
+
+  </ion-row>
+
+
+
+<div *ngIf="!noMessagesYet">
+  <ion-row class="itemrow" *ngFor="let messager of realmsgs;let i=index" (click)="goDetails(realmsgs[i])">
+  <div *ngIf="messager != null && names[i] !==null ">
+    <ion-col col-2>
+      <!--<img class="per" src="{{D}}/profileImages_thump/{{messager.seller.image}}">-->
+    </ion-col>
+    <ion-col col-10 style="padding: 10px;">
+      <p class="inftop">{{names[i]}}</p>
+
+      <p class="info">{{messager['body']}}</p>
+    </ion-col>
+    <div style="margin-right:28px ">
+    {{messager.date | date:'dd/MM/y'}}
+    </div>
+  </div>
+  </ion-row>
+  <!--<img class="trash" src="assets/imgs/trash.png">-->
+</div>
+  <div *ngIf="noMessagesYet" class="noitems"><p>لا يوجد رسائل</p></div>
+
+</ion-content>

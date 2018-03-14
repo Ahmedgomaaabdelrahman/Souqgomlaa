@@ -1,0 +1,59 @@
+page-login {
+.topimg{
+    height: 100px;
+    margin: 40px 0;
+}
+.forma {
+    background: white;
+    width: 85%;
+    margin: auto;
+    height: 240px;
+    border-radius: 20px;
+}
+
+.enter{
+    width: 100%;
+    font-size: 25px;
+    color: #074b91;
+    font-weight: bold;
+    height: 52px;
+    padding: 10px;
+    margin-top: 20px;
+    font-family: cairobold;
+}
+.logitem{
+    height: 70px;
+    margin: 0 auto !important;
+    width: 90%;
+    max-width: 90%;
+    padding: 0 !important;
+    position: static;
+  
+}
+.text-input-md{
+    margin: 0 60px !important;
+    width: 90%;
+    height: 38px;
+}
+.item-md.item-block .item-inner{
+    padding-right: 0;
+}
+
+.text-input-ios {
+    margin: 4px 38px 0;
+    padding: 0;
+    width: 65%;
+}
+
+.btn{
+    background: white;
+    color: #074b91;
+    height: 60px;
+    border-radius: 20px;
+    font-size: 20px;
+    width: 85%;
+    font-weight: bold;
+    margin: 30px auto;
+    font-family: cairobold ;
+}
+}
