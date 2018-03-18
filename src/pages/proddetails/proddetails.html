@@ -6,7 +6,7 @@
 <ion-icon class="menuT" menuToggle name="menu" ></ion-icon>
 <img class="imgLogo" src="assets/imgs/icon.png">
 <ion-icon class="imgMail" name="mail" (click)="goChat()"></ion-icon>
-<ion-icon  class="imgPer" name="star" (click)="fav()"></ion-icon>
+<!--<ion-icon  class="imgPer" name="star" (click)="fav()"></ion-icon>-->
 <ion-buttons right (click)="mainPage()">
 <button ion-button  icon-only style="float: left;position: absolute;top: -45px;left: 0px;" >
 <ion-icon style="color:white" ios="ios-arrow-back" md="md-arrow-back"></ion-icon><br>
@@ -47,10 +47,10 @@
         <p><img  *ngIf="image!=null" src="{{D}}/profileImages_thump/{{image}}"></p>
         <p><img  *ngIf="image===null" src="assets/imgs/icon.png"></p>
 
-        <ion-row>
+        <!--<ion-row>
             <ion-col col-6>الكمية </ion-col>
             <ion-col col-6><p>{{res.Quantity}}</p></ion-col>
-        </ion-row>
+        </ion-row>-->
       <ion-row>
             <ion-col col-6>وصف المنتج</ion-col>
             <ion-col col-6><p>{{res.Description}}</p></ion-col>
