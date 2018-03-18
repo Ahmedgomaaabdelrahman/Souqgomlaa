@@ -71,7 +71,7 @@ loading:any;
     camPic(source):Promise<string>{
         let promise=new Promise((resolve,reject)=>{
         const options: CameraOptions = {
-            quality: 50,
+            quality: 40,
             sourceType:source,
             destinationType: this.camera.DestinationType.DATA_URL,
             encodingType: this.camera.EncodingType.JPEG,
