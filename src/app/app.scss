@@ -1,0 +1,162 @@
+// http://ionicframework.com/docs/theming/
+
+.content {
+    background-color: #ececec;
+}
+*{
+    direction: rtl;
+}
+.input-cover{
+    position: static;
+}
+
+@font-face {
+  font-family: 'cairoreg';
+  src: url('../assets/fonts/Cairo/Cairo.ttf') ;
+}
+
+@font-face {
+  font-family: 'cairobold';
+  src: url('../assets/fonts/Cairo/Cairo-Bold.ttf') ;
+}
+
+.back-button.show-back-button {
+    display: inline-block;
+    transform: rotate(180deg);
+}
+
+
+.toolbar-background {
+    background: #074b91;
+}
+
+.back-button.show-back-button {
+    display: none !important;
+}
+.back-button-text-ios {
+
+    display: none !important;
+}
+.back-button-ios.show-back-button{
+    display:none;
+}
+.imgmenu{
+    margin: 20px auto;
+    width: 40%;
+    text-align: center;
+}
+
+.menu-inner{
+    width: 200px;
+}
+ion-navbar.toolbar.toolbar-ios {
+    height: 80px !important;
+}
+.toolbar-title-ios{
+    padding-top: 15px !important;
+}
+button.item-ios:not([detail-none]) .item-inner {
+    background-image: none;
+    padding: 0;
+}
+.item-ios{
+        padding-left: 10px;
+}
+.menubtn{
+    width: 80%;
+    margin: 10px auto;
+    border-radius: 20px;
+    text-align: center;
+    font-family:cairoreg;
+    height: 115px;
+    font-size: 12px;
+    .item{
+        padding: 0;
+    }
+    img{
+        height: 40px;
+        width:40px;
+    }
+}
+.toast-md .toast-wrapper {
+    left: 0;
+    right: 0;
+    margin: auto;
+    position: absolute;
+    //opacity: 0.6;
+    z-index: 10;
+    border-radius:10px;
+    display: block;
+    width: 100%;
+    max-width: 700px;
+    background: #207de0;
+}
+.loading-md .loading-wrapper {
+    border-radius: 2px;
+    max-width: 280px;
+    max-height: 90%;
+    color: rgba(0, 0, 0, 0.5);
+    border-radius:10px;
+    opacity: 0.8;
+
+    background: #fafafa;
+    -webkit-box-shadow: 0 16px 20px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 16px 20px rgba(0, 0, 0, 0.4);
+    padding: 24px;
+}
+.ion-item-sliding.active-slide.active-options-left ion-item-options[side=left],
+ion-item-sliding.active-slide.active-options-right ion-item-options:not([side=left])
+{
+    width: 13% !important;
+    visibility: visible;
+}
+.ion-item-sliding.active-slide.active-options-right ion-item-options[side=right],
+ion-item-sliding.active-slide.active-options-left ion-item-options:not([side=right])
+{
+    width: 13% !important;
+    visibility: visible;
+}
+::-webkit-scrollbar,
+*::-webkit-scrollbar {
+    display: none;
+}
+.toolbar-ios ion-title{
+    left: 0;
+    top: 0;
+    padding: 0 10px 1px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    pointer-events: none;
+}
+ion-navbar.toolbar.toolbar-ios{
+    height: 67px;
+}
+.alert-md .alert-radio-icon {
+    left: 13px;
+    top: 0;
+    border-radius: 50%;
+    position: relative;
+    display: block;
+    width: 16px;
+    height: 16px;
+    margin-right: 29px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #787878;
+}
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.

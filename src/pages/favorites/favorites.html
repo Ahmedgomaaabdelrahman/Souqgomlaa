@@ -1,0 +1,42 @@
+
+<ion-header>
+
+    <ion-navbar>
+      <ion-title>
+
+          <ion-icon class="menuT" menuToggle  name="menu" ></ion-icon>
+
+          <img class="imgLogo" src="assets/imgs/icon.png">
+          <ion-icon class="imgMail" name="mail" (click)="goChat()"></ion-icon>
+          <ion-buttons right (click)="mainPage()">
+            <button ion-button  icon-only style="float: left;position: absolute;top: -45px;left: 0px;" >
+              <ion-icon style="color:white" ios="ios-arrow-back" md="md-arrow-back"></ion-icon><br>
+            </button>
+          </ion-buttons>
+      </ion-title>
+    </ion-navbar>
+
+  </ion-header>
+
+
+  <ion-content>
+     <p class="notifiyp"> الاهتمامات</p>
+      <div>
+
+          <ion-row  *ngFor="let item of all" class="itemrow">
+
+              <ion-col *ngIf="item.SellerId.image!=null" col-2><img src="{{D}}/profileImages_thump/{{item.SellerId.image}}"></ion-col>
+              <ion-col *ngIf="item.SellerId.image==null"  col-2>
+                <img class="proimg" (click)="maximaizeImage('assets/imgs/icon.png')" src="assets/imgs/icon.png">
+              </ion-col>
+              <ion-col col-7 >
+                  <p class="infop" > {{item.ItemName}}</p>
+                  <p class="detp" (click)="goDetails(item)">التفاصيل</p>
+              </ion-col>
+              <ion-col col-3>
+                  <p class="imgp">
+                      <img src="assets/imgs/loc.png">{{item.Location}}</p>
+              </ion-col>
+          </ion-row></div>
+
+  </ion-content>

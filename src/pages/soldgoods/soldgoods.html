@@ -1,0 +1,50 @@
+<!--
+  Generated template for the NotificationsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  
+    <ion-navbar>
+      <ion-title><myheader></myheader></ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  
+  <ion-content>
+   <ion-row class="toprow">
+     <ion-col col-2>  
+       <ion-icon class="menu" menuToggle name="menu" ></ion-icon>
+     </ion-col>
+     <ion-col col-10 style="text-align: end">
+       <div>
+          <p class="notifiyp">البضاعة المباعة</p>
+          <img class="per" (click)="goPer()" src="assets/imgs/per.png">
+          <ion-icon name="mail" (click)="goChat()"></ion-icon>
+          <!-- <ion-icon  style="transform: rotate(90deg)"name="options"></ion-icon> -->
+       </div>
+     </ion-col>
+   </ion-row>
+  
+  
+  
+  
+  <ion-row class="notrow" (click)="details()">
+   <ion-col col-2><img class="imgitem" src="assets/imgs/mob.png"></ion-col>  
+   <ion-col col-10>بضاعه الموبايلات</ion-col> 
+  </ion-row> 
+  
+  <ion-row class="notrow" (click)="details()">
+      <ion-col col-2><img class="imgitem" src="assets/imgs/exs.png"></ion-col>  
+      <ion-col col-10>بضاعه مستحضرات التجميل</ion-col> 
+  </ion-row>
+
+  <ion-row class="notrow" (click)="details()">
+      <ion-col col-2><img class="imgitem" src="assets/imgs/shose.png"></ion-col>  
+      <ion-col col-10>بضاعه الاحذية</ion-col> 
+  </ion-row> 
+
+  </ion-content>
+  
