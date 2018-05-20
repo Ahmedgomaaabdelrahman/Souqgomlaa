@@ -1,0 +1,65 @@
+
+<ion-header>
+  <ion-navbar>
+  </ion-navbar>
+</ion-header>
+<ion-content >
+  
+    <div style="text-align: center">
+     <img class="topimg" src="assets/imgs/icon.png"height="90px">     
+   </div>
+
+
+<form class="forma" #f="ngForm">
+     <ion-row style="padding:10px ">
+        <ion-col col-2><img src="assets/imgs/sign.png"></ion-col>
+         <ion-col col-10 class="regas" *ngIf="!mode">تسجيل كمشترى</ion-col>
+         <ion-col col-10 class="regas" *ngIf="mode">تسجيل كبائع</ion-col>
+      </ion-row>
+    <ion-item class="logitem">
+      <!--<ion-label ></ion-label>-->
+      <ion-input [(ngModel)]="Name" name="name"  type="text" placeholder="الاسم" required="true" required ></ion-input>
+    </ion-item>
+
+    <ion-item class="logitem">
+      <!--<ion-label ></ion-label>-->
+      <ion-input [(ngModel)]="Email"  name="Email"  type="email" placeholder="البريد الالكترونى" required="true" required></ion-input>
+    </ion-item>
+    
+       <ion-item class="logitem">
+      <!--<ion-label ></ion-label>-->
+      <ion-input [(ngModel)]="Phone"  name="Phone"  type="tel" placeholder="رقم الهاتف" required="true" required></ion-input>
+    </ion-item>
+
+       <ion-item class="logitem">
+      <!--<ion-label ></ion-label>-->
+      <ion-input [(ngModel)]="Password"   name="Password"  type="password" placeholder="كلمه المرور" required="true" required ></ion-input>
+    </ion-item>
+
+      <ion-item  class="selector">
+
+              <ion-label>اختر المدينة</ion-label>
+              <ion-select [(ngModel)]="location" name="location"    okText="اختر" cancelText="الغاء" required="true">
+                  <ion-option (ionSelect)="getSelected(town)"  *ngFor="let town of towns" value={{town}} required>{{town}}</ion-option>
+              </ion-select>
+            </ion-item>
+
+      <ion-item *ngIf="mode" class="logitem">
+ 
+      <ion-input  [(ngModel)]="Commercial_Register"  name="Commercial_Register"  type="text" placeholder="السجل التجارى"  required="true"></ion-input>
+    </ion-item>
+    <ion-item class="logitemI" id="upload">
+        <div *ngIf="mode">
+            <p style="display: inline-block;width:50%;">تحميل صوره شخصية</p>
+
+        <ion-icon class="gallery"  (click)="useCam(0)" name="images"></ion-icon>
+        <ion-icon class="gallery" (click)="useCam(1)" name="camera"></ion-icon>
+        </div>
+    </ion-item>
+    <div class="topdiv" >
+        <img *ngIf="Img!=''"src="{{Img}}" >
+        </div>
+
+        <button [disabled]="!f.valid" ion-button clear (click)="activation()" class="enter">تسجيل</button>
+</form>
+</ion-content>

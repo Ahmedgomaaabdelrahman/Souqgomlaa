@@ -1,0 +1,154 @@
+page-messagedetails {
+.toprow{
+height: 60px;
+
+
+text-align: center;
+ion-icon{
+    font-size: 2.4em;
+    color: #074b91;
+    padding: 0 5px ;
+}
+
+.menu{
+        border: 1px solid gray;
+padding: 0 5px;
+border-radius: 10px;
+background: #074b91;
+color: white;
+}
+}
+.chatname{
+text-align: end;
+margin: -5px 0;
+font-size: 22px;
+font-family: cairobold;
+color: #074b91;
+}
+.talk-bubble {
+    display: inline-block;
+    border-radius: 20px;
+    //position: relative;
+    width: 300px;
+    height: auto;
+    background-color: white;
+    margin: auto;
+    display: block;
+}
+.talk-bubble2 {
+    display: inline-block;
+    border-radius: 20px;
+    //position: relative;
+    width: 300px;
+    height: auto;
+    background-color: lightgray;
+    margin: auto;
+    display: block;
+    bottom: 22px;
+}
+.talktext{
+    padding: 1rem;
+    text-align: left;
+    line-height: 1.5em;
+    height: auto;
+    margin-bottom: 35px;
+    width: auto;
+    text-align: right;
+}
+.talktext2{
+    padding: 1rem;
+    text-align: left;
+    line-height: 1.5em;
+    height: auto;
+    margin-bottom: 35px;
+    width: auto;
+}
+
+.tri-right.btm-right:after{
+content: ' ';
+position: fixed;
+width: 0;
+height: 0;
+left: auto;
+right: 5px;
+bottom: -12px;
+border: 12px solid;
+border-color: white white transparent transparent;
+}
+
+
+.tri-left.btm-right:after{
+content: ' ';
+position: fixed;
+width: 0;
+height: 0;
+transform: rotate(280deg);
+left: auto;
+right: 90%;
+bottom: -21px;
+border: 12px solid;
+border-color: lightgray lightgray transparent transparent;
+
+}
+.per{
+    float: right;
+    position: relative;
+    left: 34px;
+    bottom: 42px;
+    padding-right: 8px;
+    margin-top: 5px;
+    margin-bottom: 7px;
+}
+    .pel{
+        float: left;
+        position: relative;
+        right: 25px;
+        bottom: 35px;
+
+}
+.textbuttom{
+    // position: fixed;
+    bottom: 10px;
+    width: 100%;
+    border-radius: 9px;
+    padding: 1px;
+    font-size: 2.3rem;
+    height: 50px;
+}
+//.camera{
+//    font-size: 4rem;
+//    margin-right: 10px;
+//    margin-left: 10px;
+//    color: #074b91;
+//}
+.grayrow{
+      //  margin-top: 90%;
+    z-index: 999;
+
+    background-color: lightgray;
+    // position: fixed;
+}
+.chatfooter{
+           // margin-top: 90%;
+    // min-height: 142px;
+     position: fixed;
+        z-index: 999;
+
+}
+.menuT{color: white;
+    font-size: 3.5rem;
+    float: right;margin-top: 16px;
+display: unset !important}
+  .imgLogo{background-color: white;
+    border-radius: 14px;
+    height: 60px;
+    margin-right: 34%;}
+    .title-ios{
+        img{
+            background-color: white;
+            border-radius: 14px;
+            height: 60px;
+            margin-right: 0% !important;
+        }}
+
+}
